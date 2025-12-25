@@ -1,0 +1,147 @@
+/* General container styles */
+.containerblog {
+    position: relative;
+    max-width: 88%;
+    width: 100%;
+    border-radius: 8px;
+    margin: 0 auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    padding: 30px;
+    background-color: #ffffff;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .containerblog:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Make the Quill editor responsive */
+  .responsive-quill {
+    width: 100%;
+    min-height: 200px; /* Adjust based on your needs */
+  }
+  
+  /* Ensure ReactQuill body remains responsive */
+  .ql-editor {
+    min-height: 200px; /* Minimum height for better usability */
+    max-height: 500px; /* Prevent excessive height growth */
+    overflow-y: auto;  /* Enable vertical scrolling when content overflows */
+    word-wrap: break-word; /* Break long words to prevent overflow */
+    padding: 10px; /* Add padding for better readability */
+    box-sizing: border-box;
+  }
+  
+  .ql-container {
+    border: 1px solid #d4d4d4;
+    border-radius: 5px;
+    max-height: 500px; /* Ensure container does not exceed a fixed height */
+    overflow: hidden;
+    background-color: #ffffff; /* Ensure background is consistent */
+  }
+  
+  .ql-toolbar {
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+    background-color: #f9f9f9;
+  }
+  
+  .ql-container.ql-snow {
+    border-top: none;
+  }
+  
+  .deletebtn{
+    background-color: red;
+    color: white;
+
+  }
+
+  .deletebtn:hover{
+    background-color: rgb(210, 26, 26);
+    color: white;
+
+  }
+  .editbtn{
+    background-color: green;
+    color: white;
+
+  }
+  .editbtn:hover{
+    background-color:rgb(21, 188, 21);
+
+    color: white;
+
+
+  }
+
+
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .input-field {
+      flex: 1 1 100%;
+    }
+  
+    .btns {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .title {
+      font-size: 24px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 20px;
+    }
+  
+    .title {
+      font-size: 20px;
+    }
+  
+    .btns {
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+  }
+
+
+
+
+    
+  .dates{
+    width: 20%;
+    border: 0.5px solid #0052e7;
+    border-radius: 25px;
+    font-size: 14px;
+    padding-left: 20px;
+    margin-left: 2%;
+    margin-top: 50px;
+    height: 30px;
+
+  
+  }
+
+
+    
+  .dates-button {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 7px;
+    background-color: #0052e7;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 5px;
+  }
+  .dates-button:hover{
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+
+  }
+  
