@@ -2,7 +2,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Style/Footer.css";
-import footervideo from "../assets/footervideo.mp4";
+import footervideo from "../assets/footervedio.mp4";
 
 const Footer = () => {
   return (

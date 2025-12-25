@@ -7,13 +7,334 @@
   --accent-purple: #CAB3FF;
   --text-dark: #19242B;
   
-  /* CONFIGURABLE PILL WIDTH PROPERTIES - INCREASED RANGE */
-  --pill-width-desktop: 750px;  /* Increased default desktop width */
-  --pill-width-large: 800px;    /* Increased large screen width */
-  --pill-width-xlarge: 850px;   /* Increased extra large screen width */
-  --pill-padding: 0.75rem 2rem; /* Slightly increased padding */
-  --link-spacing: 0.6rem;       /* Increased space between links */
-  --link-font-size: 15px;       /* Slightly larger font */
+  /* CONFIGURABLE PILL WIDTH PROPERTIES */
+  --pill-width-desktop: 640px; /* Further reduced for a tighter pill */
+  --pill-width-large: 680px;
+  --pill-width-xlarge: 720px;
+  --pill-padding: 0.75rem 2rem;
+  --link-spacing: 0.4rem; /* Slightly tighter spacing */
+  --link-font-size: 14.5px; /* Keep font the same */
+}
+
+/* RIGHT SIDE GROUP: Language Selector + WhatsApp Button */
+.petwell-right-side-group {
+  gap: 16px;
+  position: absolute;
+  right: 40px;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+}
+
+.petwell-language-selector-wrapper {
+  position: relative;
+  z-index: 1002;
+}
+
+.petwell-language-selector {
+  width: auto !important;
+  min-width: 140px;
+}
+
+.petwell-language-select-button {
+  background: var(--light-bg) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 24px !important;
+  padding: 8px 16px !important;
+  color: var(--text-dark) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  justify-content: space-between !important;
+}
+
+.petwell-language-select-button:hover {
+  background: #e8e0d8 !important;
+}
+
+.petwell-language-select-button:after {
+  border-top-color: var(--text-dark) !important;
+  margin-left: 8px !important;
+}
+
+/* WhatsApp button uses existing `.petwell-get-started-btn` styles */
+
+/* Adjust the existing right items container */
+.petwell-navbar-right-items {
+  display: none !important; /* Hide the old container */
+}
+
+/* Mobile Language Section - NOW ALWAYS SHOW IN DRAWER */
+.petwell-mobile-language-section {
+  padding: 20px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex !important; /* Always show in mobile drawer */
+  flex-direction: column;
+  gap: 16px;
+  margin-top: auto; /* Push to bottom of drawer */
+}
+
+.petwell-mobile-language-selector {
+  width: 100%;
+}
+
+.petwell-mobile-language-select {
+  width: 100% !important;
+}
+
+.petwell-mobile-language-button {
+  width: 100% !important;
+  background: var(--light-bg) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 24px !important;
+  padding: 12px 16px !important;
+  color: var(--text-dark) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  height: 48px !important;
+}
+
+/* Responsive adjustments for right side group */
+@media (max-width: 1420.98px) {
+  .petwell-right-side-group {
+    right: 30px;
+    gap: 10px;
+  }
+  
+  .petwell-language-select-button {
+    height: 46px !important;
+    min-width: 130px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .petwell-right-side-group {
+    right: 25px;
+    gap: 8px;
+  }
+  
+  .petwell-language-select-button {
+    height: 44px !important;
+    font-size: 14px !important;
+    min-width: 120px;
+    padding: 6px 14px !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .petwell-right-side-group {
+    right: 20px;
+    gap: 6px;
+  }
+  
+  .petwell-language-select-button {
+    height: 42px !important;
+    font-size: 13.5px !important;
+    min-width: 110px;
+    padding: 5px 12px !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .petwell-right-side-group {
+    right: 16px;
+    gap: 4px;
+  }
+  
+  .petwell-language-select-button {
+    height: 40px !important;
+    font-size: 13px !important;
+    min-width: 100px;
+    padding: 4px 10px !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .petwell-right-side-group {
+    right: 12px;
+    gap: 2px;
+  }
+  
+  .petwell-language-select-button {
+    height: 38px !important;
+    font-size: 12px !important;
+    min-width: 90px;
+    padding: 3px 8px !important;
+  }
+}
+
+/* WhatsApp button hidden below 720px in header, shown in drawer */
+@media (max-width: 720px) {
+  /* Below 720px: keep language visible in header; move WhatsApp to drawer */
+  .petwell-right-side-group .petwell-language-selector-wrapper {
+    display: block !important;
+  }
+  .petwell-right-side-group .petwell-get-started-btn {
+    display: none !important;
+  }
+  .petwell-right-side-group {
+    right: 12px;
+    gap: 0;
+  }
+}
+
+/* Ensure language dropdown opens to the right */
+.petwell-language-selector .flags-select {
+  position: relative;
+}
+
+.petwell-language-selector .flags-select .options {
+  right: 0 !important;
+  left: auto !important;
+}
+
+/* Adjust container to accommodate right side group */
+.petwell-container-fluid {
+  justify-content: space-between !important;
+  position: relative;
+}
+
+/* Make sure mobile toggle is on left with proper spacing */
+.petwell-mobile-menu-toggle {
+  position: absolute;
+  left: 40px;
+  z-index: 1003;
+}
+
+/* Add spacing between hamburger and logo - PREVENT OVERLAP */
+.petwell-mobile-menu-toggle + .petwell-navbar-brand {
+  margin-left: 60px; /* Add space between hamburger and logo */
+}
+
+/* Logo hide below 435px */
+@media (max-width: 434.98px) {
+  .petwell-navbar-brand {
+    display: none !important;
+  }
+  
+  /* Adjust mobile menu toggle position when logo is hidden */
+  .petwell-mobile-menu-toggle {
+    left: 20px;
+  }
+  
+  /* Adjust right side group position when logo is hidden */
+  .petwell-right-side-group {
+    right: 20px;
+  }
+}
+
+@media (max-width: 1420.98px) {
+  .petwell-mobile-menu-toggle {
+    left: 30px;
+  }
+  
+  .petwell-mobile-menu-toggle + .petwell-navbar-brand {
+    margin-left: 50px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .petwell-mobile-menu-toggle {
+    left: 25px;
+  }
+  
+  .petwell-mobile-menu-toggle + .petwell-navbar-brand {
+    margin-left: 45px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .petwell-mobile-menu-toggle {
+    left: 20px;
+  }
+  
+  .petwell-mobile-menu-toggle + .petwell-navbar-brand {
+    margin-left: 40px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .petwell-mobile-menu-toggle {
+    left: 16px;
+  }
+  
+  .petwell-mobile-menu-toggle + .petwell-navbar-brand {
+    margin-left: 36px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .petwell-mobile-menu-toggle {
+    left: 12px;
+  }
+  
+  .petwell-mobile-menu-toggle + .petwell-navbar-brand {
+    margin-left: 32px;
+  }
+}
+
+/* Tablet and smaller screens (sidebar active from 1420px) - DESKTOP VIEW REMAINS SAME */
+@media (max-width: 1420.98px) {
+  .petwell-nav-pill {
+    display: none !important;
+  }
+  
+  .petwell-mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .petwell-container-fluid {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+  }
+  
+  .petwell-mobile-menu-toggle {
+    grid-column: 1;
+  }
+  
+  .petwell-navbar-brand {
+    grid-column: 2;
+    justify-self: center;
+    position: static;
+    transform: none;
+    margin-left: 0 !important; /* Reset margin in grid layout */
+  }
+  
+  .petwell-right-side-group {
+    grid-column: 3;
+    justify-self: end;
+    position: static;
+  }
+  
+  .petwell-get-started-btn {
+    display: flex !important;
+    width: 200px;
+  }
+}
+
+/* Desktop Tablet Transition (1421px and above) - Nav pill visible - DESKTOP VIEW AS BEFORE */
+@media (min-width: 1421px) {
+  .petwell-nav-pill {
+    min-width: var(--pill-width-desktop);
+    max-width: 80vw;
+    display: flex !important; /* Ensure pill is visible */
+  }
+  
+  .petwell-get-started-btn {
+    display: flex !important;
+  }
+  
+  .petwell-mobile-menu-toggle {
+    display: none !important;
+  }
 }
 
 .petwell-navbar-container {
@@ -26,24 +347,89 @@
   background-color: #FFFFFF;
 }
 
-/* Free Shipping Banner */
-.petwell-free-shipping-banner {
+/* Top Bar */
+.petwell-top-bar {
   background: linear-gradient(to top, var(--primary-dark) 0%, var(--dark-bg) 100%);
-  padding: 10px 0;
-  text-align: center;
+  padding: 8px 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.petwell-free-shipping-text {
+.petwell-top-bar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  padding-right: 40px;
+  padding-left: 40px;
+  margin: 0 auto;
+}
+
+.petwell-top-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.petwell-email-link {
   color: #F8F2EA;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  font-style: normal;
-  letter-spacing: 0.5px;
-  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.petwell-email-link:hover {
+  color: var(--accent-purple);
+  opacity: 0.9;
+}
+
+.petwell-email-link::before {
+  content: '✉️';
+  font-size: 12px;
+}
+
+.petwell-working-hours {
+  color: #F8F2EA;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.petwell-working-hours::before {
+  content: '🕒';
+  font-size: 11px;
+}
+
+.petwell-social-icons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.petwell-social-icon {
+  color: #F8F2EA;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.petwell-social-icon:hover {
+  color: var(--accent-purple);
+  transform: translateY(-2px);
 }
 
 /* Main Navbar */
@@ -56,8 +442,8 @@
 
 .petwell-container-fluid {
   width: 100%;
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 40px;
+  padding-left: 40px;
   margin-right: auto;
   margin-left: auto;
   display: flex;
@@ -67,7 +453,7 @@
   position: relative;
 }
 
-/* Brand Logo - ALWAYS VISIBLE */
+/* Brand Logo */
 .petwell-brand-logo {
   display: flex;
   align-items: center;
@@ -81,7 +467,7 @@
   object-fit: contain;
 }
 
-/* Centered pill nav - Hidden on mobile - USING CONFIGURABLE VARIABLES */
+/* Centered pill nav */
 .petwell-nav-pill {
   background: var(--light-bg);
   border-radius: 32px;
@@ -94,20 +480,20 @@
   height: 50px;
   display: flex;
   align-items: center;
-  min-width: var(--pill-width-desktop); /* USING VARIABLE */
-  max-width: 90vw; /* Changed from fixed 90px to 90vw for better responsiveness */
+  min-width: var(--pill-width-desktop);
+  max-width: 90vw;
   justify-content: center;
-  transition: min-width 0.3s ease, max-width 0.3s ease; /* Smooth width transitions */
+  transition: min-width 0.3s ease, max-width 0.3s ease;
 }
 
 .petwell-nav-pill .petwell-nav-link {
   color: var(--text-dark) !important;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: var(--link-font-size); /* USING VARIABLE */
+  font-size: var(--link-font-size);
   font-weight: 600;
   font-style: normal;
-  margin: 0 var(--link-spacing); /* USING VARIABLE */
-  transition: color 0.3s ease;
+  margin: 0 var(--link-spacing);
+  transition: all 0.3s ease;
   border: none;
   background: transparent;
   text-decoration: none;
@@ -117,12 +503,50 @@
   height: 100%;
   white-space: nowrap;
   letter-spacing: -0.1px;
+  position: relative;
 }
 
 .petwell-nav-pill .petwell-nav-link:hover {
   color: var(--dark-bg) !important;
   opacity: 0.8;
 }
+
+/* Services Dropdown - FIXED: Looks like other nav links */
+.petwell-nav-dropdown {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.petwell-dropdown-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.petwell-dropdown-main-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  background: transparent !important; /* Make it transparent like other links */
+}
+
+.petwell-dropdown-main-link:hover {
+  background: transparent !important; /* Keep transparent on hover */
+}
+
+.petwell-dropdown-arrow {
+  transition: transform 0.3s ease;
+  margin-left: 2px;
+}
+
+.petwell-dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* (Removed legacy small dropdown styles to avoid conflicts) */
 
 /* Right Side */
 .petwell-navbar-right-items {
@@ -132,7 +556,7 @@
   margin-left: auto;
 }
 
-/* Get Started Button - VISIBLE ON ALL SCREEN SIZES EXCEPT BELOW 460px */
+/* Get Started Button */
 .petwell-get-started-btn {
   background-color: var(--accent-purple);
   color: var(--dark-bg);
@@ -153,6 +577,7 @@
   gap: 1rem;
   position: relative;
   margin-left: 1rem;
+  cursor: pointer;
 }
 
 .petwell-btn-dot {
@@ -173,7 +598,7 @@
   color: var(--dark-bg);
 }
 
-/* Account and Cart Icons - HIDDEN ON MOBILE, VISIBLE ON DESKTOP */
+/* Account and Cart Icons */
 .petwell-icon-btn {
   cursor: pointer;
   padding: 0.5rem;
@@ -192,7 +617,7 @@
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* Mobile Menu Toggle - Three Dashes */
+/* Mobile Menu Toggle */
 .petwell-mobile-menu-toggle {
   display: none;
   background: none;
@@ -226,7 +651,7 @@
   transition: all 0.3s ease;
 }
 
-/* Mobile Menu - Contains all navigation items - Increased z-index */
+/* Mobile Menu */
 .petwell-mobile-menu {
   position: fixed;
   top: 0;
@@ -238,6 +663,8 @@
   padding: 24px;
   overflow-y: auto;
   transition: left 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .petwell-mobile-menu.active {
@@ -251,6 +678,7 @@
   margin-bottom: 32px;
   padding-bottom: 24px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
 }
 
 .petwell-mobile-menu-close {
@@ -269,6 +697,7 @@
   flex-direction: column;
   gap: 0;
   margin-bottom: 32px;
+  flex: 1;
 }
 
 .petwell-mobile-nav-link {
@@ -283,6 +712,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
+  background: transparent; /* Make mobile links transparent too */
 }
 
 .petwell-mobile-nav-link:last-child {
@@ -293,7 +724,77 @@
   color: var(--primary-dark);
 }
 
-/* Mobile Menu Overlay - Increased z-index */
+/* Mobile Services Dropdown */
+.petwell-mobile-dropdown-wrapper {
+  width: 100%;
+}
+
+.petwell-mobile-dropdown-main-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent; /* Make mobile dropdown transparent */
+}
+
+.petwell-mobile-dropdown-arrow {
+  transition: transform 0.3s ease;
+}
+
+.petwell-mobile-dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.petwell-mobile-dropdown-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding-left: 20px;
+}
+
+.petwell-mobile-dropdown-menu.show {
+  max-height: 300px;
+}
+
+.petwell-mobile-dropdown-item {
+  display: block;
+  padding: 12px 0;
+  color: var(--text-dark);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: color 0.3s ease;
+}
+
+.petwell-mobile-dropdown-item:hover {
+  color: var(--primary-dark);
+}
+
+.petwell-mobile-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+/* Mobile Menu Footer */
+.petwell-mobile-menu-footer {
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.petwell-whatsapp-btn-mobile {
+  width: 100%;
+  height: 50px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Mobile Menu Overlay */
 .petwell-mobile-menu-overlay {
   position: fixed;
   top: 0;
@@ -309,190 +810,31 @@
   display: block;
 }
 
-/* Responsive Styles - Mobile view starts at 1421px */
-@media (max-width: 1420.98px) {
-  /* Hide desktop navigation pill */
-  .petwell-nav-pill {
-    display: none !important;
-  }
-  
-  /* Hide Account and Cart icons on mobile - KEEP GET STARTED BUTTON */
-  .petwell-icon-btn {
-    display: none !important;
-  }
-  
-  /* Show mobile menu toggle */
-  .petwell-mobile-menu-toggle {
-    display: flex;
-  }
-  
-  /* Mobile layout: Menu toggle on left, Logo center, Get Started button on right */
+/* RESPONSIVE BREAKPOINTS - DESKTOP VIEW REMAINS SAME */
+
+/* Ultra Large Screens (2200px and above) */
+@media (min-width: 2200px) {
   .petwell-container-fluid {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: nowrap;
-    padding-right: 16px;
-    padding-left: 16px;
+    max-width: 2200px;
+    margin: 0 auto;
   }
   
-  .petwell-mobile-menu-toggle {
-    grid-column: 1;
-    order: 1;
+  .petwell-top-bar-content {
+    max-width: 2200px;
+    margin: 0 auto;
   }
   
-  .petwell-navbar-brand {
-    grid-column: 2;
-    justify-self: center; /* Logo centered */
-    order: 2;
-    margin-left: 0;
-    display: flex !important; /* Ensure logo is visible */
-  }
-  
-  .petwell-navbar-right-items {
-    grid-column: 3;
-    justify-self: end;
-    margin-top: 0;
-    gap: 0.6rem;
-    order: 3;
-  }
-  
-  .petwell-brand-logo {
-    height: 40px;
-  }
-  
-  /* Adjust Get Started Button for mobile - BUT KEEP VISIBLE */
-  .petwell-get-started-btn {
-    width: 180px; /* Smaller on mobile */
-    height: 45px;
-    font-size: 15px;
-    margin-left: 0;
-    display: flex !important; /* Ensure button is visible */
-  }
-  
-  .petwell-get-started-btn .petwell-btn-text {
-    margin-left: 3rem;
-  }
-  
-  .petwell-btn-dot {
-    font-size: 20px;
-    left: 0.8rem;
-  }
-}
-
-/* Hide Get Started button below 460px */
-@media (max-width: 460px) {
-  .petwell-get-started-btn {
-    display: none !important;
-  }
-  
-  /* Adjust grid layout when button is hidden */
-  .petwell-container-fluid {
-    grid-template-columns: auto 1fr;
-    gap: 10px;
-  }
-  
-  .petwell-mobile-menu-toggle {
-    grid-column: 1;
-  }
-  
-  .petwell-navbar-brand {
-    grid-column: 2;
-    justify-self: center;
-  }
-  
-  .petwell-navbar-right-items {
-    display: none !important; /* Hide the entire right items container */
-  }
-}
-
-/* Desktop styles - above 1421px */
-@media (min-width: 1421px) {
-  .petwell-get-started-btn {
-    width: 225px;
-    height: 50px;
-    display: flex !important; /* Ensure visible */
-  }
-  
-  .petwell-navbar-right-items {
-    gap: 1rem;
-  }
-  
-  /* Hide mobile menu toggle on desktop */
-  .petwell-mobile-menu-toggle {
-    display: none !important;
-  }
-  
-  /* SHOW Account and Cart icons on desktop */
-  .petwell-icon-btn {
-    display: flex !important;
-  }
-  
-  /* Desktop layout */
-  .petwell-container-fluid {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    max-width: 100%;
-    padding-right: 40px;
-    padding-left: 40px;
-  }
-  
-  .petwell-navbar-brand {
-    margin-right: auto;
-    flex-shrink: 0;
-    display: flex !important; /* Ensure logo is visible */
-  }
-  
-  .petwell-nav-pill {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 50px;
-    display: flex !important;
-    align-items: center;
-    min-width: var(--pill-width-desktop); /* USING VARIABLE */
-    max-width: 85vw; /* Changed to viewport width for better responsiveness */
-  }
-  
-  .petwell-navbar-right-items {
-    margin-left: auto;
-    flex-shrink: 0;
-  }
-}
-
-/* Medium desktop screens (1421px - 1599px) */
-@media (min-width: 1421px) and (max-width: 1599.98px) {
-  .petwell-nav-pill {
-    min-width: var(--pill-width-desktop);
-    max-width: 80vw;
-  }
-}
-
-/* Large desktop screens (1600px - 1799px) */
-@media (min-width: 1600px) and (max-width: 1799.98px) {
   :root {
-    --pill-width-desktop: var(--pill-width-large); /* Switch to large width */
-  }
-  
-  .petwell-nav-pill {
-    min-width: var(--pill-width-large);
-    max-width: 75vw;
-    padding: 0.75rem 2.2rem;
-  }
-  
-  .petwell-nav-pill .petwell-nav-link {
-    margin: 0 0.7rem;
-    font-size: 15.5px;
+    --pill-width-desktop: 900px;
+    --link-spacing: 0.6rem;
+    --link-font-size: 15px;
   }
 }
 
-/* Extra large desktop screens (1800px and above) */
-@media (min-width: 1800px) {
+/* Extra Large Screens (1800px - 2199px) */
+@media (min-width: 1800px) and (max-width: 2199.98px) {
   :root {
-    --pill-width-desktop: var(--pill-width-xlarge); /* Switch to extra large width */
+    --pill-width-desktop: var(--pill-width-xlarge);
   }
   
   .petwell-nav-pill {
@@ -502,213 +844,66 @@
   }
   
   .petwell-nav-pill .petwell-nav-link {
-    margin: 0 0.8rem;
-    font-size: 16px;
-  }
-}
-
-/* Very large screens (2000px and above) */
-@media (min-width: 2000px) {
-  :root {
-    --pill-width-desktop: 900px; /* Even larger width */
-  }
-  
-  .petwell-nav-pill {
-    min-width: 900px;
-    max-width: 65vw;
-    padding: 0.75rem 2.8rem;
-  }
-  
-  .petwell-nav-pill .petwell-nav-link {
-    margin: 0 1rem;
-    font-size: 16.5px;
-  }
-}
-
-/* Ultra large screens (2200px and above) */
-@media (min-width: 2200px) {
-  :root {
-    --pill-width-desktop: 950px; /* Maximum width */
-  }
-  
-  .petwell-nav-pill {
-    min-width: 950px;
-    max-width: 60vw;
-    padding: 0.75rem 3rem;
-  }
-  
-  .petwell-nav-pill .petwell-nav-link {
-    margin: 0 1.1rem;
-    font-size: 17px;
-  }
-}
-
-/* Large screens (1221px - 1420px) */
-@media (max-width: 1420.98px) and (min-width: 1221px) {
-  .petwell-navbar-right-items {
-    gap: 1.2rem;
-  }
-  
-  .petwell-get-started-btn {
-    width: 190px;
-    height: 46px;
-    display: flex !important;
-  }
-  
-  .petwell-mobile-menu-toggle {
-    width: 44px;
-    height: 44px;
-  }
-  
-  .petwell-brand-logo {
-    height: 44px;
-  }
-  
-  .petwell-navbar-brand {
-    display: flex !important;
-  }
-}
-
-/* Medium screens (992px - 1220px) */
-@media (max-width: 1220.98px) and (min-width: 992px) {
-  .petwell-navbar-right-items {
-    gap: 1rem;
-  }
-  
-  .petwell-get-started-btn {
-    width: 185px;
-    height: 44px;
+    margin: 0 0.6rem;
     font-size: 15px;
-    display: flex !important;
-  }
-  
-  .petwell-mobile-menu-toggle {
-    width: 42px;
-    height: 42px;
-  }
-  
-  .petwell-container-fluid {
-    gap: 12px;
-  }
-  
-  .petwell-navbar-brand {
-    display: flex !important;
-  }
-  
-  /* Mobile menu adjustments */
-  .petwell-mobile-menu {
-    width: 60%;
-    max-width: 450px;
   }
 }
 
-/* Small screens (768px - 991px) */
-@media (max-width: 991.98px) and (min-width: 768px) {
-  .petwell-navbar-right-items {
-    gap: 0.8rem;
+/* Large Desktop (1600px - 1799px) */
+@media (min-width: 1600px) and (max-width: 1799.98px) {
+  :root {
+    --pill-width-desktop: var(--pill-width-large);
   }
   
-  .petwell-get-started-btn {
-    width: 175px;
-    height: 43px;
+  .petwell-nav-pill {
+    min-width: var(--pill-width-large);
+    max-width: 75vw;
+    padding: 0.75rem 2.2rem;
+  }
+  
+  .petwell-nav-pill .petwell-nav-link {
+    margin: 0 0.5rem;
     font-size: 14.5px;
-    display: flex !important;
-  }
-  
-  .petwell-mobile-menu-toggle {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .petwell-container-fluid {
-    gap: 10px;
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-  
-  .petwell-navbar-brand {
-    display: flex !important;
-  }
-  
-  /* Mobile menu adjustments */
-  .petwell-mobile-menu {
-    width: 65%;
-    max-width: 400px;
   }
 }
 
-/* Extra small screens (below 768px) */
-@media (max-width: 767.98px) {
-  .petwell-navbar-right-items {
-    gap: 0.6rem;
+/* Standard Desktop (1421px and above) - Nav pill visible - DESKTOP VIEW SAME */
+@media (min-width: 1421px) {
+  .petwell-nav-pill {
+    min-width: var(--pill-width-desktop);
+    max-width: 80vw;
+    display: flex !important;
   }
   
   .petwell-get-started-btn {
-    width: 170px;
-    height: 42px;
-    font-size: 14px;
+    display: flex !important;
+  }
+  
+  .petwell-icon-btn {
     display: flex !important;
   }
   
   .petwell-mobile-menu-toggle {
-    width: 38px;
-    height: 38px;
-    padding: 0.4rem;
-  }
-  
-  .petwell-container-fluid {
-    gap: 8px;
-    padding-right: 12px;
-    padding-left: 12px;
-  }
-  
-  .petwell-navbar-brand {
-    display: flex !important;
-  }
-  
-  .petwell-mobile-menu {
-    width: 85%;
-    max-width: 320px;
-    padding: 20px;
-  }
-  
-  .petwell-brand-logo {
-    height: 36px;
-  }
-  
-  /* Mobile menu link adjustments */
-  .petwell-mobile-nav-link {
-    font-size: 16px;
-    padding: 14px 0;
+    display: none !important;
   }
 }
 
-/* Very small screens (below 460px) */
-@media (max-width: 460px) {
-  .petwell-container-fluid {
-    gap: 8px;
-    padding-right: 12px;
-    padding-left: 12px;
-  }
-  
-  .petwell-navbar-brand {
-    display: flex !important;
-    justify-self: center;
-  }
-  
-  .petwell-brand-logo {
-    height: 34px; /* Slightly smaller logo for very small screens */
+/* Desktop Tablet Transition (1200px - 1420px) - Nav pill hidden */
+@media (max-width: 1420.98px) and (min-width: 1200px) {
+  .petwell-nav-pill {
+    display: none !important;
   }
   
   .petwell-mobile-menu-toggle {
-    width: 36px;
-    height: 36px;
+    display: flex;
   }
   
-  /* Layout without Get Started button */
   .petwell-container-fluid {
-    grid-template-columns: auto 1fr;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
   }
   
   .petwell-mobile-menu-toggle {
@@ -720,37 +915,617 @@
     justify-self: center;
   }
   
-  /* Hide the entire right items container */
-  .petwell-navbar-right-items {
+  .petwell-right-side-group {
+    grid-column: 3;
+    justify-self: end;
+  }
+  
+  .petwell-get-started-btn {
+    display: flex !important;
+    width: 200px;
+  }
+  
+  .petwell-icon-btn {
     display: none !important;
   }
 }
 
-/* Extra small screens (below 400px) */
-@media (max-width: 400px) {
-  .petwell-brand-logo {
-    height: 32px;
+/* Tablet Landscape (992px - 1199px) */
+@media (max-width: 1199.98px) and (min-width: 992px) {
+  .petwell-nav-pill {
+    display: none !important;
   }
   
   .petwell-mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .petwell-container-fluid {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  
+  .petwell-top-bar-content {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  
+  .petwell-mobile-menu-toggle {
+    grid-column: 1;
+  }
+  
+  .petwell-navbar-brand {
+    grid-column: 2;
+    justify-self: center;
+  }
+  
+  .petwell-right-side-group {
+    grid-column: 3;
+    justify-self: end;
+    gap: 0.8rem;
+  }
+  
+  .petwell-get-started-btn {
+    display: flex !important;
+    width: 190px;
+    height: 46px;
+    font-size: 15px;
+  }
+  
+  .petwell-btn-dot {
+    left: 0.9rem;
+  }
+  
+  .petwell-get-started-btn .petwell-btn-text {
+    margin-left: 3.5rem;
+  }
+  
+  .petwell-icon-btn {
+    display: none !important;
+  }
+  
+  .petwell-brand-logo {
+    height: 44px;
+  }
+  
+  /* Top Bar adjustments */
+  .petwell-top-bar-left {
+    gap: 20px;
+  }
+  
+  .petwell-email-link {
+    font-size: 13px;
+  }
+  
+  .petwell-working-hours {
+    font-size: 12px;
+  }
+  
+  .petwell-social-icons {
+    gap: 14px;
+  }
+  
+  .petwell-social-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Tablet Portrait (768px - 991px) */
+@media (max-width: 991.98px) and (min-width: 768px) {
+  .petwell-nav-pill {
+    display: none !important;
+  }
+  
+  .petwell-mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .petwell-container-fluid {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+  
+  .petwell-top-bar-content {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+  
+  .petwell-mobile-menu-toggle {
+    grid-column: 1;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .petwell-navbar-brand {
+    grid-column: 2;
+    justify-self: center;
+  }
+  
+  .petwell-right-side-group {
+    grid-column: 3;
+    justify-self: end;
+    gap: 0.6rem;
+  }
+  
+  .petwell-get-started-btn {
+    display: flex !important;
+    width: 180px;
+    height: 44px;
+    font-size: 14.5px;
+  }
+  
+  .petwell-btn-dot {
+    left: 0.8rem;
+    font-size: 20px;
+  }
+  
+  .petwell-get-started-btn .petwell-btn-text {
+    margin-left: 3rem;
+  }
+  
+  .petwell-icon-btn {
+    display: none !important;
+  }
+  
+  .petwell-brand-logo {
+    height: 42px;
+  }
+  
+  /* Top Bar adjustments */
+  .petwell-top-bar {
+    padding: 7px 0;
+  }
+  
+  .petwell-top-bar-left {
+    gap: 16px;
+  }
+  
+  .petwell-email-link {
+    font-size: 12.5px;
+  }
+  
+  .petwell-working-hours {
+    font-size: 11.5px;
+  }
+  
+  .petwell-social-icons {
+    gap: 12px;
+  }
+  
+  .petwell-social-icon {
+    width: 17px;
+    height: 17px;
+  }
+  
+  /* Mobile menu adjustments */
+  .petwell-mobile-menu {
+    width: 60%;
+    max-width: 400px;
+  }
+}
+
+/* Mobile Large (576px - 767px) */
+@media (max-width: 767.98px) and (min-width: 576px) {
+  .petwell-nav-pill {
+    display: none !important;
+  }
+  
+  .petwell-mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .petwell-container-fluid {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 8px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  
+  .petwell-top-bar-content {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  
+  .petwell-mobile-menu-toggle {
+    grid-column: 1;
+    width: 38px;
+    height: 38px;
+  }
+  
+  .petwell-navbar-brand {
+    grid-column: 2;
+    justify-self: center;
+  }
+  
+  .petwell-right-side-group {
+    grid-column: 3;
+    justify-self: end;
+    gap: 0.5rem;
+  }
+  
+  .petwell-get-started-btn {
+    display: flex !important;
+    width: 170px;
+    height: 42px;
+    font-size: 14px;
+  }
+  
+  .petwell-btn-dot {
+    left: 0.7rem;
+    font-size: 19px;
+  }
+  
+  .petwell-get-started-btn .petwell-btn-text {
+    margin-left: 2.5rem;
+  }
+  
+  .petwell-icon-btn {
+    display: none !important;
+  }
+  
+  .petwell-brand-logo {
+    height: 40px;
+  }
+  
+  /* Top Bar adjustments */
+  .petwell-top-bar {
+    padding: 6px 0;
+  }
+  
+  .petwell-top-bar-content {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .petwell-top-bar-left {
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+  }
+  
+  .petwell-email-link {
+    font-size: 12px;
+    justify-content: center;
+  }
+  
+  .petwell-working-hours {
+    font-size: 11px;
+    justify-content: center;
+  }
+  
+  .petwell-social-icons {
+    gap: 12px;
+  }
+  
+  .petwell-social-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* Mobile menu adjustments */
+  .petwell-mobile-menu {
+    width: 70%;
+    max-width: 350px;
+    padding: 20px;
+  }
+  
+  .petwell-mobile-nav-link {
+    font-size: 17px;
+    padding: 15px 0;
+  }
+  
+  .petwell-mobile-dropdown-item {
+    font-size: 15px;
+    padding: 10px 0;
+  }
+}
+
+/* Mobile Medium (435px - 575px) - Logo still visible */
+@media (max-width: 575.98px) and (min-width: 435px) {
+  .petwell-nav-pill {
+    display: none !important;
+  }
+  
+  .petwell-mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .petwell-container-fluid {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 6px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+  
+  .petwell-top-bar-content {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+  
+  .petwell-mobile-menu-toggle {
+    grid-column: 1;
+    width: 36px;
+    height: 36px;
+  }
+  
+  .petwell-navbar-brand {
+    grid-column: 2;
+    justify-self: center;
+    display: flex !important;
+  }
+  
+  .petwell-right-side-group {
+    grid-column: 3;
+    justify-self: end;
+    gap: 0.4rem;
+  }
+  
+  .petwell-get-started-btn {
+    display: flex !important;
+    width: 160px;
+    height: 40px;
+    font-size: 13.5px;
+    margin-left: 0;
+  }
+  
+  .petwell-btn-dot {
+    left: 0.6rem;
+    font-size: 18px;
+  }
+  
+  .petwell-get-started-btn .petwell-btn-text {
+    margin-left: 2.2rem;
+  }
+  
+  .petwell-icon-btn {
+    display: none !important;
+  }
+  
+  .petwell-brand-logo {
+    height: 38px;
+  }
+  
+  /* Top Bar adjustments */
+  .petwell-top-bar {
+    padding: 5px 0;
+  }
+  
+  .petwell-top-bar-content {
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .petwell-top-bar-left {
+    flex-direction: column;
+    gap: 3px;
+  }
+  
+  .petwell-email-link {
+    font-size: 11.5px;
+  }
+  
+  .petwell-working-hours {
+    font-size: 10.5px;
+  }
+  
+  .petwell-social-icons {
+    gap: 10px;
+  }
+  
+  .petwell-social-icon {
+    width: 15px;
+    height: 15px;
+  }
+  
+  /* Mobile menu adjustments */
+  .petwell-mobile-menu {
+    width: 80%;
+    max-width: 320px;
+    padding: 18px;
+  }
+  
+  .petwell-mobile-nav-link {
+    font-size: 16px;
+    padding: 14px 0;
+  }
+  
+  .petwell-mobile-dropdown-item {
+    font-size: 14.5px;
+    padding: 9px 0;
+  }
+  
+  .petwell-mobile-menu-header {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+  }
+}
+
+/* Mobile Small (Below 435px) - Hide Logo from main screen */
+@media (max-width: 434.98px) {
+  .petwell-nav-pill {
+    display: none !important;
+  }
+  
+  .petwell-mobile-menu-toggle {
+    display: flex;
+  }
+  
+  /* Grid layout without logo */
+  .petwell-container-fluid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 6px;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+  
+  .petwell-top-bar-content {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+  
+  .petwell-mobile-menu-toggle {
+    grid-column: 1;
     width: 34px;
     height: 34px;
   }
   
+  /* Hide the logo from main screen */
+  .petwell-navbar-brand {
+    display: none !important;
+  }
+  
+  .petwell-right-side-group {
+    grid-column: 2;
+    justify-self: end;
+    gap: 0.4rem;
+  }
+  
+  .petwell-get-started-btn {
+    display: none !important;
+  }
+  
+  .petwell-icon-btn {
+    display: none !important;
+  }
+  
+  /* Top Bar adjustments */
+  .petwell-top-bar {
+    padding: 4px 0;
+  }
+  
+  .petwell-top-bar-content {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .petwell-top-bar-left {
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .petwell-email-link {
+    font-size: 11px;
+  }
+  
+  .petwell-working-hours {
+    font-size: 10px;
+  }
+  
+  .petwell-social-icons {
+    gap: 8px;
+  }
+  
+  .petwell-social-icon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  /* Mobile menu adjustments */
+  .petwell-mobile-menu {
+    width: 85%;
+    max-width: 300px;
+    padding: 16px;
+  }
+  
+  .petwell-mobile-nav-link {
+    font-size: 15px;
+    padding: 12px 0;
+  }
+  
+  .petwell-mobile-dropdown-item {
+    font-size: 14px;
+    padding: 8px 0;
+  }
+  
+  .petwell-mobile-menu-header {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+  }
+}
+
+/* Extra Small Mobile (Below 360px) */
+@media (max-width: 359.98px) {
   .petwell-container-fluid {
-    gap: 6px;
     padding-right: 10px;
     padding-left: 10px;
+  }
+  
+  .petwell-top-bar-content {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  
+  .petwell-mobile-menu-toggle {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .petwell-email-link {
+    font-size: 10.5px;
+  }
+  
+  .petwell-working-hours {
+    font-size: 9.5px;
+  }
+  
+  .petwell-social-icons {
+    gap: 6px;
+  }
+  
+  .petwell-social-icon {
+    width: 13px;
+    height: 13px;
+  }
+  
+  .petwell-mobile-menu {
+    width: 90%;
+    max-width: 280px;
+    padding: 14px;
+  }
+  
+  .petwell-mobile-nav-link {
+    font-size: 14.5px;
+    padding: 11px 0;
+  }
+  
+  .petwell-mobile-dropdown-item {
+    font-size: 13.5px;
+    padding: 7px 0;
+  }
+}
+
+/* WhatsApp button 70% width for all mobile screens in mobile menu */
+@media (max-width: 1420.98px) {
+  .petwell-whatsapp-btn-mobile {
+    width: 70% !important;
+    margin: 0 auto;
   }
 }
 
 /* Body padding to account for fixed navbar */
 body {
-  padding-top: 130px;
+  padding-top: 145px;
   margin: 0;
 }
 
-/* Ensure the navbar stays on top of all content */
+/* Ensure the navbar stays on top */
 .petwell-navbar-container {
   position: fixed;
   top: 0;
@@ -758,52 +1533,464 @@ body {
   right: 0;
 }
 
-/* CLASSES TO ADJUST PILL WIDTH DYNAMICALLY - INCREASED RANGE */
+/* Drawer WhatsApp button: match header style, full width in drawer */
+.petwell-whatsapp-btn-mobile {
+  background-color: var(--accent-purple) !important;
+  color: var(--dark-bg) !important;
+  border: none !important;
+  border-radius: 28px !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+  height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+  position: relative !important;
+  cursor: pointer !important;
+  width: 100% !important;
+}
+
+.petwell-whatsapp-btn-mobile:hover {
+  background-color: #B39BEF !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* CLASSES TO ADJUST PILL WIDTH DYNAMICALLY */
 .petwell-pill-width-xs {
-  --pill-width-desktop: 600px;
+  --pill-width-desktop: 650px;
   --pill-padding: 0.75rem 1.8rem;
+  --link-spacing: 0.4rem;
+  --link-font-size: 14px;
+}
+
+.petwell-pill-width-sm {
+  --pill-width-desktop: 750px;
+  --pill-padding: 0.75rem 2rem;
   --link-spacing: 0.5rem;
   --link-font-size: 14.5px;
 }
 
-.petwell-pill-width-sm {
-  --pill-width-desktop: 700px;
-  --pill-padding: 0.75rem 2rem;
+.petwell-pill-width-md {
+  --pill-width-desktop: 850px;
+  --pill-padding: 0.75rem 2.2rem;
   --link-spacing: 0.6rem;
   --link-font-size: 15px;
 }
 
-.petwell-pill-width-md {
-  --pill-width-desktop: 800px;
-  --pill-padding: 0.75rem 2.2rem;
+.petwell-pill-width-lg {
+  --pill-width-desktop: 950px;
+  --pill-padding: 0.75rem 2.5rem;
   --link-spacing: 0.7rem;
   --link-font-size: 15.5px;
 }
 
-.petwell-pill-width-lg {
-  --pill-width-desktop: 900px;
-  --pill-padding: 0.75rem 2.5rem;
+.petwell-pill-width-xl {
+  --pill-width-desktop: 1050px;
+  --pill-padding: 0.75rem 2.8rem;
   --link-spacing: 0.8rem;
   --link-font-size: 16px;
 }
 
-.petwell-pill-width-xl {
-  --pill-width-desktop: 1000px;
-  --pill-padding: 0.75rem 2.8rem;
-  --link-spacing: 0.9rem;
-  --link-font-size: 16.5px;
+/* Language Selector Styles */
+.petwell-left-side-group {
+  gap: 12px;
+  position: absolute;
+  left: 40px;
+  z-index: 1001;
 }
 
-.petwell-pill-width-xxl {
-  --pill-width-desktop: 1100px;
-  --pill-padding: 0.75rem 3rem;
-  --link-spacing: 1rem;
-  --link-font-size: 17px;
+.petwell-language-selector-wrapper {
+  position: relative;
+  z-index: 1002;
 }
 
-.petwell-pill-width-xxxl {
-  --pill-width-desktop: 1200px;
-  --pill-padding: 0.75rem 3.2rem;
-  --link-spacing: 1.1rem;
-  --link-font-size: 17.5px;
+.petwell-language-selector {
+  width: auto !important;
+  min-width: 120px;
+}
+
+.petwell-language-select-button {
+  background: var(--light-bg) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 24px !important;
+  padding: 8px 16px !important;
+  color: var(--text-dark) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.petwell-language-select-button:hover {
+  background: #e8e0d8 !important;
+}
+
+.petwell-language-select-button:after {
+  border-top-color: var(--text-dark) !important;
+}
+
+/* WhatsApp Button - Modified for grouping */
+.petwell-get-started-btn {
+  background-color: var(--accent-purple);
+  color: var(--dark-bg);
+  border: none;
+  padding: 0 24px;
+  border-radius: 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.petwell-get-started-btn:hover {
+  background-color: #B39BEF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Language Section */
+.petwell-mobile-language-section {
+  padding: 20px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex !important;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.petwell-mobile-language-selector {
+  width: 100%;
+}
+
+.petwell-mobile-language-select {
+  width: 100% !important;
+}
+
+.petwell-mobile-language-button {
+  width: 100% !important;
+  background: var(--light-bg) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 24px !important;
+  padding: 12px 16px !important;
+  color: var(--text-dark) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  height: 48px !important;
+}
+
+/* Adjust container for new layout */
+.petwell-container-fluid {
+  justify-content: space-between !important;
+  position: relative;
+}
+
+/* Language Dropdown Options - FIXED: Same width and background color as button */
+.petwell-language-selector .flags-select .options {
+  background: var(--light-bg) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 12px !important;
+  margin-top: 5px !important;
+  min-width: 140px !important;
+  width: 100% !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.petwell-language-selector .flags-select .option {
+  background: var(--light-bg) !important;
+  color: var(--text-dark) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  padding: 10px 16px !important;
+}
+
+.petwell-language-selector .flags-select .option:hover {
+  background: #e8e0d8 !important;
+}
+
+.petwell-language-selector .flags-select .option.selected {
+  background: #e8e0d8 !important;
+}
+
+/* Mobile Language Options */
+.petwell-mobile-language-options {
+  background: var(--light-bg) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 12px !important;
+}
+
+/* Enhanced Stone Collection Dropdown - 3x3 Layout */
+.petwell-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--light-bg) !important; /* Same as parent pill background */
+  min-width: 550px !important; /* Adjusted width for 3x3 layout */
+  max-width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  padding: 20px 25px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.petwell-dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.petwell-dropdown-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Increased gap for better separation between rows */
+}
+
+.petwell-stone-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for 3x3 layout */
+  gap: 20px; /* Increased gap between items */
+}
+
+.petwell-stone-item {
+  display: flex;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0;
+  border-radius: 8px;
+  background: transparent !important;
+  border: none !important;
+}
+
+.petwell-stone-item:hover {
+  transform: translateY(-2px);
+  background: transparent !important;
+}
+
+.petwell-stone-content {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Increased gap between image and text */
+  width: 100%;
+}
+
+.petwell-stone-image-wrapper {
+  width: 70px; /* Slightly larger for better visibility */
+  height: 70px; /* Slightly larger for better visibility */
+  min-width: 70px;
+  min-height: 70px;
+  border-radius: 10px; /* Slightly more rounded */
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.petwell-stone-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.petwell-stone-item:hover .petwell-stone-image {
+  transform: scale(1.1);
+}
+
+.petwell-stone-text {
+  flex: 1;
+}
+
+.petwell-stone-name {
+  color: var(--text-dark);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px; /* Slightly larger font */
+  font-weight: 600;
+  text-align: left;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.petwell-stone-item:hover .petwell-stone-name {
+  color: var(--primary-dark);
+}
+
+/* Mobile Stone Grid */
+.petwell-mobile-dropdown-menu.show {
+  max-height: 600px !important;
+  padding-left: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.petwell-mobile-stone-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 15px;
+  background: var(--light-bg);
+  border-radius: 12px;
+}
+
+.petwell-mobile-stone-item {
+  display: flex;
+  text-decoration: none;
+  background: transparent !important;
+  border-radius: 8px;
+  padding: 0;
+}
+
+.petwell-mobile-stone-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.petwell-mobile-stone-image-wrapper {
+  width: 55px;
+  height: 55px;
+  min-width: 55px;
+  min-height: 55px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.petwell-mobile-stone-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.petwell-mobile-stone-text {
+  flex: 1;
+}
+
+.petwell-mobile-stone-name {
+  color: var(--text-dark);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* Responsive adjustments for the 3x3 layout */
+@media (min-width: 1421px) {
+  .petwell-dropdown-menu {
+    min-width: 580px !important;
+  }
+  
+  .petwell-stone-row {
+    gap: 25px;
+  }
+  
+  .petwell-stone-image-wrapper {
+    width: 75px;
+    height: 75px;
+    min-width: 75px;
+    min-height: 75px;
+  }
+  
+  .petwell-stone-name {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1420.98px) {
+  /* For tablet, show 2x3 layout instead of 3x3 */
+  .petwell-stone-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .petwell-dropdown-menu {
+    min-width: 400px !important;
+    max-width: 450px;
+  }
+  
+  .petwell-stone-image-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+  
+  /* Adjust for 6 items (3 per column) */
+  .petwell-dropdown-content {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .petwell-mobile-stone-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .petwell-mobile-stone-image-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .petwell-mobile-stone-name {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  /* For smaller tablets, show 1 column layout */
+  .petwell-stone-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .petwell-dropdown-menu {
+    min-width: 300px !important;
+    max-width: 350px;
+  }
+  
+  .petwell-stone-image-wrapper {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .petwell-stone-name {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .petwell-mobile-stone-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .petwell-mobile-stone-content {
+    gap: 12px;
+  }
+  
+  .petwell-mobile-stone-image-wrapper {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .petwell-mobile-stone-name {
+    font-size: 14px;
+  }
 }

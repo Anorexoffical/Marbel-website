@@ -13,7 +13,16 @@ import 'swiper/css/navigation';
 
 // Product images (using existing asset in repo)
 import homeImg from '../assets/home1.png';
-
+import service1 from '../assets/service1.png';
+import service2 from '../assets/service2.png';
+import service3 from '../assets/service3.png';
+import service4 from '../assets/service4.png';
+import service5 from '../assets/service5.png';
+import service6 from '../assets/service6.png';
+import whatweoffer from '../assets/whatweoffer.png';
+import owner from '../assets/owner.png';
+import factory from '../assets/factory.png';
+import marketprice from '../assets/market-price.png';
 
 
 const Homepage = ({ handleGetStarted = () => {}, handleExploreBenefits = () => {} }) => {
@@ -21,131 +30,63 @@ const Homepage = ({ handleGetStarted = () => {}, handleExploreBenefits = () => {
  
 //  seccond component 
  
- // Update these image sources as needed in your project setup
- const cards = [
-   {
-     id: 1,
-    imgSrc: homeImg,
-     title: 'FecalPCR Health Test',
-     price: '$21.99',
-     oldPrice: '$29.99',
-     btnText: 'Add to cart',
-     oneTimePrice: 21.99,
-     subscribePrice: 19.19,
-     oldPriceValue: 29.99,
+const cards = [
+  {
+    id: 1,
+    imgSrc: service1,
+    title: 'Marble',
+    description: 'Luxurious natural stone with unique veining patterns for elegant interiors.',
+    btnText: 'Explore More',
     productImage: homeImg,
-     description:
-       "Comprehensive fecal PCR test for detecting parasites, bacteria, and viruses in your pet's digestive system.",
-     features: [
-       '24-48 hour results',
-       'Vet-grade accuracy',
-       'At-home collection',
-       'Digital results',
-     ],
-   },
-   {
-     id: 2,
-    imgSrc: homeImg,
-     title: 'Gut Health Test',
-     price: '$23.99',
-     oldPrice: '$29.99',
-     btnText: 'Add to cart',
-     oneTimePrice: 23.99,
-     subscribePrice: 19.19,
-     oldPriceValue: 29.99,
+    pageUrl: '/services/marble', // Add page URL for redirection
+  },
+  {
+    id: 2,
+    imgSrc: service2,
+    title: 'Granite Onyx',
+    description: 'Durable and stunning stone with translucent properties for dramatic effects.',
+    btnText: 'Explore More',
     productImage: homeImg,
-     description:
-       'Advanced gut microbiome analysis to identify bacterial imbalances and digestive issues.',
-     features: [
-       'Microbiome analysis',
-       'Personalized recommendations',
-       'Easy sample collection',
-       'Veterinary reviewed',
-     ],
-   },
-   {
-     id: 3,
-    imgSrc: homeImg,
-     title: 'Allergy Test',
-     price: '$23.99',
-     oldPrice: '$29.99',
-     btnText: 'Add to cart',
-     oneTimePrice: 23.99,
-     subscribePrice: 19.19,
-     oldPriceValue: 29.99,
+    pageUrl: '/services/granite-onyx',
+  },
+  {
+    id: 3,
+    imgSrc: service3,
+    title: 'Travertine',
+    description: 'Classic natural stone with porous texture, perfect for traditional designs.',
+    btnText: 'Explore More',
     productImage: homeImg,
-     description:
-       'Comprehensive allergy screening to identify environmental and food allergens affecting your pet.',
-     features: [
-       '150+ allergens',
-       'At-home blood collection',
-       'Personalized diet tips',
-       'Vet consultation included',
-     ],
-   },
-   {
-     id: 4,
-    imgSrc: homeImg,
-     title: 'Wellness Panel',
-     price: '$23.99',
-     oldPrice: '$29.99',
-     btnText: 'Add to cart',
-     oneTimePrice: 23.99,
-     subscribePrice: 19.19,
-     oldPriceValue: 29.99,
+    pageUrl: '/services/travertine',
+  },
+  {
+    id: 4,
+    imgSrc: service4,
+    title: 'Ceramic',
+    description: 'Versatile and durable tiles available in countless designs and finishes.',
+    btnText: 'Explore More',
     productImage: homeImg,
-     description:
-       'Complete health screening covering major organ functions and wellness markers.',
-     features: [
-       'Liver & kidney function',
-       'Thyroid levels',
-       'Complete blood count',
-       'Urinalysis',
-     ],
-   },
-   {
-     id: 5,
-    imgSrc: homeImg,
-     title: 'DNA Breed Test',
-     price: '$20.99',
-     oldPrice: '$29.99',
-     btnText: 'Add to cart',
-     oneTimePrice: 23.99,
-     subscribePrice: 19.19,
-     oldPriceValue: 29.99,
+    pageUrl: '/services/ceramic',
+  },
+  {
+    id: 5,
+    imgSrc: service5,
+    title: 'Quartz',
+    description: 'Engineered stone with exceptional durability and low maintenance.',
+    btnText: 'Explore More',
     productImage: homeImg,
-     description:
-       "Discover your dog's breed composition and genetic health markers with our advanced DNA test.",
-     features: [
-       '350+ breeds',
-       'Health screening',
-       'Trait analysis',
-       'Ancestry report',
-     ],
-   },
-   {
-     id: 6,
-    imgSrc: homeImg,
-     title: 'Senior Health Test',
-     price: '$23.99',
-     oldPrice: '$29.99',
-     btnText: 'Add to cart',
-     oneTimePrice: 23.99,
-     subscribePrice: 19.19,
-     oldPriceValue: 29.99,
+    pageUrl: '/services/quartz',
+  },
+  {
+    id: 6,
+    imgSrc: service6,
+    title: 'Mosaic',
+    description: 'Artistic tile patterns creating stunning visual effects for any space.',
+    btnText: 'Explore More',
     productImage: homeImg,
-     description:
-       'Specialized testing for senior pets focusing on age-related health concerns and preventive care.',
-     features: [
-       'Arthritis markers',
-       'Organ function',
-       'Dental health',
-       'Mobility assessment',
-     ],
-   },
- ];
- 
- 
+    pageUrl: '/services/mosaic',
+  },
+];
+
  
  
  
@@ -153,6 +94,12 @@ const Homepage = ({ handleGetStarted = () => {}, handleExploreBenefits = () => {
  
  
   const navigate = useNavigate();
+  const handleGetStartedClick = () => {
+    navigate('/contact-us');
+  };
+  const handleExploreBenefitsClick = () => {
+    console.log('Explore benefits clicked');
+  };
   const swiperRef = useRef(null);
 
   const productDetailCards = [
@@ -283,27 +230,26 @@ const steps = [
 
           {/* Main Text and Buttons - Positioned at bottom */}
           <div className="content-wrap">
-            <div className="content-treatment">Treatment</div>
+            <div className="content-treatment">Design</div>
             <div className="main-title">
-              Luxury of Marble Stone for Modern Design
-              <br />
-              24–48 hour results.
+          Luxury Marble, Granite & Quartz
+          <br></br>
+Delivered in 24–48 hours
             </div>
             <div className="main-subtitle">
-              Your pet doesn't have the same needs everywhere. Identify and
-              address bacterial overgrowths and imbalances.
+         Every space has unique design needs. We provide high-quality marble, granite, travertine, ceramic, and quartz surfaces—crafted to enhance durability, elegance, and long-term value for homes and commercial spaces.
             </div>
             <div className="d-flex align-items-center button-container">
               <button
                 className="petwell-get-started-btn1"
-                onClick={handleGetStarted}
+                onClick={handleGetStartedClick}
               >
                 <span className="petwell-btn-dot">•</span>
                 <span className="petwell-btn-text">Get Started</span>
               </button>
               <button
                 className="btn-main-secondary"
-                onClick={handleExploreBenefits}
+                onClick={handleExploreBenefitsClick}
               >
                 Explore benefits
               </button>
@@ -312,49 +258,48 @@ const steps = [
         </div>
       </div>
 
-      {/* second container  */}
 
-     {/* Related Products Slider */}
+
+
+
+{/* seccond container  */}
+{/* Related Products Slider */}
 <div className="pd-related-products">
   <div className="pd-related-heading-container mb-4">
     <h2 className="pd-related-heading">Providing the best marble services</h2>
   </div>
 
   {/* third section - cards */}
-        <div className="product-cards-container py-4">
-          <div className="product-cards-row">
-            {cards.map((card) => (
-              <div key={card.id} className="product-cards-col">
-                <div className="product-card-item">
-                  <div className="product-card-image-container">
-                    <img
-                      src={card.imgSrc}
-                      alt={card.title}
-                      className="product-card-img"
-                    />
-                  </div>
-                  <div className="product-card-content">
-                    <h5 className="product-card-heading">{card.title}</h5>
-                    <div className="product-price-wrapper">
-                      <span className="product-current-price">{card.price}</span>
-                      <span className="product-old-price">{card.oldPrice}</span>
-                    </div>
-                    <button
-                      className="product-card-button"
-                      onClick={() => handleProductClick(card)}
-                    >
-                      {card.btnText}
-                    </button>
-                  </div>
-                </div>
+  <div className="product-cards-container py-4">
+    <div className="product-cards-row">
+      {cards.map((card) => (
+        <div key={card.id} className="product-cards-col">
+          <div className="product-card-item">
+            <div className="product-card-image-container">
+              <img
+                src={card.imgSrc}
+                alt={card.title}
+                className="product-card-img"
+              />
+            </div>
+            <div className="product-card-content">
+              <h5 className="product-card-heading">{card.title}</h5>
+              <div className="product-description-wrapper">
+                <p className="product-description">{card.description}</p>
               </div>
-            ))}
+              <button
+                className="product-card-button"
+                onClick={() => handleExploreClick(card)}
+              >
+                Explore More
+              </button>
+            </div>
           </div>
         </div>
+      ))}
+    </div>
+  </div>
 </div>
-
-
-
 
 
 
@@ -371,16 +316,14 @@ const steps = [
       <div className="col-12 col-lg-6">
         <div className="petwell-futurpet-text ps-lg-4 ps-xl-5">
           <h1 className="mb-4 mb-lg-5">
-            The future of pet health is
+           Transform your home with elegance —
             <span className="petwell-futurpet-highlight">
               {' '}
-              preventive, personal and positive
+    Marble crafted for timeless living spaces
             </span>
           </h1>
           <p className="mb-4 mb-lg-5 ps-0">
-            PetWell combines scientific precision with emotional care —
-            helping every pet live longer, happier, and closer to you.
-          </p>
+From hand-selected stone to polished installation, we craft marble surfaces that elevate homes, outdoors, and kitchens with lasting beauty.          </p>
           <button className="petwell-futurpet-btn">
             <span className="petwell-futurpet-btn-dot position-absolute">
               •
@@ -395,7 +338,7 @@ const steps = [
       <div className="col-12 col-lg-6">
         <div className="petwell-futurpet-image-wrapper h-100 d-flex align-items-center justify-content-center justify-content-lg-end pe-lg-4 pe-xl-5">
           <img
-            src={homeImg}
+            src={whatweoffer}
             alt="PetWell Hero"
             className="petwell-futurpet-image img-fluid rounded-4"
           />
@@ -412,64 +355,92 @@ const steps = [
 
 
 
- {/* 5th ccontienr  */}
-
- <section className="process-section container-fluid py-5">
-      <div className="row justify-content-center">
-        {/* Left side – steps */}
-        <div className="col-lg-5">
-          <div className="process-left">
-            <div className="stack-image d-none d-md-block">
-              {/* replace with your own image src */}
-              <img
-                src={homeImg}
-                alt="Stacked marble"
-                className="img-fluid"
-              />
-            </div>
-
-            {steps.map(step => (
-              <div className="process-step d-flex" key={step.number}>
-                <div className="step-number d-flex align-items-center justify-content-center">
-                  <span>{step.number}</span>
-                </div>
-                <div className="step-content">
-                  <h4>{step.title}</h4>
-                  <p>{step.text}</p>
-                </div>
-              </div>
-            ))}
+{/* 4th container - About Us */}
+<section className="about-section container-fluid py-5">
+  <div className="row justify-content-center">
+    {/* Left side – CEO info & company details */}
+    <div className="col-lg-5">
+      <div className="about-left ps-lg-5">
+        {/* CEO Image */}
+        <div className="ceo-image-wrapper mb-4">
+          <img
+            src={owner} 
+            alt="CEO"
+            className="img-fluid ceo-image"
+          />
+          <div className="ceo-info mt-3">
+            <h5 className="ceo-name">John Smith</h5>
+            <p className="ceo-title">CEO & Founder</p>
           </div>
         </div>
 
-        {/* Right side – text + image */}
-        <div className="col-lg-6 offset-lg-1">
-          <div className="process-right">
-            <p className="process-tag">WHAT WE DO</p>
-            <h2 className="process-heading">
-              The Value Is In The Process<br />For Exceptional.
-            </h2>
-            <p className="process-desc">
-              From the moment marble emerges from the earth&apos;s embrace, it begins a journey of transformation guided by innovative techniques and skilled hands that carefully transform the raw stone into exquisite pieces.
-            </p>
-            <div className="process-main-image-wrapper">
-              {/* main factory image */}
-              <img
-                src={homeImg}
-                alt="Marble factory"
-                className="img-fluid process-main-image"
-              />
-              {/* floating slab image */}
-              <img
-                src={homeImg}
-                alt="Marble slab"
-                className="process-floating-image"
-              />
+        {/* Company Points */}
+        <div className="company-details">
+          <div className="company-point">
+            <div className="point-number d-flex align-items-center justify-content-center">
+              <span>✓</span>
+            </div>
+            <div className="point-content">
+              <h5>Founded in 1995</h5>
+              <p>Over 25 years of excellence in marble craftsmanship</p>
+            </div>
+          </div>
+
+          <div className="company-point">
+            <div className="point-number d-flex align-items-center justify-content-center">
+              <span>✓</span>
+            </div>
+            <div className="point-content">
+              <h5>ISO 9001 Certified</h5>
+              <p>Internationally recognized quality management system</p>
+            </div>
+          </div>
+
+          <div className="company-point">
+            <div className="point-number d-flex align-items-center justify-content-center">
+              <span>✓</span>
+            </div>
+            <div className="point-content">
+              <h5>Natural Stone Institute</h5>
+              <p>Accredited member with highest industry standards</p>
+            </div>
+          </div>
+
+          <div className="company-point">
+            <div className="point-number d-flex align-items-center justify-content-center">
+              <span>✓</span>
+            </div>
+            <div className="point-content">
+              <h5>150+ Projects</h5>
+              <p>Successfully completed luxury residential & commercial projects</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+
+    {/* Right side – About Us content */}
+    <div className="col-lg-6 offset-lg-1">
+      <div className="about-right pe-lg-5">
+        <p className="about-tag">ABOUT US</p>
+        <h2 className="about-heading">
+          Who We Are<br />The Story Behind Excellence.
+        </h2>
+        <p className="about-desc">
+          Founded with a vision to transform spaces with natural stone, our journey began in a small workshop with nothing but passion and craftsmanship. Today, we stand as one of the most trusted marble service providers, combining traditional techniques with modern innovation.
+        </p>
+        <div className="about-main-image-wrapper">
+          {/* main company image */}
+          <img
+            src={factory} 
+            alt="Our Marble Workshop"
+            className="img-fluid about-main-image"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
@@ -478,7 +449,91 @@ const steps = [
 
 
 
- {/* 5th  container  */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* 5th ccontiner */}
+
+
+  <div className="container">
+    <div className="row align-items-center">
+      {/* <!-- Left Column - Text --> */}
+      <div className="col-md-6 col-xl-6 col-sm-12 bestservices">
+
+        <h2 className='bestservicesh'>Unmatched Network Performance at  <span className='mainwordabout'>Market-Leading Prices </span></h2>
+        <p className='bestservicesp'> 
+        We’ve optimized our backend infrastructure to ensure our SIM cards and data services deliver seamless connectivity, lightning-fast speeds, and unbeatable reliability. Along with top-tier performance, we offer highly competitive pricing, giving you the best value on airtime, data, and mobile services. Stay connected without overspending—because premium quality shouldn’t come at a premium cost.
+        </p>
+
+      </div>
+      {/* <!-- Right Column - Image --> */}
+      <div className="col-md-6 col-xl-6 col-sm-12">
+
+        <img src={marketprice} className="img-fluid" alt="Responsive Image"/>
+
+      </div>
+
+    
+    </div>
+  </div>
+
+
+
+  <div className="container">
+    <div className="row align-items-center">
+      {/* <!-- Left Column - Text --> */}
+
+
+      <div className="col-md-6 col-xl-6 col-sm-12">
+
+        <img src={marketprice} className="img-fluid" alt="Responsive Image"/>
+      </div>
+
+
+      <div className="col-md-6 col-xl-6 col-sm-12 bestservices2">
+
+        <h2 className='bestservicesh'> <span className='mainwordabout2'>70+% signal strength </span> & Affordable Connectivity</h2>
+        <p className='bestservicesp'> Enjoy 70%+ signal strength and reliability every time you connect. Get highly in-demand telecom features at budget-friendly rates, offering better value compared to other network providers in the market.</p>
+     </div>
+      {/* <!-- Right Column - Image --> */}
+  
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ {/* 6th  container  */}
 
      {/* Related Products Slider */}
 <div className="pd-related-products">
