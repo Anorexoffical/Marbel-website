@@ -1002,12 +1002,19 @@ body {
   line-height: 1.4;
   letter-spacing: -0.2%;
   margin: 0;
+
+  /* Line clamp (modern standard) */
+  line-clamp: 2;
+
+  /* Required for compatibility */
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 
 /* Button styling - ALWAYS VISIBLE */
 .product-card-button {
@@ -1077,12 +1084,21 @@ body {
     height: 36px;
   }
   
-  .product-description {
-    font-size: 13px;
-    line-height: 1.3;
-    -webkit-line-clamp: 2;
-  }
-  
+ .product-description {
+  font-size: 13px;
+  line-height: 1.3;
+
+  /* Standard property */
+  line-clamp: 2;
+
+  /* WebKit fallback */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
   .product-card-button {
     height: 44px;
     font-size: 13px;
@@ -1134,11 +1150,20 @@ body {
     height: 34px;
   }
   
-  .product-description {
-    font-size: 12px;
-    -webkit-line-clamp: 2;
-  }
-  
+.product-description {
+  font-size: 12px;
+
+  /* Standard */
+  line-clamp: 2;
+
+  /* Required for WebKit */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
   .product-card-button {
     height: 42px;
     font-size: 12px;
