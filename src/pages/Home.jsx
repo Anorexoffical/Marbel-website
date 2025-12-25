@@ -22,7 +22,8 @@ import service6 from '../assets/service6.png';
 import whatweoffer from '../assets/whatweoffer.png';
 import owner from '../assets/owner.png';
 import factory from '../assets/factory.png';
-import marketprice from '../assets/market-price.png';
+import marketprice from '../assets/marketprice.png';
+import marketprice2 from '../assets/marketprice2.png';
 
 
 const Homepage = ({ handleGetStarted = () => {}, handleExploreBenefits = () => {} }) => {
@@ -369,7 +370,7 @@ From hand-selected stone to polished installation, we craft marble surfaces that
             className="img-fluid ceo-image"
           />
           <div className="ceo-info mt-3">
-            <h5 className="ceo-name">John Smith</h5>
+            <h5 className="ceo-name">MR.IRFAN</h5>
             <p className="ceo-title">CEO & Founder</p>
           </div>
         </div>
@@ -455,70 +456,54 @@ From hand-selected stone to polished installation, we craft marble surfaces that
 
 
 
-
-
-
-
-
-
-
-{/* 5th ccontiner */}
-
-
-  <div className="container">
-    <div className="row align-items-center">
-      {/* <!-- Left Column - Text --> */}
-      <div className="col-md-6 col-xl-6 col-sm-12 bestservices">
-
-        <h2 className='bestservicesh'>Unmatched Network Performance at  <span className='mainwordabout'>Market-Leading Prices </span></h2>
-        <p className='bestservicesp'> 
-        We’ve optimized our backend infrastructure to ensure our SIM cards and data services deliver seamless connectivity, lightning-fast speeds, and unbeatable reliability. Along with top-tier performance, we offer highly competitive pricing, giving you the best value on airtime, data, and mobile services. Stay connected without overspending—because premium quality shouldn’t come at a premium cost.
-        </p>
-
+{/* 5th container */}
+<div className="container-fluid px-0 vh-100 d-flex align-items-center">
+  <div className="row g-0 w-100">
+    {/* First Row */}
+    <div className="row align-items-center g-0 h-50 mb-md-0 mb-4">
+      {/* Left Column - Text */}
+      <div className="col-md-6 col-lg-6 d-flex flex-column justify-content-center bestservices h-100 ps-lg-5 ps-md-4 ps-3 pe-lg-5 pe-md-4 pe-3">
+        <div className="content-wrapper">
+          <h2 className='bestservicesh mb-4'>
+           Premium Marble Quality at <span className='mainwordabout'>Market-Leading Price</span>
+          </h2>
+          <p className='bestservicesp'>
+             We provide premium marble, granite, and natural stone sourced directly from trusted quarries, ensuring superior quality, durability, and elegant finishes at market-leading prices. By eliminating middlemen and optimizing our cutting, polishing, and installation process, we deliver high-end stone solutions that cost less than traditional market options. Whether for residential, commercial, or luxury projects, our marble and granite offer the perfect balance of performance, aesthetics, and affordability—proving that exceptional stone doesn’t need an inflated price.
+          </p>
+        </div>
       </div>
-      {/* <!-- Right Column - Image --> */}
-      <div className="col-md-6 col-xl-6 col-sm-12">
-
-        <img src={marketprice} className="img-fluid" alt="Responsive Image"/>
-
+      {/* Right Column - Image */}
+      <div className="col-md-6 col-lg-6 d-flex align-items-center justify-content-center h-100 ps-lg-5 ps-md-4 ps-3 pe-lg-5 pe-md-4 pe-3">
+        <div className="image-container">
+          <img src={marketprice} className="img-fluid attractive-image" alt="Market Leading Prices" />
+          <div className="image-highlight"></div>
+        </div>
       </div>
+    </div>
 
-    
+    {/* Second Row */}
+    <div className="row align-items-center g-0 h-50 mt-md-0 mt-4">
+      {/* Left Column - Image */}
+      <div className="col-md-6 col-lg-6 order-md-1 order-2 d-flex align-items-center justify-content-center h-100 ps-lg-5 ps-md-4 ps-3 pe-lg-5 pe-md-4 pe-3">
+        <div className="image-container">
+          <img src={marketprice2} className="img-fluid attractive-image" alt="Signal Strength" />
+          <div className="image-highlight image-highlight-green"></div>
+        </div>
+      </div>
+      {/* Right Column - Text */}
+      <div className="col-md-6 col-lg-6 d-flex flex-column justify-content-center bestservices2 order-md-2 order-1 h-100 ps-lg-5 ps-md-4 ps-3 pe-lg-5 pe-md-4 pe-3">
+        <div className="content-wrapper">
+          <h2 className='bestservicesh mb-4'>
+            <span className='mainwordabout2'> 90%+ Quality </span> Performance & Smart Pricing
+          </h2>
+          <p className='bestservicesp'>
+            Experience consistently high performance with up to 90% quality reliability across all our services. We offer a complete one-window solution, covering everything you need under one platform—without hidden costs or compromises. By aligning our offerings with current market standards and optimizing delivery, we ensure top-tier quality, dependable performance, and competitive pricing, giving you maximum value compared to traditional providers.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
-
-
-
-  <div className="container">
-    <div className="row align-items-center">
-      {/* <!-- Left Column - Text --> */}
-
-
-      <div className="col-md-6 col-xl-6 col-sm-12">
-
-        <img src={marketprice} className="img-fluid" alt="Responsive Image"/>
-      </div>
-
-
-      <div className="col-md-6 col-xl-6 col-sm-12 bestservices2">
-
-        <h2 className='bestservicesh'> <span className='mainwordabout2'>70+% signal strength </span> & Affordable Connectivity</h2>
-        <p className='bestservicesp'> Enjoy 70%+ signal strength and reliability every time you connect. Get highly in-demand telecom features at budget-friendly rates, offering better value compared to other network providers in the market.</p>
-     </div>
-      {/* <!-- Right Column - Image --> */}
-  
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
+</div>
 
 
 
@@ -538,7 +523,7 @@ From hand-selected stone to polished installation, we craft marble surfaces that
      {/* Related Products Slider */}
 <div className="pd-related-products">
   <div className="pd-related-heading-container mb-4">
-    <h2 className="pd-related-heading">Providing the best marble services</h2>
+    <h2 className="pd-related-heading">Our recent Projects </h2>
   </div>
 
   <div className="pd-swiper-wrapper-container">
@@ -595,8 +580,7 @@ From hand-selected stone to polished installation, we craft marble surfaces that
                 className="pd-related-card-btn"
                 onClick={() => handleAddRelatedToCart(card)}
               >
-                <span className="pd-btn-text">Add to cart</span>
-                <span className="pd-btn-icon">+</span>
+                <span className="pd-btn-text">View More detail </span>
               </button>
             </div>
           </div>

@@ -1,101 +1,1253 @@
-.callmaincontainer{
-    border-radius: 2500px;
-}
-.headingofcont{
-    font-size: 5.5rem;
-    font-weight: 500;
+@import url('https://fonts.googleapis.com/css2?family=Creolia:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Creolia&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.input-hover {
-    color: black; /* Text color */
-    width: 100%;
-    border: 0.8px solid rgb(85, 85, 85); /* Border color */
-    border-radius: 8px;
-    padding: 12px;
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #FBF8F4 !important;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+/* Contact Page Wrapper */
+.contactpage-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Main Contact Container - Fully Responsive with Gradient Overlay */
+.main-contact-container {
+  margin-top: 0px;
+  width: calc(100vw - 30px);
+  min-height: 75vh;
+  background-image: url('../assets/contectus.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  margin: 15px auto;
+  padding: 30px 40px;
+}
+
+/* Gradient Overlay - Black from left to right, slowly decreasing */
+.main-contact-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 2rem;
+  /* Left-to-right darker overlay */
+  background: linear-gradient(
+    90deg,
+    rgba(27, 26, 26, 0.85) 0%,
+    rgba(0, 0, 0, 0.70) 15%,
+    rgba(0, 0, 0, 0.50) 40%,
+    rgba(0, 0, 0, 0.25) 70%,
+    rgba(21, 20, 20, 0) 100%
+  ) !important;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Contact Content Wrap */
+.contact-content-wrap {
+  text-align: left;
+  max-width: 760px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: transparent;
+  position: relative;
+  padding: 40px 0;
+}
+
+.contact-content-treatment {
+  color: #ededede0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -2%;
+  margin-bottom: 0.8rem;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.contact-main-title {
+  font-family: 'Creolia', serif;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 100%;
+  letter-spacing: -1.5%;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.contact-main-subtitle {
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: -0%;
+  margin-bottom: 2.5rem;
+  margin-top: 0.5rem;
+  max-width: 600px;
+  text-align: left;
+  opacity: 0.9;
+}
+
+/* Contact Info Section */
+.contact-info-section {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-info-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.contact-icon {
+  font-size: 24px;
+  margin-right: 15px;
+  margin-top: 5px;
+  color: #B39BEF;
+}
+
+.contact-details h4 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.contact-details p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 2px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.contact-button-container {
+  gap: 1rem;
+  flex-wrap: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+/* Contact Buttons */
+.contact-get-directions-btn {
+  background-color: #ffffff;
+  color: #232323;
+  border: none;
+  border-radius: 28px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 265px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-btn-dot {
+  font-size: 22px;
+  line-height: 1;
+  position: absolute;
+  left: 1rem;
+  color: #232323;
+}
+
+.contact-get-directions-btn .contact-btn-text {
+  margin-left: 4rem;
+}
+
+.contact-get-directions-btn:hover {
+  background-color: #B39BEF;
+  transform: translateY(-2px);
+  color: #232323;
+  box-shadow: 0 6px 16px rgba(179, 155, 239, 0.3);
+}
+
+.contact-call-btn {
+  background: transparent;
+  color: #ffffff;
+  border-radius: 2rem;
+  border: 1.5px solid #ffffff;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  white-space: nowrap;
+  width: 160px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-call-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Contact Form Container */
+.contact-form-container {
+  position: relative;
+  width: 380px;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 20px;
+  padding: 35px 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  z-index: 3;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-form-title {
+  font-family: 'Creolia', serif;
+  font-size: 28px;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  text-align: center;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.contact-form-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.contact-form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form-group label {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.contact-form-group input,
+.contact-form-group select,
+.contact-form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #fff;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.contact-form-group input::placeholder,
+.contact-form-group textarea::placeholder {
+  color: #999;
+}
+
+.contact-form-group input:focus,
+.contact-form-group select:focus,
+.contact-form-group textarea:focus {
+  outline: none;
+  border-color: #B39BEF;
+  box-shadow: 0 0 0 3px rgba(179, 155, 239, 0.1);
+}
+
+.contact-form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.contact-form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.contact-submit-btn {
+  width: 100%;
+  background: #232323;
+  color: white;
+  border: none;
+  border-radius: 28px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 5px;
+  letter-spacing: 0.5px;
+}
+
+.contact-submit-btn:hover {
+  background: #B39BEF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(179, 155, 239, 0.3);
+}
+
+/* ========== UPDATED BOOKING SECTION ========== */
+.booking-section {
+  background-color: #FBF8F4;
+  padding: 60px 15px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.booking-container {
+  max-width: calc(100vw - 30px);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.booking-heading {
+  font-family: 'Creolia', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #232323;
+  text-align: center;
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
+
+.booking-wrapper {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0;
+}
+
+/* Calendar Embed */
+.calendar-embed-container {
+  width: 100%;
+  height: 700px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f8f9fa;
+}
+
+/* Remove default Calendly styles */
+.spinner,
+.spinner > div {
+  border-radius: 20px !important;
+}
+
+/* ========== RESPONSIVE BREAKPOINTS ========== */
+
+/* Large Desktop (1400px and above) */
+@media (min-width: 1400px) {
+  .main-contact-container {
+    min-height: 80vh;
+    padding: 50px 60px;
+  }
+  
+  .contact-content-wrap {
+    max-width: 800px;
+  }
+  
+  .contact-main-title {
+    font-size: 64px;
+  }
+  
+  .contact-form-container {
+    width: 420px;
+    padding: 40px 35px;
+  }
+  
+  .booking-heading {
+    font-size: 56px;
+  }
+  
+  .booking-container {
+    max-width: calc(100vw - 30px);
+  }
+}
+
+/* Standard Desktop (1200px - 1399px) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .main-contact-container {
+    min-height: 75vh;
+    padding: 40px 50px;
+  }
+  
+  .contact-content-wrap {
+    max-width: 700px;
+  }
+  
+  .contact-main-title {
+    font-size: 56px;
+  }
+  
+  .contact-form-container {
+    width: 380px;
+  }
+  
+  .booking-heading {
+    font-size: 48px;
+  }
+  
+  .booking-container {
+    max-width: calc(100vw - 30px);
+  }
+}
+
+/* Medium Desktop (1060px - 1199px) */
+@media (min-width: 1060px) and (max-width: 1199px) {
+  .main-contact-container {
+    padding: 35px 40px;
+  }
+  
+  .contact-content-wrap {
+    max-width: 600px;
+  }
+  
+  .contact-main-title {
+    font-size: 48px;
+  }
+  
+  .contact-main-subtitle {
+    font-size: 15px;
+    max-width: 500px;
+  }
+  
+  .contact-info-section {
+    max-width: 450px;
+  }
+  
+  .contact-form-container {
+    width: 350px;
+    padding: 30px 25px;
+  }
+  
+  .booking-heading {
+    font-size: 42px;
+  }
+  
+  .booking-container {
+    max-width: calc(100vw - 30px);
+  }
+  
+  .calendar-embed-container {
+    height: 650px;
+  }
+}
+
+/* Small Desktop (992px - 1059px) */
+@media (min-width: 992px) and (max-width: 1059px) {
+  .main-contact-container {
+    padding: 30px 35px;
+    background-size: cover;
+    background-position: 35% center;
+  }
+  
+  .contact-content-wrap {
+    max-width: 500px;
+  }
+  
+  .contact-main-title {
+    font-size: 44px;
+  }
+  
+  .contact-main-subtitle {
+    font-size: 15px;
+    max-width: 450px;
+  }
+  
+  .contact-info-section {
+    max-width: 400px;
+  }
+  
+  .contact-form-container {
+    width: 320px;
+    padding: 25px 20px;
+  }
+  
+  .contact-get-directions-btn,
+  .contact-call-btn {
+    height: 48px;
+    font-size: 15px;
+  }
+  
+  .contact-get-directions-btn {
+    width: 230px;
+  }
+  
+  .contact-call-btn {
+    width: 150px;
+  }
+  
+  .booking-heading {
+    font-size: 38px;
+  }
+  
+  .booking-container {
+    max-width: calc(100vw - 30px);
+  }
+  
+  .calendar-embed-container {
+    height: 600px;
+  }
+}
+
+/* Tablet Landscape (852px - 991px) */
+@media (min-width: 852px) and (max-width: 991px) {
+  .main-contact-container {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 40px 30px;
+    min-height: auto;
+    background-size: cover;
+    background-position: 40% center;
+  }
+  
+  .contact-content-wrap {
+    max-width: 100%;
+    margin-bottom: 40px;
+    padding: 0;
+  }
+  
+  .contact-main-title {
+    font-size: 44px;
+    line-height: 1.1;
+  }
+  
+  .contact-main-subtitle {
     font-size: 16px;
-    outline: none;
-    transition: 0.3s ease-in-out;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Hover & Focus Effects */
-.input-hover:hover,
-.input-hover:focus {
-    border-color: black; /* Keep border black on hover/focus */
-    box-shadow: 0 0 10px rgba(255, 102, 102, 0.4);
-}
-
-
-/* Button Styling */
-.btn-dark {
-    background-color: black;
-    border: none;
-    padding: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 8px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s ease-in-out;
-}
-
-.btn-dark:hover {
-    background-color: #cc0000;
-    box-shadow: 0 0 10px rgba(204, 0, 0, 0.4);
-}
-
-/* Icons */
-.icon {
-    color: rgb(178, 3, 3);
-    font-size: 30px;
-}
-
-/* Image Container */
-.image-container {
+    max-width: 700px;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-info-section {
+    max-width: 600px;
+  }
+  
+  .contact-form-container {
     position: relative;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.98);
+  }
+  
+  .contact-button-container {
+    justify-content: flex-start;
+  }
+  
+  .booking-heading {
+    font-size: 36px;
+  }
+  
+  .booking-container {
+    max-width: calc(100vw - 30px);
+  }
+  
+  .booking-wrapper {
+    padding: 0;
+  }
+  
+  .calendar-embed-container {
+    height: 550px;
+  }
 }
 
-/* Image */
-.image-container img {
+/* Tablet Portrait (724px - 851px) */
+@media (min-width: 724px) and (max-width: 851px) {
+  .main-contact-container {
+    flex-direction: column;
+    padding: 30px 25px;
+    background-size: cover;
+    background-position: 45% center;
+  }
+  
+  .contact-content-wrap {
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .contact-main-title {
+    font-size: 40px;
+    line-height: 1.1;
+  }
+  
+  .contact-main-subtitle {
+    font-size: 15px;
+    max-width: 100%;
+  }
+  
+  .contact-info-section {
+    max-width: 100%;
+  }
+  
+  .contact-form-container {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+  
+  .contact-button-container {
+    gap: 0.8rem;
+  }
+  
+  .contact-get-directions-btn,
+  .contact-call-btn {
+    height: 50px;
+    font-size: 15px;
+  }
+  
+  .contact-get-directions-btn {
+    width: 220px;
+  }
+  
+  .contact-call-btn {
+    width: 160px;
+  }
+  
+  .booking-heading {
+    font-size: 34px;
+  }
+  
+  .booking-container {
+    max-width: calc(100vw - 30px);
+  }
+  
+  .calendar-embed-container {
+    height: 500px;
+  }
 }
 
-/* Contact Info Overlay */
-.contact-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(45, 238, 45, 0.297);
-    padding: 20px;
-    border-radius: 8px;
+/* Small Tablet (691px - 723px) */
+@media (min-width: 691px) and (max-width: 723px) {
+  .main-contact-container {
+    width: calc(100vw - 20px);
+    margin: 10px auto;
+    min-height: auto;
+    border-radius: 1.5rem;
+    background-size: cover;
+    background-position: 50% center;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 30px 20px;
+  }
+  
+  .contact-content-wrap {
+    margin-bottom: 30px;
+    text-align: left;
+    align-items: flex-start;
+  }
+  
+  .contact-content-treatment {
+    text-align: left;
+    margin-bottom: 0.5rem;
+    font-size: 15px;
+  }
+  
+  .contact-main-title {
+    font-size: 38px;
+    text-align: left;
+    line-height: 1.1;
+    margin-bottom: 0.8rem;
+  }
+  
+  .contact-main-subtitle {
+    font-size: 15px;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+  
+  .contact-info-section {
+    max-width: 100%;
+  }
+  
+  .contact-button-container {
+    flex-direction: row;
+    gap: 0.8rem;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .contact-form-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .contact-get-directions-btn,
+  .contact-call-btn {
+    width: auto;
+    max-width: 200px;
+    height: 48px;
+    font-size: 15px;
+  }
+  
+  .contact-get-directions-btn {
+    width: 200px;
+  }
+  
+  .contact-call-btn {
+    width: 160px;
+  }
+  
+  .booking-heading {
+    font-size: 32px;
+  }
+  
+  .booking-container {
+    max-width: calc(100vw - 20px);
+  }
+  
+  .booking-wrapper {
+    padding: 0;
+  }
+  
+  .calendar-embed-container {
+    height: 450px;
+  }
+}
+
+/* Mobile Medium (481px - 690px) */
+@media (min-width: 481px) and (max-width: 690px) {
+  .main-contact-container {
+    min-height: auto;
+    background-size: cover;
+    background-position: 55% center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 25px 20px;
+    margin: 10px auto;
+    width: calc(100vw - 20px);
+  }
+  
+  .contact-content-wrap {
+    margin: 0 auto !important;
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+    max-width: 100% !important;
+    margin-bottom: 30px !important;
+  }
+  
+  .contact-content-treatment {
+    text-align: center !important;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .contact-main-title {
+    font-size: 36px !important;
+    text-align: center !important;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-main-subtitle {
+    font-size: 15px !important;
+    max-width: 100% !important;
+    margin-bottom: 1.5rem;
+    text-align: center !important;
+    line-height: 1.6;
+  }
+  
+  .contact-info-section {
+    background: rgba(255, 255, 255, 0.15);
+    max-width: 100%;
+  }
+  
+  .contact-info-item {
+    flex-direction: column;
     text-align: center;
-    width: 80%;
+    align-items: center;
+  }
+  
+  .contact-icon {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  .contact-details {
+    text-align: center;
+  }
+  
+  .contact-button-container {
+    flex-direction: row;
+    gap: 0.8rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center !important;
+    flex-wrap: wrap;
+  }
+  
+  .contact-form-container {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 25px 20px;
+  }
+  
+  .contact-get-directions-btn,
+  .contact-call-btn {
+    width: auto;
+    max-width: 180px;
+    height: 48px;
+    font-size: 14px;
+  }
+  
+  .contact-get-directions-btn {
+    width: 180px;
+  }
+  
+  .contact-call-btn {
+    width: 150px;
+  }
+  
+  .booking-section {
+    padding: 40px 15px;
+  }
+  
+  .booking-heading {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  
+  .booking-container {
+    max-width: calc(100vw - 20px);
+  }
+  
+  .booking-wrapper {
+    padding: 0;
+    border-radius: 15px;
+  }
+  
+  .calendar-embed-container {
+    height: 400px;
+  }
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .contact-overlay {
-        width: 90%;
-        padding: 15px;
-    }
-}
-@media (max-width: 409px) {
-    .headingofcont{
-        font-size: 3.5rem;
-        font-weight: 500;
-    }
+/* Mobile Small (376px - 480px) */
+@media (min-width: 376px) and (max-width: 480px) {
+  .main-contact-container {
+    min-height: auto;
+    background-size: cover;
+    background-position: 60% center;
+    padding: 20px 15px;
+    border-radius: 1.2rem;
+    margin: 10px auto;
+    width: calc(100vw - 20px);
+  }
+  
+  .contact-content-wrap {
+    max-width: 100% !important;
+    margin-bottom: 25px !important;
+  }
+  
+  .contact-main-title {
+    font-size: 32px !important;
+  }
+  
+  .contact-main-subtitle {
+    font-size: 14px !important;
+  }
+  
+  .contact-info-section {
+    padding: 15px;
+  }
+  
+  .contact-details h4 {
+    font-size: 15px;
+  }
+  
+  .contact-details p {
+    font-size: 13px;
+  }
+  
+  .contact-form-container {
+    padding: 20px 15px;
+  }
+  
+  .contact-form-title {
+    font-size: 22px;
+  }
+  
+  .contact-form-group input,
+  .contact-form-group select,
+  .contact-form-group textarea {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+  
+  .contact-button-container {
+    gap: 0.6rem;
+  }
+  
+  .contact-get-directions-btn {
+    width: 170px;
+    height: 46px;
+    font-size: 14px;
+  }
+  
+  .contact-call-btn {
+    width: 140px;
+    height: 46px;
+    font-size: 14px;
+  }
+  
+  .booking-section {
+    padding: 30px 12px;
+  }
+  
+  .booking-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .booking-container {
+    max-width: calc(100vw - 20px);
+  }
+  
+  .booking-wrapper {
+    padding: 0;
+    border-radius: 15px;
+  }
+  
+  .calendar-embed-container {
+    height: 380px;
+  }
 }
 
+/* Mobile Extra Small (320px - 375px) */
+@media (min-width: 320px) and (max-width: 375px) {
+  .main-contact-container {
+    min-height: auto;
+    background-size: cover;
+    background-position: 65% center;
+    padding: 15px 12px;
+    border-radius: 1rem;
+    margin: 8px auto;
+    width: calc(100vw - 16px);
+  }
+  
+  .contact-content-wrap {
+    max-width: 100% !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .contact-main-title {
+    font-size: 28px !important;
+  }
+  
+  .contact-main-subtitle {
+    font-size: 13px !important;
+  }
+  
+  .contact-info-section {
+    padding: 12px;
+  }
+  
+  .contact-details h4 {
+    font-size: 14px;
+  }
+  
+  .contact-details p {
+    font-size: 12px;
+  }
+  
+  .contact-form-container {
+    padding: 18px 12px;
+  }
+  
+  .contact-form-title {
+    font-size: 20px;
+  }
+  
+  .contact-form-subtitle {
+    font-size: 13px;
+  }
+  
+  .contact-form-group label {
+    font-size: 13px;
+  }
+  
+  .contact-form-group input,
+  .contact-form-group select,
+  .contact-form-group textarea {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  
+  .contact-button-container {
+    gap: 0.5rem;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .contact-get-directions-btn,
+  .contact-call-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 44px;
+    font-size: 14px;
+  }
+  
+  .booking-section {
+    padding: 25px 10px;
+  }
+  
+  .booking-heading {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  
+  .booking-container {
+    max-width: calc(100vw - 16px);
+  }
+  
+  .booking-wrapper {
+    padding: 0;
+    border-radius: 12px;
+  }
+  
+  .calendar-embed-container {
+    height: 350px;
+  }
+}
 
-@media (max-width: 350px) {
-    .smalltext{
-        font-size: 1rem;
-    }
+/* Extra Small Mobile (below 320px) */
+@media (max-width: 319px) {
+  .main-contact-container {
+    min-height: auto;
+    background-size: cover;
+    background-position: 70% center;
+    padding: 10px 8px;
+    margin: 6px auto;
+    width: calc(100vw - 12px);
+    border-radius: 0.8rem;
+  }
+  
+  .contact-content-wrap {
+    margin-bottom: 15px !important;
+    max-width: 100% !important;
+  }
+  
+  .contact-main-title {
+    font-size: 24px !important;
+  }
+  
+  .contact-main-subtitle {
+    font-size: 12px !important;
+  }
+  
+  .contact-info-section {
+    padding: 10px;
+  }
+  
+  .contact-details h4 {
+    font-size: 13px;
+  }
+  
+  .contact-details p {
+    font-size: 11px;
+  }
+  
+  .contact-form-container {
+    padding: 15px 10px;
+  }
+  
+  .contact-form-title {
+    font-size: 18px;
+  }
+  
+  .contact-form-subtitle {
+    font-size: 12px;
+  }
+  
+  .contact-form-group label {
+    font-size: 12px;
+  }
+  
+  .contact-form-group input,
+  .contact-form-group select,
+  .contact-form-group textarea {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  
+  .contact-button-container {
+    gap: 0.4rem;
+    flex-direction: column;
+  }
+  
+  .contact-get-directions-btn,
+  .contact-call-btn {
+    width: 100% !important;
+    height: 42px;
+    font-size: 13px;
+  }
+  
+  .booking-heading {
+    font-size: 20px;
+  }
+  
+  .booking-container {
+    max-width: calc(100vw - 12px);
+  }
+  
+  .calendar-embed-container {
+    height: 320px;
+  }
+}
+
+/* Landscape Mode for Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .main-contact-container {
+    min-height: 85vh;
+    background-size: cover;
+    background-position: center;
+    flex-direction: row;
+    padding: 20px;
+  }
+  
+  .contact-content-wrap {
+    max-width: 50% !important;
+    margin-bottom: 0;
+  }
+  
+  .contact-main-title {
+    font-size: 28px !important;
+  }
+  
+  .contact-main-subtitle {
+    font-size: 13px !important;
+  }
+  
+  .contact-info-section {
+    max-width: 100%;
+    padding: 15px;
+  }
+  
+  .contact-form-container {
+    width: 45%;
+    max-width: none;
+    padding: 20px;
+  }
+  
+  .contact-button-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .calendar-embed-container {
+    height: 300px;
+  }
+}
+
+/* High-resolution displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .main-contact-container {
+    background-image: url('../assets/contectus@2x.png');
+  }
+}
+
+/* Print styles */
+@media print {
+  .main-contact-container {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .main-contact-container::before {
+    display: none;
+  }
+  
+  .contact-content-wrap * {
+    color: black !important;
+  }
+  
+  .contact-info-section {
+    background: white !important;
+    border: 1px solid #ccc !important;
+  }
+  
+  .contact-form-container {
+    background: white !important;
+    border: 1px solid #ccc !important;
+  }
+  
+  .contact-form-title {
+    color: black !important;
+  }
+  
+  button {
+    display: none !important;
+  }
+  
+  .booking-section {
+    break-before: always;
+  }
 }

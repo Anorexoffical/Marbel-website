@@ -1,112 +1,178 @@
-import React, { useEffect, useRef } from "react";
-import { FiPhone, FiSend, FiMail, FiMapPin } from "react-icons/fi";
-import { Fade } from "react-awesome-reveal";
-import Navbar from "./Navbar";
-import contactus from '../assets/service1.png';;
-import "../Style/Contactus.css";
-import { InlineWidget } from "react-calendly";
-import Footer from "./Footer";
+import React from 'react';
+import '../Style/Contactus.css';
+import Navbar from './Navbar';
 
+const ContactPage = () => {
+  const handleGetDirectionsClick = () => {
+    // Handle Get Directions button click
+    console.log('Get Directions clicked');
+    // Add your map/directions logic here
+  };
 
+  const handleCallUsClick = () => {
+    // Handle Call Us button click
+    console.log('Call Us clicked');
+    // Add your call functionality here
+  };
 
-function Contact() {
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission
+    console.log('Contact form submitted');
+    // Add your form submission logic here
+  };
 
+  // Cal.com embed script - we'll use iframe instead
+  const calEmbedUrl = "https://cal.com/icellmobileweb-gmail.com/30min";
 
-    return (
-        <>
-            <Navbar />
-            <section className="py-5 text-center">
-                    <h1 className="display-4 font-weight-bold headingofcont ">CONTACT US</h1>
-
-
-                <form action="https://formspree.io/f/xovjlwkk" method="POST" >
-
-                    <div className="container d-flex justify-content-center flex-wrap callmaincontainer">
-                        <div className="shadow-lg rounded bg-white p-4 d-flex flex-column flex-lg-row w-100 ">
-                            {/* Image Container */}
-                            <div className="image-container">
-                                <img
-                                    src={contactus}
-                                    alt="Contact Us"
-                                    className="img-fluid rounded"
-                                    loading="lazy"
-                                />
-                                {/* Contact Info Overlay */}
-                                <div className="contact-overlay">
-                                    <div className="d-flex align-items-center mb-3">
-                                        <FiPhone className="icon "  />
-                                        <h5 className="text-white ml-3 mb-0 smalltext">+27 0769675814</h5>
-                                    </div>
-                                    <div className="d-flex align-items-center mb-3">
-                                        <FiMail className="icon" />
-                                        <h5 className="text-white ml-3 mb-0 smalltext">contact@icellmobile.co.za
-                                        </h5>
-                                   
-
-                                    </div>
-                                 
-
-                                    <div className="d-flex align-items-center">
-                                        <FiMapPin className="icon" />
-                                        <h5 className="text-white ml-3 mb-0 smalltext">ICell Mobile, Shop 134,  cnr</h5>
-                                        <br></br>
-                                    </div>
-
-
-                                    <div className="d-flex align-items-center ">
-                                        <h5 className="text-white smalltext text-white ml-3 mb-0">  Johannesburg and Athol Rds, Highlands North, Johannesburg</h5>
-                                    </div>
-
-
-                                </div>
-                            </div>
-
-                            {/* Form Section */}
-
-                            <div className="w-100 w-lg-50 p-4">
-                                <input type="text" className="form-control mb-3 input-hover" placeholder="Name"  name="name"/>
-                                <input type="email" className="form-control mb-3 input-hover" placeholder="Email" name="email" />
-                                <input type="text" className="form-control mb-3 input-hover" placeholder="Phone" name="phone"/>
-                                <select className="form-control mb-3 input-hover" name="service">
-                                    <option value="select" disabled>Select a service</option>
-                                    <option value="web-development">Product </option>
-                                    <option value="mobile-app">Order</option>
-                                    <option value="web-development">Press </option>
-                                    <option value="mobile-app">Other</option>
-
-
-                                </select>
-                                <textarea className="form-control mb-3 input-hover" placeholder="Message" rows="8" name="message"></textarea>
-
-                                <button className="btn btn-dark w-100" type="submit">
-                                    Send <FiSend className="ml-2" />
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-                    </form>
-
-            </section>
-
-
-            <div className="text-center">
-        <h1 className="display-4 font-weight-bold headingofcont">BOOK A MEETING</h1>
-        <div className="py-5">
-            <div className="embed-responsive embed-responsive-16by9">
-                <InlineWidget
-                    url="https://cal.com/icellmobileweb-gmail.com/30min"
-                    styles={{
-                        height: "1000px",
-                        width: "100%",
-                    }}
-                />
+  return (
+    <>
+      <Navbar />
+      <div className="contactpage-wrapper">
+        {/* Main Contact Container */}
+        <div className="main-contact-container">
+          {/* Contact Content */}
+          <div className="contact-content-wrap">
+            <div className="contact-content-treatment">Get in Touch</div>
+            <div className="contact-main-title">
+              Visit Our Showroom
+              <br />
+              or Request a Consultation
             </div>
+            <div className="contact-main-subtitle">
+              Experience luxury stone surfaces firsthand at our showroom. Our experts are ready to help you select the perfect marble, granite, or quartz for your project. Schedule a visit or request a virtual consultation today.
+            </div>
+            
+            {/* Contact Info Section */}
+            <div className="contact-info-section">
+              <div className="contact-info-item">
+                <div className="contact-icon">📍</div>
+                <div className="contact-details">
+                  <h4>Our Location</h4>
+                  <p>123 Luxury Stone Avenue</p>
+                  <p>Marble District, Riyadh 11564</p>
+                  <p>Saudi Arabia</p>
+                </div>
+              </div>
+              
+              <div className="contact-info-item">
+                <div className="contact-icon">📧</div>
+                <div className="contact-details">
+                  <h4>Email Us</h4>
+                  <p>contact@wahatalhijazmarble.com</p>
+                  <p>sales@wahatalhijazmarble.com</p>
+                </div>
+              </div>
+              
+              <div className="contact-info-item">
+                <div className="contact-icon">📞</div>
+                <div className="contact-details">
+                  <h4>Call Us</h4>
+                  <p>+966 11 234 5678</p>
+                  <p>+966 55 123 4567 (WhatsApp)</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="d-flex align-items-center contact-button-container">
+              <button
+                className="contact-get-directions-btn"
+                onClick={handleGetDirectionsClick}
+              >
+                <span className="contact-btn-dot">•</span>
+                <span className="contact-btn-text">Get Directions</span>
+              </button>
+              <button
+                className="contact-call-btn"
+                onClick={handleCallUsClick}
+              >
+                Call Us Now
+              </button>
+            </div>
+          </div>
+
+          {/* Contact Form Section */}
+          <div className="contact-form-container">
+            <h2 className="contact-form-title">Request a Free Consultation</h2>
+            <p className="contact-form-subtitle">Fill out the form and our marble experts will contact you within 24 hours</p>
+            
+            <form id="contact-form" onSubmit={handleFormSubmit}>
+              <div className="contact-form-group">
+                <label htmlFor="name">Full Name *</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name" />
+              </div>
+              
+              <div className="contact-form-group">
+                <label htmlFor="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number" />
+              </div>
+              
+              <div className="contact-form-group">
+                <label htmlFor="project-type">Project Type *</label>
+                <select id="project-type" name="project-type" required>
+                  <option value="">Select project type</option>
+                  <option value="residential">Residential</option>
+                  <option value="commercial">Commercial</option>
+                  <option value="kitchen">Kitchen Renovation</option>
+                  <option value="bathroom">Bathroom Renovation</option>
+                  <option value="flooring">Flooring</option>
+                  <option value="countertops">Countertops</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              
+              <div className="contact-form-group">
+                <label htmlFor="stone-type">Stone Type Interested In</label>
+                <select id="stone-type" name="stone-type">
+                  <option value="">Select stone type (optional)</option>
+                  <option value="marble">Marble</option>
+                  <option value="granite">Granite</option>
+                  <option value="quartz">Quartz</option>
+                  <option value="travertine">Travertine</option>
+                  <option value="onyx">Onyx</option>
+                  <option value="limestone">Limestone</option>
+                </select>
+              </div>
+              
+              <div className="contact-form-group">
+                <label htmlFor="message">Project Details *</label>
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  required 
+                  placeholder="Tell us about your project, dimensions, and timeline..."
+                ></textarea>
+              </div>
+              
+              <button type="submit" className="contact-submit-btn">Request Free Consultation</button>
+            </form>
+          </div>
         </div>
-</div>
 
-        </>
-    );
-}
+        {/* Booking Section - Using iframe for Cal.com */}
+        <div className="booking-section">
+          <div className="booking-container">
+            <h1 className="booking-heading">BOOK A MEETING</h1>
+            <div className="booking-wrapper">
+              <div className="calendar-embed-container">
+                <iframe 
+                  src={calEmbedUrl} 
+                  title="Book a Meeting"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    border: 'none',
+                    borderRadius: '20px'
+                  }}
+                  scrolling="no"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
-export default Contact;
+export default ContactPage;
