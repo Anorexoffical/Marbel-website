@@ -15,7 +15,7 @@ import CALACATTA_BORGHINI from '../assets/marble/CALACATTAORGHINI.png';
 import CALACATTA_LINCOLN from '../assets/marble/CALACATTALINCOLN.png';
 import CALACATTA_ORO from '../assets/marble/CALACATTAORO.png';
 import CAMOFLAGE from '../assets/marble/CAMOFLAGE.png';
-import CAPPUCCINO from '../assets/marble/CAPPUCCINO.png';
+import CAPPUCCINO from '../assets/marble/CAPPUCCINO1.png';
 import BIANCO_CIVIC from '../assets/marble/BIANCO CIVIC.png';
 import CALACATTA_PICASSO from '../assets/marble/CALACATTA PICASSO.png';
 import CREMA_MARFI from '../assets/marble/CREMA MARFI.png';
