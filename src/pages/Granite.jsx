@@ -6,42 +6,20 @@ import Navbar from "../pages/Navbar";
 import "../Style/Marble.css";
 
 // Granite Collection Images - First batch (existing)
-import RED_ALICANTE from '../assets/marble/REDALICANTE.jpg';
-import ARABSCATO from '../assets/marble/ARABSCATO1.png';
-import BIANCO_CARRARA from '../assets/marble/BIANCOCARRARA.jpg';
-import BIANCO_LILAC from '../assets/marble/BIANCO LILAC.png';
-import BOTTOCHINO from '../assets/marble/BOTTOCHINO.jpg';
-import CALACATTA_BORGHINI from '../assets/marble/CALACATTAORGHINI.png';
-import CALACATTA_LINCOLN from '../assets/marble/CALACATTALINCOLN.png';
-import CALACATTA_ORO from '../assets/marble/CALACATTAORO.png';
-import CAMOFLAGE from '../assets/marble/CAMOFLAGE.png';
-import CAPPUCCINO from '../assets/marble/CAPPUCCINO.png';
-import BIANCO_CIVIC from '../assets/marble/BIANCO CIVIC.png';
-import CALACATTA_PICASSO from '../assets/marble/CALACATTA PICASSO.png';
-import CREMA_MARFI from '../assets/marble/CREMA MARFI.png';
-import CREMA_ONO from '../assets/marble/CREMA-ONO.png';
-import CRYSTAL_EMPERADOR from '../assets/marble/CRYSTAL-EMPERADOR.png';
-import DAINO_REALE from '../assets/marble/DAINO-REALE.png';
-import DARK_EMPERADOR from '../assets/marble/DARK-EMPERADOR.png';
-import ERAMOSA from '../assets/marble/ERAMOSA.png';
-import FIRO_DI_BOSCO_LIGHT from '../assets/marble/FIRO DI BOSCO LIGHT.png';
-import GOLDEN_SPIDER from '../assets/marble/GOLDEN SPIDER.png';
-import ICE_JADE from '../assets/marble/ICE JADE.png';
-import MARMARA_WHITE from '../assets/marble/MARMARA WHITE.png';
-import NERO_MARQUINA from '../assets/marble/NERO MARQUINA.png';
-import NERO_PORTORO from '../assets/marble/NERO PORTORO.png';
-import PANDA_WHITE from '../assets/marble/PANDA WHITE.png';
-import PERLATO_SICILIA from '../assets/marble/PERLATO-SICILIA.png';
-import ROSO_LEVANTO from '../assets/marble/ROSO-LEVANTO.png';
-import SALOMIE_CLASSIC from '../assets/marble/SALOMIE CLASSIC.png';
-import ST_LAURENT from '../assets/marble/ST LAURENT.png';
-import THASSOS from '../assets/marble/THASSOS.png';
-import FIOR_DE_PESCO from '../assets/marble/FIOR DE PESCO.png';
-import REGGIO_VERDE from '../assets/marble/REGGIO VERDE.png';
-import SILVER_WAVE from '../assets/marble/SILVER WAVE.png';
-import CALACATTA_CALDIA from '../assets/marble/CALACATTA CALDIA.png';
-import PALISANDRO_BLUETTE from '../assets/marble/PALISANDRO BLUETTE.png';
-import STATUARIO from '../assets/marble/STATUARIO.png';
+import ALASKA_GOLD from '../assets/granite/ALASKA GOLD.png';
+import ALASKA_WHITE from '../assets/granite/ALASKA WHITE.png';
+import ANTIQUE_BROWN from '../assets/granite/ANTIQUE-BROWN.png';
+import ARABSCATO1 from '../assets/granite/ARABSCATO1.png';
+import MAGMA_BLACK from '../assets/granite/MAGMA BLACK.png';
+import MING_GREEN from '../assets/granite/MING-GREEN.png';
+import ORO_BRAZIL from '../assets/granite/ORO BRAZIL.png';
+import PATAGONIA from '../assets/granite/PATAGONIA.png';
+import PLATINUM_WHITE from '../assets/granite/PLATINUM WHITE.png';
+import SHIVAKASI_GOLD from '../assets/granite/SHIVAKASI GOLD.png';
+import SODA_LIGHT from '../assets/granite/SODA LIGHT.png';
+import STEEL_GREY_POLISHED from '../assets/granite/STEEL-GREY-POLISHED.png';
+import VISCOUNT_WHITE from '../assets/granite/VISCOUNT-WHITE.png';
+
 
 // Second batch of granite images from your list
 import AZULBAHIA from '../assets/granite/second/AZUL BAHIA.png';
@@ -70,59 +48,36 @@ export default function Granite() {
   const [currentPage, setCurrentPage] = useState(0);
   const [pageSize] = useState(9); // 9 cards per page
 
-  // Granite data - updated with all images including second batch
+  // Granite data - corrected to match available imports
   const granites = [
-    // First batch
-    { id: 1, name: "RED ALICANTE", imgSrc: RED_ALICANTE, type: "Red" },
-    { id: 2, name: "ARABSCATO", imgSrc: ARABSCATO, type: "White" },
-    { id: 3, name: "BIANCO CARRARA", imgSrc: BIANCO_CARRARA, type: "White" },
-    { id: 4, name: "BIANCO LILAC", imgSrc: BIANCO_LILAC, type: "White" },
-    { id: 5, name: "BOTTOCHINO", imgSrc: BOTTOCHINO, type: "Beige" },
-    { id: 6, name: "CALACATTA BORGHINI", imgSrc: CALACATTA_BORGHINI, type: "White" },
-    { id: 7, name: "CALACATTA LINCOLN", imgSrc: CALACATTA_LINCOLN, type: "White" },
-    { id: 8, name: "CALACATTA ORO", imgSrc: CALACATTA_ORO, type: "White" },
-    { id: 9, name: "CAMOFLAGE", imgSrc: CAMOFLAGE, type: "Green" },
-    { id: 10, name: "CAPPUCCINO", imgSrc: CAPPUCCINO, type: "Beige" },
-    { id: 11, name: "BIANCO CIVIC", imgSrc: BIANCO_CIVIC, type: "White" },
-    { id: 12, name: "CALACATTA PICASSO", imgSrc: CALACATTA_PICASSO, type: "White" },
-    { id: 13, name: "CREMA MARFI", imgSrc: CREMA_MARFI, type: "Cream" },
-    { id: 14, name: "CREMA-ONO", imgSrc: CREMA_ONO, type: "Cream" },
-    { id: 15, name: "CRYSTAL-EMPERADOR", imgSrc: CRYSTAL_EMPERADOR, type: "Brown" },
-    { id: 16, name: "DAINO-REALE", imgSrc: DAINO_REALE, type: "Beige" },
-    { id: 17, name: "DARK-EMPERADOR", imgSrc: DARK_EMPERADOR, type: "Brown" },
-    { id: 18, name: "ERAMOSA", imgSrc: ERAMOSA, type: "Grey" },
-    { id: 19, name: "FIRO DI BOSCO LIGHT", imgSrc: FIRO_DI_BOSCO_LIGHT, type: "Green" },
-    { id: 20, name: "GOLDEN SPIDER", imgSrc: GOLDEN_SPIDER, type: "Gold" },
-    { id: 21, name: "ICE JADE", imgSrc: ICE_JADE, type: "Green" },
-    { id: 22, name: "MARMARA WHITE", imgSrc: MARMARA_WHITE, type: "White" },
-    { id: 23, name: "NERO MARQUINA", imgSrc: NERO_MARQUINA, type: "Black" },
-    { id: 24, name: "NERO PORTORO", imgSrc: NERO_PORTORO, type: "Black" },
-    { id: 25, name: "PANDA WHITE", imgSrc: PANDA_WHITE, type: "White" },
-    { id: 26, name: "PERLATO-SICILIA", imgSrc: PERLATO_SICILIA, type: "Ivory" },
-    { id: 27, name: "ROSO-LEVANTO", imgSrc: ROSO_LEVANTO, type: "Pink" },
-    { id: 28, name: "SALOMIE CLASSIC", imgSrc: SALOMIE_CLASSIC, type: "Beige" },
-    { id: 29, name: "ST LAURENT", imgSrc: ST_LAURENT, type: "Grey" },
-    { id: 30, name: "THASSOS", imgSrc: THASSOS, type: "White" },
-    { id: 31, name: "FIOR DE PESCO", imgSrc: FIOR_DE_PESCO, type: "Pink" },
-    { id: 32, name: "REGGIO VERDE", imgSrc: REGGIO_VERDE, type: "Green" },
-    { id: 33, name: "SILVER WAVE", imgSrc: SILVER_WAVE, type: "Grey" },
-    { id: 34, name: "CALACATTA CALDIA", imgSrc: CALACATTA_CALDIA, type: "White" },
-    { id: 35, name: "PALISANDRO BLUETTE", imgSrc: PALISANDRO_BLUETTE, type: "Blue" },
-    { id: 36, name: "STATUARIO", imgSrc: STATUARIO, type: "White" },
-    
-    // Second batch - added from your list
-    { id: 37, name: "AZUL BAHIA", imgSrc: AZULBAHIA, type: "Blue" },
-    { id: 38, name: "AZUL MACUBA", imgSrc: AZUL_MACUBA, type: "Blue" },
-    { id: 39, name: "BIANCOSARDO", imgSrc: BIANCOSARDO, type: "White" },
-    { id: 40, name: "BLACK ABSOLUTE", imgSrc: BLACK_ABSOLUTE, type: "Black" },
-    { id: 41, name: "BLACK GALAXY", imgSrc: BLACK_GALAXY, type: "Black" },
-    { id: 42, name: "BLUE PEARL GT", imgSrc: BLUE_PEARL_GT, type: "Blue" },
-    { id: 43, name: "CRYSTAL YELLOW", imgSrc: CRYSTAL_YELLOW, type: "Yellow" },
-    { id: 44, name: "EMERALD PEARL", imgSrc: EMERALD_PEARL, type: "Green" },
-    { id: 45, name: "FAREAST WHITE", imgSrc: FAREAST_WHITE, type: "White" },
-    { id: 46, name: "INDIAN JUPRANA", imgSrc: INDIAN_JUPRANA, type: "Multi" },
-    { id: 47, name: "LABRADOR ANTIQUE", imgSrc: LABRADOR_ANTIQUE, type: "Blue" },
-    { id: 48, name: "LEMURIAN BLUE", imgSrc: LEMURIAN_BLUE, type: "Blue" },
+    // First batch (granite folder)
+    { id: 1, name: "ALASKA GOLD", imgSrc: ALASKA_GOLD, type: "Gold" },
+    { id: 2, name: "ALASKA WHITE", imgSrc: ALASKA_WHITE, type: "White" },
+    { id: 3, name: "ANTIQUE BROWN", imgSrc: ANTIQUE_BROWN, type: "Brown" },
+    { id: 4, name: "ARABSCATO", imgSrc: ARABSCATO1, type: "White" },
+    { id: 5, name: "MAGMA BLACK", imgSrc: MAGMA_BLACK, type: "Black" },
+    { id: 6, name: "MING GREEN", imgSrc: MING_GREEN, type: "Green" },
+    { id: 7, name: "ORO BRAZIL", imgSrc: ORO_BRAZIL, type: "Gold" },
+    { id: 8, name: "PATAGONIA", imgSrc: PATAGONIA, type: "Multi" },
+    { id: 9, name: "PLATINUM WHITE", imgSrc: PLATINUM_WHITE, type: "White" },
+    { id: 10, name: "SHIVAKASI GOLD", imgSrc: SHIVAKASI_GOLD, type: "Gold" },
+    { id: 11, name: "SODA LIGHT", imgSrc: SODA_LIGHT, type: "Grey" },
+    { id: 12, name: "STEEL GREY POLISHED", imgSrc: STEEL_GREY_POLISHED, type: "Grey" },
+    { id: 13, name: "VISCOUNT WHITE", imgSrc: VISCOUNT_WHITE, type: "White" },
+
+    // Second batch (granite/second folder)
+    { id: 14, name: "AZUL BAHIA", imgSrc: AZULBAHIA, type: "Blue" },
+    { id: 15, name: "AZUL MACUBA", imgSrc: AZUL_MACUBA, type: "Blue" },
+    { id: 16, name: "BIANCO SARDO", imgSrc: BIANCOSARDO, type: "White" },
+    { id: 17, name: "BLACK ABSOLUTE", imgSrc: BLACK_ABSOLUTE, type: "Black" },
+    { id: 18, name: "BLACK GALAXY", imgSrc: BLACK_GALAXY, type: "Black" },
+    { id: 19, name: "BLUE PEARL GT", imgSrc: BLUE_PEARL_GT, type: "Blue" },
+    { id: 20, name: "CRYSTAL YELLOW", imgSrc: CRYSTAL_YELLOW, type: "Yellow" },
+    { id: 21, name: "EMERALD PEARL", imgSrc: EMERALD_PEARL, type: "Green" },
+    { id: 22, name: "FAREAST WHITE", imgSrc: FAREAST_WHITE, type: "White" },
+    { id: 23, name: "INDIAN JUPRANA", imgSrc: INDIAN_JUPRANA, type: "Multi" },
+    { id: 24, name: "LABRADOR ANTIQUE", imgSrc: LABRADOR_ANTIQUE, type: "Blue" },
+    { id: 25, name: "LEMURIAN BLUE", imgSrc: LEMURIAN_BLUE, type: "Blue" },
   ];
 
   // Handler for search input change
