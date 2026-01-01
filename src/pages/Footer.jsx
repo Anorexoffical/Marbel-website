@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../Style/Footer.css";
 import footervideo from "../assets/footervedio.mp4";
 import certificate from '../assets/companydoc/certificate.png';
-import license from '../assets/companydoc/license.png';
+import license from '../assets/companydoc/license1.png';
 import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
 import { IoClose, IoDocumentText, IoLockClosed } from "react-icons/io5";
 
