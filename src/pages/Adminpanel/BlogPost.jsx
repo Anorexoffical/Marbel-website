@@ -1,12 +1,36 @@
-import "../../Style/Blogpost.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
+import Underline from '@tiptap/extension-underline';
+import TextAlign from '@tiptap/extension-text-align';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdminNavbar from "./AdminNavbar";
-import { useNavigate } from "react-router-dom";
+import {
+  FaBold,
+  FaItalic,
+  FaUnderline,
+  FaStrikethrough,
+  FaListOl,
+  FaListUl,
+  FaAlignLeft,
+  FaAlignCenter,
+  FaAlignRight,
+  FaAlignJustify,
+  FaUndo,
+  FaRedo,
+  FaHeading,
+  FaParagraph,
+  FaImage,
+  FaCalendarAlt,
+  FaTag,
+  FaUser,
+  FaBriefcase,
+  FaEdit,
+  FaPaperPlane
+} from 'react-icons/fa';
+import "../../Style/Blogpost.css";
 
 function BlogPost() {
   const [postDate, setPostDate] = useState('');
@@ -15,34 +39,42 @@ function BlogPost() {
   const [occupation, setOccupation] = useState('');
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
+  const [blogImage, setBlogImage] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Initialize TipTap editor
   const editor = useEditor({
-    extensions: [StarterKit],
+    extensions: [
+      StarterKit,
+      Underline,
+      TextAlign.configure({
+        types: ['heading', 'paragraph'],
+        alignments: ['left', 'center', 'right', 'justify'],
+      }),
+    ],
     content: '',
     onUpdate: ({ editor }) => {
       setBody(editor.getHTML());
     },
   });
-  const [blogImage, setBlogImage] = useState(null);
-  const navigate = useNavigate();
-
-  // // Check if the user is authenticated on component mount
-  // useEffect(() => {
-  //   const isAuthenticated = sessionStorage.getItem('userName');
-  //   if (!isAuthenticated) {
-  //     navigate("/login"); // Redirect to login if not authenticated
-  //   }
-  // }, [navigate]);
 
   const handleImageChange = (e) => {
-    setBlogImage(e.target.files[0]);
+    const file = e.target.files[0];
+    if (file) {
+      setBlogImage(file);
+      toast.success(`Image selected: ${file.name}`, {
+        autoClose: 1500,
+      });
+    }
   };
 
-  const Submit = (e) => {
+  const Submit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
-    // Check if all fields are filled
     if (!postDate || !category || !username || !occupation || !title || !body) {
       emptyNotification();
+      setIsSubmitting(false);
       return;
     }
 
@@ -55,157 +87,325 @@ function BlogPost() {
     formData.append("body", body);
     if (blogImage) formData.append("blogImage", blogImage);
 
-    axios.post("http://localhost:3001/api/blogs/Blogpost", formData, {
-      headers: { "Content-Type": "multipart/form-data" }
-    })
-    .then(result => {
-      console.log(result);
+    try {
+      await axios.post("http://localhost:3001/api/blogs/Blogpost", formData, {
+        headers: { "Content-Type": "multipart/form-data" }
+      });
       savenotification();
-      // Clear all fields after successful submission
-      setPostDate('');
-      setCategory('');
-      setUsername('');
-      setOccupation('');
-      setTitle('');
-      setBody('');
-      if (editor) {
-        editor.commands.setContent('');
-      }
-      setBlogImage(null);
-      document.getElementById("blogPostForm").reset(); // Reset file input
-    })
-    .catch(err => {
+      resetForm();
+    } catch (err) {
       console.log(err);
       errorNotification();
-    });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const resetForm = () => {
+    setPostDate('');
+    setCategory('');
+    setUsername('');
+    setOccupation('');
+    setTitle('');
+    setBody('');
+    if (editor) {
+      editor.commands.setContent('');
+    }
+    setBlogImage(null);
+    document.getElementById("blogPostForm").reset();
   };
 
   const errorNotification = () => {
-    toast.warn("An error occurred while saving the blog post.", {
-      autoClose: 2000,
+    toast.error("Failed to save blog post. Please try again.", {
+      autoClose: 3000,
     });
   };
 
   const emptyNotification = () => {
-    toast.warn("Please fill in all fields.", {
-      autoClose: 2000,
+    toast.warning("Please fill in all required fields.", {
+      autoClose: 3000,
     });
   };
 
   const savenotification = () => {
-    toast.success("Blog post saved successfully!", {
-      autoClose: 2000,
+    toast.success("Blog post published successfully!", {
+      autoClose: 3000,
     });
   };
 
+  if (!editor) {
+    return <div className="blog-loading">Loading editor...</div>;
+  }
+
   return (
     <>
-      <ToastContainer />
+      <ToastContainer position="top-right" theme="colored" />
 
       <AdminNavbar />
-      <div className="container-fluid mt-4">
-        <div className="containerblog card p-4">
+      
+      <div className="blog-post-container">
+        <div className="blog-post-card">
+          {/* Header removed - just the form */}
           <form id="blogPostForm" onSubmit={Submit}>
-            <div className="form first">
-              <div className="details personal">
+            <div className="form-grid">
+              {/* Image Upload - Full Width */}
+              <div className="form-group full-width">
+                <div className="image-upload-area">
+                  <input
+                    type="file"
+                    id="blogImage"
+                    className="image-upload-input"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                  />
+                  <label htmlFor="blogImage" className="image-upload-label">
+                    <FaImage size={24} />
+                    <p>Click to upload featured image</p>
+                    <small>PNG, JPG, GIF up to 5MB</small>
+                    {blogImage && (
+                      <div className="image-preview">
+                        <img 
+                          src={URL.createObjectURL(blogImage)} 
+                          alt="Preview" 
+                        />
+                        <span>{blogImage.name}</span>
+                      </div>
+                    )}
+                  </label>
+                </div>
+              </div>
+
+              {/* Row 1: Post Date, Category, Username */}
+              <div className="form-group">
+                <label className="form-label">
+                  <FaCalendarAlt className="form-icon" />
+                  Post Date <span className="required">*</span>
+                </label>
+                <input
+                  type="date"
+                  className="blog-form-control"
+                  required
+                  value={postDate}
+                  onChange={(e) => setPostDate(e.target.value)}
+                />
+              </div>
+
+              <div className="form-group">
+                <label className="form-label">
+                  <FaTag className="form-icon" />
+                  Category <span className="required">*</span>
+                </label>
+                <div className="blog-select-wrapper">
+                  <select
+                    className="blog-form-control"
+                    required
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                  >
+                    <option value="">Select category</option>
+                    <option value="Marble">Marble</option>
+                    <option value="Granite">Granite</option>
+                    <option value="Mosaic">Mosaic</option>
+                    <option value="Quartz">Quartz</option>
+                    <option value="Travertine">Travertine</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label className="form-label">
+                  <FaUser className="form-icon" />
+                  Username <span className="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  className="blog-form-control"
+                  placeholder="Enter username"
+                  required
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </div>
+
+              {/* Row 2: Occupation and Blog Title (spanning 2 columns) */}
+              <div className="form-group">
+                <label className="form-label">
+                  <FaBriefcase className="form-icon" />
+                  Occupation <span className="required">*</span>
+                </label>
+                <div className="blog-select-wrapper">
+                  <select
+                    className="blog-form-control"
+                    required
+                    value={occupation}
+                    onChange={(e) => setOccupation(e.target.value)}
+                  >
+                    <option value="">Select occupation</option>
+                    <option value="Marble Specialist">Marble Specialist</option>
+                    <option value="Granite Specialist">Granite Specialist</option>
+                    <option value="Mosaic Designer">Mosaic Designer</option>
+                    <option value="Quartz Fabrication Engineer">Quartz Fabrication Engineer</option>
+                    <option value="Travertine Specialist">Travertine Specialist</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Blog Title - spans 2 columns */}
+              <div className="form-group blog-title-full">
+                <label className="form-label">
+                  Blog Title <span className="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  className="blog-form-control blog-title-input"
+                  placeholder="Enter your blog title here..."
+                  required
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+              </div>
+
+              {/* Rich Text Editor - Full Width */}
+              <div className="form-group full-width">
+                <label className="form-label">
+                  Content <span className="required">*</span>
+                </label>
                 
-                <h2 className="text-center mb-4">Create Blog Post</h2>
-                <div className="row g-3">
-                  <div className="col-md-6">
-                    <label className="form-label">Post Date</label>
-                    <input
-                      type="date"
-                      className="form-control"
-                      required
-                      value={postDate}
-                      onChange={(e) => setPostDate(e.target.value)}
-                    />
-                  </div>
+                {/* Editor Toolbar */}
+                <div className="blog-editor-toolbar">
+                  <div className="toolbar-row">
+                    <div className="toolbar-group">
+                      <button
+                        type="button"
+                        onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
+                        className={`toolbar-btn ${editor.isActive('heading', { level: 1 }) ? 'active' : ''}`}
+                        title="Heading 1"
+                      >
+                        H1
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
+                        className={`toolbar-btn ${editor.isActive('heading', { level: 2 }) ? 'active' : ''}`}
+                        title="Heading 2"
+                      >
+                        H2
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
+                        className={`toolbar-btn ${editor.isActive('heading', { level: 3 }) ? 'active' : ''}`}
+                        title="Heading 3"
+                      >
+                        H3
+                      </button>
+                    </div>
 
-                  <div className="col-md-6">
-                    <label className="form-label">Category</label>
-                    <input
-                      className="form-control"
-                      placeholder="Enter Category"
-                      list="categories"
-                      required
-                      value={category}
-                      onChange={(e) => setCategory(e.target.value)}
-                    />
-                  
-                    <datalist id="categories">
-                      <option value="Activate my SIM" />
-                      <option value="Top up" />
-                    </datalist>
-                  </div>
+                    <div className="toolbar-divider"></div>
 
-                  <div className="col-md-6">
-                    <label className="form-label">Username</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Enter Username"
-                      required
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                    />
-                  </div>
+                    <div className="toolbar-group">
+                      <button
+                        type="button"
+                        onClick={() => editor.chain().focus().toggleBold().run()}
+                        className={`toolbar-btn ${editor.isActive('bold') ? 'active' : ''}`}
+                        title="Bold"
+                      >
+                        <FaBold />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => editor.chain().focus().toggleItalic().run()}
+                        className={`toolbar-btn ${editor.isActive('italic') ? 'active' : ''}`}
+                        title="Italic"
+                      >
+                        <FaItalic />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => editor.chain().focus().toggleUnderline().run()}
+                        className={`toolbar-btn ${editor.isActive('underline') ? 'active' : ''}`}
+                        title="Underline"
+                      >
+                        <FaUnderline />
+                      </button>
+                    </div>
 
-                  <div className="col-md-6">
-                    <label className="form-label">Occupation</label>
-                    <input
-                      className="form-control"
-                      placeholder="Enter Occupation"
-                      list="blogcategories"
-                      required
-                      value={occupation}
-                      onChange={(e) => setOccupation(e.target.value)}
-                    />
-                <datalist id="blogcategories">
-                      <option value="Telecom Network Engineer" />
-                      <option value="SIM Card Engineer " />
-                      <option value="Electronics Engineer" />
-                      <option value="VoLTE & IMS Engineer" />
-                      <option value="Embedded Systems Enginee" />
+                    <div className="toolbar-divider"></div>
 
-                    </datalist>
-                  </div>
+                    <div className="toolbar-group">
+                      <button
+                        type="button"
+                        onClick={() => editor.chain().focus().toggleBulletList().run()}
+                        className={`toolbar-btn ${editor.isActive('bulletList') ? 'active' : ''}`}
+                        title="Bullet List"
+                      >
+                        <FaListUl />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => editor.chain().focus().toggleOrderedList().run()}
+                        className={`toolbar-btn ${editor.isActive('orderedList') ? 'active' : ''}`}
+                        title="Numbered List"
+                      >
+                        <FaListOl />
+                      </button>
+                    </div>
 
-                  <div className="col-12">
-                    <label className="form-label">Title</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Enter Blog Title"
-                      required
-                      value={title}
-                      onChange={(e) => setTitle(e.target.value)}
-                    />
-                  </div>
+                    <div className="toolbar-divider"></div>
 
-                  <div className="col-12">
-                    <label className="form-label">Body</label>
-                    <div style={{ border: '1px solid #ccc', borderRadius: 4, minHeight: 200, padding: 8 }}>
-                      <EditorContent editor={editor} />
+                    <div className="toolbar-group">
+                      <button
+                        type="button"
+                        onClick={() => editor.chain().focus().setTextAlign('left').run()}
+                        className={`toolbar-btn ${editor.isActive({ textAlign: 'left' }) ? 'active' : ''}`}
+                        title="Align Left"
+                      >
+                        <FaAlignLeft />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => editor.chain().focus().setTextAlign('center').run()}
+                        className={`toolbar-btn ${editor.isActive({ textAlign: 'center' }) ? 'active' : ''}`}
+                        title="Align Center"
+                      >
+                        <FaAlignCenter />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => editor.chain().focus().setTextAlign('right').run()}
+                        className={`toolbar-btn ${editor.isActive({ textAlign: 'right' }) ? 'active' : ''}`}
+                        title="Align Right"
+                      >
+                        <FaAlignRight />
+                      </button>
                     </div>
                   </div>
-
-                  <div className="col-12 mt-4">
-                    <label className="form-label">Blog Image</label>
-                    <input
-                      type="file"
-                      className="form-control"
-                      accept="image/*"
-                      onChange={handleImageChange}
-                    />
-                  </div>
-
-                  <div className="col-12 text-end">
-                    <button className="btn btn-primary" type="submit">
-                      Post Blog
-                    </button>
-                  </div>
                 </div>
+
+                {/* Editor Content */}
+                <div className="blog-editor-content">
+                  <EditorContent editor={editor} />
+                </div>
+              </div>
+
+              {/* Form Actions */}
+              <div className="form-actions full-width">
+                <button
+                  type="button"
+                  className="blog-btn-secondary"
+                  onClick={resetForm}
+                  disabled={isSubmitting}
+                >
+                  Clear Form
+                </button>
+                <button
+                  type="submit"
+                  className="blog-btn-primary"
+                  disabled={isSubmitting}
+                >
+                  <FaPaperPlane className="me-2" />
+                  {isSubmitting ? 'Publishing...' : 'Publish Blog'}
+                </button>
               </div>
             </div>
           </form>

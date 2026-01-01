@@ -32,7 +32,7 @@ body {
   margin-top: 0px;
   width: calc(100vw - 30px);
   min-height: 75vh;
-  background-image: url('../assets/contectus.png');
+  background-image: url('../assets/contactus.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -167,9 +167,9 @@ body {
 }
 
 .contact-button-container {
+  display: flex;
   gap: 1rem;
   flex-wrap: nowrap;
-  display: flex;
   align-items: center;
 }
 
@@ -568,6 +568,7 @@ body {
     max-width: 100%;
     margin-bottom: 40px;
     padding: 0;
+    align-items: flex-start;
   }
   
   .contact-main-title {
@@ -621,21 +622,30 @@ body {
     padding: 30px 25px;
     background-size: cover;
     background-position: 45% center;
+    align-items: center;
   }
   
   .contact-content-wrap {
     max-width: 100%;
     margin-bottom: 30px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .contact-content-treatment {
+    text-align: center;
   }
   
   .contact-main-title {
     font-size: 40px;
     line-height: 1.1;
+    text-align: center;
   }
   
   .contact-main-subtitle {
     font-size: 15px;
     max-width: 100%;
+    text-align: center;
   }
   
   .contact-info-section {
@@ -650,6 +660,7 @@ body {
   
   .contact-button-container {
     gap: 0.8rem;
+    justify-content: center;
   }
   
   .contact-get-directions-btn,
@@ -691,23 +702,26 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     padding: 30px 20px;
+    align-items: center;
   }
   
   .contact-content-wrap {
     margin-bottom: 30px;
-    text-align: left;
-    align-items: flex-start;
+    text-align: center;
+    align-items: center;
+    width: 100%;
   }
   
   .contact-content-treatment {
-    text-align: left;
+    text-align: center;
     margin-bottom: 0.5rem;
     font-size: 15px;
+    width: 100%;
   }
   
   .contact-main-title {
     font-size: 38px;
-    text-align: left;
+    text-align: center;
     line-height: 1.1;
     margin-bottom: 0.8rem;
   }
@@ -716,11 +730,27 @@ body {
     font-size: 15px;
     max-width: 100%;
     margin-bottom: 1.5rem;
-    text-align: left;
+    text-align: center;
   }
   
   .contact-info-section {
     max-width: 100%;
+  }
+  
+  .contact-info-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .contact-icon {
+    margin-right: 0;
+    margin-bottom: 10px;
+    justify-content: center;
+  }
+  
+  .contact-details {
+    text-align: center;
   }
   
   .contact-button-container {
@@ -728,7 +758,7 @@ body {
     gap: 0.8rem;
     width: 100%;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
   }
   
@@ -736,6 +766,9 @@ body {
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
+    position: relative;
+    right: auto;
+    left: auto;
   }
   
   .contact-get-directions-btn,
@@ -845,10 +878,14 @@ body {
   }
   
   .contact-form-container {
-    width: 100%;
-    max-width: 450px;
-    margin: 0 auto;
+    width: 100% !important;
+    max-width: 450px !important;
+    margin: 0 auto !important;
     padding: 25px 20px;
+    position: relative !important;
+    right: auto !important;
+    left: auto !important;
+    transform: none !important;
   }
   
   .contact-get-directions-btn,
@@ -900,39 +937,84 @@ body {
     border-radius: 1.2rem;
     margin: 10px auto;
     width: calc(100vw - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .contact-content-wrap {
     max-width: 100% !important;
     margin-bottom: 25px !important;
+    text-align: center !important;
+    align-items: center !important;
+    width: 100%;
+  }
+  
+  .contact-content-treatment {
+    text-align: center !important;
+    width: 100%;
+    font-size: 14px;
   }
   
   .contact-main-title {
     font-size: 32px !important;
+    text-align: center !important;
   }
   
   .contact-main-subtitle {
     font-size: 14px !important;
+    text-align: center !important;
   }
   
   .contact-info-section {
     padding: 15px;
+    width: 100%;
+  }
+  
+  .contact-info-item {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-icon {
+    margin-right: 0;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
   
   .contact-details h4 {
     font-size: 15px;
+    text-align: center;
   }
   
   .contact-details p {
     font-size: 13px;
+    text-align: center;
   }
   
+  /* CRITICAL FIX: Ensure form container is properly centered */
   .contact-form-container {
     padding: 20px 15px;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    right: auto !important;
+    left: auto !important;
+    transform: none !important;
   }
   
   .contact-form-title {
     font-size: 22px;
+    text-align: center;
+  }
+  
+  .contact-form-subtitle {
+    font-size: 14px;
+    text-align: center;
   }
   
   .contact-form-group input,
@@ -944,16 +1026,21 @@ body {
   
   .contact-button-container {
     gap: 0.6rem;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
   }
   
   .contact-get-directions-btn {
-    width: 170px;
+    width: 100% !important;
+    max-width: 100% !important;
     height: 46px;
     font-size: 14px;
   }
   
   .contact-call-btn {
-    width: 140px;
+    width: 100% !important;
+    max-width: 100% !important;
     height: 46px;
     font-size: 14px;
   }
@@ -991,43 +1078,70 @@ body {
     border-radius: 1rem;
     margin: 8px auto;
     width: calc(100vw - 16px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .contact-content-wrap {
     max-width: 100% !important;
     margin-bottom: 20px !important;
+    text-align: center !important;
+    align-items: center !important;
+    width: 100%;
   }
   
   .contact-main-title {
     font-size: 28px !important;
+    text-align: center !important;
   }
   
   .contact-main-subtitle {
     font-size: 13px !important;
+    text-align: center !important;
   }
   
   .contact-info-section {
     padding: 12px;
+    width: 100%;
+  }
+  
+  .contact-info-item {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
   }
   
   .contact-details h4 {
     font-size: 14px;
+    text-align: center;
   }
   
   .contact-details p {
     font-size: 12px;
+    text-align: center;
   }
   
+  /* CRITICAL FIX: Ensure form container is properly centered */
   .contact-form-container {
     padding: 18px 12px;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    right: auto !important;
+    left: auto !important;
+    transform: none !important;
   }
   
   .contact-form-title {
     font-size: 20px;
+    text-align: center;
   }
   
   .contact-form-subtitle {
     font-size: 13px;
+    text-align: center;
   }
   
   .contact-form-group label {
@@ -1045,6 +1159,7 @@ body {
     gap: 0.5rem;
     flex-direction: column;
     width: 100%;
+    align-items: center;
   }
   
   .contact-get-directions-btn,
@@ -1088,43 +1203,70 @@ body {
     margin: 6px auto;
     width: calc(100vw - 12px);
     border-radius: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .contact-content-wrap {
     margin-bottom: 15px !important;
     max-width: 100% !important;
+    text-align: center !important;
+    align-items: center !important;
+    width: 100%;
   }
   
   .contact-main-title {
     font-size: 24px !important;
+    text-align: center !important;
   }
   
   .contact-main-subtitle {
     font-size: 12px !important;
+    text-align: center !important;
   }
   
   .contact-info-section {
     padding: 10px;
+    width: 100%;
+  }
+  
+  .contact-info-item {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
   }
   
   .contact-details h4 {
     font-size: 13px;
+    text-align: center;
   }
   
   .contact-details p {
     font-size: 11px;
+    text-align: center;
   }
   
+  /* CRITICAL FIX: Ensure form container is properly centered */
   .contact-form-container {
     padding: 15px 10px;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    right: auto !important;
+    left: auto !important;
+    transform: none !important;
   }
   
   .contact-form-title {
     font-size: 18px;
+    text-align: center;
   }
   
   .contact-form-subtitle {
     font-size: 12px;
+    text-align: center;
   }
   
   .contact-form-group label {
@@ -1141,6 +1283,8 @@ body {
   .contact-button-container {
     gap: 0.4rem;
     flex-direction: column;
+    width: 100%;
+    align-items: center;
   }
   
   .contact-get-directions-btn,
@@ -1171,19 +1315,24 @@ body {
     background-position: center;
     flex-direction: row;
     padding: 20px;
+    align-items: center;
   }
   
   .contact-content-wrap {
     max-width: 50% !important;
     margin-bottom: 0;
+    align-items: flex-start;
+    text-align: left;
   }
   
   .contact-main-title {
     font-size: 28px !important;
+    text-align: left;
   }
   
   .contact-main-subtitle {
     font-size: 13px !important;
+    text-align: left;
   }
   
   .contact-info-section {
@@ -1200,6 +1349,7 @@ body {
   .contact-button-container {
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: flex-start;
   }
   
   .calendar-embed-container {
@@ -1210,7 +1360,7 @@ body {
 /* High-resolution displays */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .main-contact-container {
-    background-image: url('../assets/contectus@2x.png');
+    background-image: url('../assets/contactus.png');
   }
 }
 

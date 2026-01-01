@@ -5,10 +5,11 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import PrivateRoute from './pages/PrivateRoute.jsx';
 import Home from './pages/Home.jsx'
 import Marble from './pages/Marble.jsx'
-import GraniteOnyx from './pages/GraniteOnyx.jsx'
+import Granite from './pages/Granite.jsx'
 import Travertine from './pages/Travertine.jsx'
 import Ceramic from './pages/Ceramic.jsx'
 import Quartz from './pages/Quartz.jsx'
+import Mosaic from './pages/Mosaic.jsx'
 import ContactUs from './pages/ContactUs.jsx'
 import RecentProjects from './pages/RecentProjects.jsx'
 import Blog from './pages/blog.jsx'
@@ -22,20 +23,22 @@ function App() {
   const location = useLocation();
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/marble" element={<Marble />} />
-        <Route path="/granite-onyx" element={<GraniteOnyx />} />
+        <Route path="/granite" element={<Granite />} />
         <Route path="/travertine" element={<Travertine />} />
         <Route path="/ceramic" element={<Ceramic />} />
         <Route path="/quartz" element={<Quartz />} />
+        <Route path="/mosaic" element={<Mosaic />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/our-recent-projects" element={<RecentProjects />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/login" element={<Login />} />
         <Route path="/BlogDetail/:id" element={<BlogDetail />} />
         <Route path="*" element={<Navigate to="/" replace />} />
+        
           {/* protected admin routes */}
         <Route path="/Blogtable" element={<PrivateRoute><BlogTable /></PrivateRoute>} />
         <Route path="/EditBlogPost/:id" element={<PrivateRoute><EditBlogPost /></PrivateRoute>} />

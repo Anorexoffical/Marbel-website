@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import logo from "../../assets/logo.jpeg";
+import logo from "../../assets/logoblack.png";
 import '../../Style/Login.css'; // Import custom styles
 
 const Login = () => {

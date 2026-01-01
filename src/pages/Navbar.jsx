@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ReactFlagsSelect from 'react-flags-select';
 import '../Style/Navbar.css';
-import logo from "../assets/logo.png";
+import logo from "../assets/logoblack.png";
 
 // Import stone images
 import marbleImg from "../assets/service1.png";
@@ -12,19 +12,22 @@ import ceramicImg from "../assets/service4.png";
 import quartzImg from "../assets/service5.png";
 import limestoneImg from "../assets/service6.png";
 
-const Navbar = () => {
+const Navbar = ({ scrollToAboutUs }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('US');
+  const [loadedImages, setLoadedImages] = useState({});
   const dropdownRef = useRef(null);
   const mobileDropdownRef = useRef(null);
   const languageDropdownRef = useRef(null);
+  const imageRefs = useRef({});
+  const location = useLocation();
 
   // Stone collection data with images
   const stoneCollections = [
     { id: 1, name: "Marble", path: "/marble", image: marbleImg },
-    { id: 2, name: "Granite Onyx", path: "/granite-onyx", image: graniteImg },
+    { id: 2, name: "Granite Onyx", path: "/granite", image: graniteImg },
     { id: 3, name: "Travertine", path: "/travertine", image: travertineImg },
     { id: 4, name: "Ceramic", path: "/ceramic", image: ceramicImg },
     { id: 5, name: "Quartz", path: "/quartz", image: quartzImg },
@@ -34,6 +37,44 @@ const Navbar = () => {
   // Split into two rows of 3 items each for desktop
   const row1 = stoneCollections.slice(0, 3);
   const row2 = stoneCollections.slice(3, 6);
+
+  // Handle image load
+  const handleImageLoad = (id) => {
+    setLoadedImages(prev => ({ ...prev, [id]: true }));
+  };
+
+  // Initialize Intersection Observer for lazy loading
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            const src = img.getAttribute('data-src');
+            if (src) {
+              img.src = src;
+              img.removeAttribute('data-src');
+            }
+            observer.unobserve(img);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '50px',
+        threshold: 0.1
+      }
+    );
+
+    // Observe all lazy images
+    Object.values(imageRefs.current).forEach(ref => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -46,7 +87,7 @@ const Navbar = () => {
   };
 
   const handleEmailClick = () => {
-    window.open('mailto:info@petwell.com', '_blank');
+    window.open('mailto:enquire@wahatalhijamarble.com', '_blank');
   };
 
   const toggleServicesDropdown = () => {
@@ -58,11 +99,31 @@ const Navbar = () => {
   };
 
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/1234567890', '_blank');
+    // Pre-filled message for WhatsApp
+    const message = encodeURIComponent(
+      "Hello WAHAT AL HIJA MARBLE,\n\n" +
+      "I'm interested in your marble and granite services. " 
+    );
+    
+    window.open(`https://wa.me/+971544992662?text=${message}`, '_blank');
   };
 
   const handleLanguageSelect = (countryCode) => {
     setSelectedLanguage(countryCode);
+  };
+
+  // Handle About Us click - scroll on homepage, navigate on other pages
+  const handleAboutUsClick = (e) => {
+    e.preventDefault();
+    closeMobileMenu();
+    
+    if (location.pathname === '/' && scrollToAboutUs) {
+      // If on homepage and scrollToAboutUs function is provided, scroll to about section
+      scrollToAboutUs();
+    } else {
+      // If on other pages, navigate to homepage with hash
+      window.location.href = '/#about';
+    }
   };
 
   useEffect(() => {
@@ -88,14 +149,14 @@ const Navbar = () => {
         <div className="petwell-container-fluid petwell-top-bar-content">
           <div className="petwell-top-bar-left">
             <a 
-              href="mailto:info@petwell.com" 
+              href="enquire@wahatalhijamarble.com" 
               className="petwell-email-link"
               onClick={(e) => {
                 e.preventDefault();
                 handleEmailClick();
               }}
             >
-              info@petwell.com
+              enquire@wahatalhijamarble.com
             </a>
           </div>
 
@@ -155,14 +216,27 @@ const Navbar = () => {
           {/* Brand Logo - Will be hidden below 435px */}
           <Link className="petwell-navbar-brand" to="/" onClick={closeMobileMenu}>
             <div className="petwell-brand-logo">
-              <img src={logo} alt="Petwell Logo" className="petwell-logo-img" />
+              <img 
+                src={logo} 
+                alt="Petwell Logo" 
+                className="petwell-logo-img" 
+                loading="eager" // Keep logo eager loaded for immediate visibility
+              />
             </div>
           </Link>
 
           {/* Navigation Links (centered pill) */}
           <div className="petwell-nav-pill rounded-pill d-none d-xxl-flex align-items-center mx-auto">
             <Link className="petwell-nav-link" to="/" onClick={closeMobileMenu}>Home</Link>
-            <Link className="petwell-nav-link" to="/about-us" onClick={closeMobileMenu}>About Us</Link>
+            
+            {/* About Us Link - Updated to handle scroll/navigation */}
+            <a 
+              className="petwell-nav-link" 
+              href="#about"
+              onClick={handleAboutUsClick}
+            >
+              About Us
+            </a>
             
             {/* Services Dropdown */}
             <div className="petwell-nav-dropdown" ref={dropdownRef}>
@@ -204,9 +278,13 @@ const Navbar = () => {
                           <div className="petwell-stone-content">
                             <div className="petwell-stone-image-wrapper">
                               <img 
-                                src={stone.image} 
+                                ref={el => imageRefs.current[stone.id] = el}
+                                src={isServicesOpen ? stone.image : ''} // Lazy load: only set src when dropdown is open
+                                data-src={stone.image}
                                 alt={stone.name} 
-                                className="petwell-stone-image"
+                                className={`petwell-stone-image ${loadedImages[stone.id] ? 'loaded' : 'loading'}`}
+                                loading="lazy"
+                                onLoad={() => handleImageLoad(stone.id)}
                               />
                             </div>
                             <div className="petwell-stone-text">
@@ -229,9 +307,13 @@ const Navbar = () => {
                           <div className="petwell-stone-content">
                             <div className="petwell-stone-image-wrapper">
                               <img 
-                                src={stone.image} 
+                                ref={el => imageRefs.current[stone.id] = el}
+                                src={isServicesOpen ? stone.image : ''} // Lazy load: only set src when dropdown is open
+                                data-src={stone.image}
                                 alt={stone.name} 
-                                className="petwell-stone-image"
+                                className={`petwell-stone-image ${loadedImages[stone.id] ? 'loaded' : 'loading'}`}
+                                loading="lazy"
+                                onLoad={() => handleImageLoad(stone.id)}
                               />
                             </div>
                             <div className="petwell-stone-text">
@@ -292,7 +374,12 @@ const Navbar = () => {
       <div className={`petwell-mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
         <div className="petwell-mobile-menu-header">
           <div className="petwell-brand-logo">
-            <img src={logo} alt="Petwell Logo" className="petwell-logo-img" />
+            <img 
+              src={logo} 
+              alt="Petwell Logo" 
+              className="petwell-logo-img" 
+              loading="eager" 
+            />
           </div>
           <button className="petwell-mobile-menu-close" onClick={closeMobileMenu}>
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -304,7 +391,15 @@ const Navbar = () => {
         {/* Mobile Navigation Links */}
         <div className="petwell-mobile-nav-links" ref={mobileDropdownRef}>
           <Link className="petwell-mobile-nav-link" to="/" onClick={closeMobileMenu}>Home</Link>
-          <Link className="petwell-mobile-nav-link" to="/about-us" onClick={closeMobileMenu}>About Us</Link>
+          
+          {/* Mobile About Us Link - Updated */}
+          <a 
+            className="petwell-mobile-nav-link" 
+            href="#about"
+            onClick={handleAboutUsClick}
+          >
+            About Us
+          </a>
           
           {/* Mobile Services Dropdown */}
           <div className="petwell-mobile-dropdown">
@@ -344,9 +439,13 @@ const Navbar = () => {
                       <div className="petwell-mobile-stone-content">
                         <div className="petwell-mobile-stone-image-wrapper">
                           <img 
-                            src={stone.image} 
+                            ref={el => imageRefs.current[`mobile-${stone.id}`] = el}
+                            src={isMobileServicesOpen ? stone.image : ''}
+                            data-src={stone.image}
                             alt={stone.name} 
-                            className="petwell-mobile-stone-image"
+                            className={`petwell-mobile-stone-image ${loadedImages[stone.id] ? 'loaded' : 'loading'}`}
+                            loading="lazy"
+                            onLoad={() => handleImageLoad(stone.id)}
                           />
                         </div>
                         <div className="petwell-mobile-stone-text">
@@ -365,29 +464,8 @@ const Navbar = () => {
           <Link className="petwell-mobile-nav-link" to="/our-recent-projects" onClick={closeMobileMenu}>Recent Projects</Link>
         </div>
         
-        {/* Mobile Language Selector and WhatsApp - Inside Mobile Menu at bottom */}
+        {/* REMOVED: Mobile Language Selector - Only WhatsApp button remains */}
         <div className="petwell-mobile-language-section">
-          <div className="petwell-mobile-language-selector">
-            <ReactFlagsSelect
-              selected={selectedLanguage}
-              onSelect={handleLanguageSelect}
-              countries={["US", "SA"]}
-              customLabels={{
-                "US": { primary: "English", secondary: "" },
-                "SA": { primary: "العربية", secondary: "" }
-              }}
-              placeholder="Select Language"
-              className="petwell-mobile-language-select"
-              selectButtonClassName="petwell-mobile-language-button"
-              optionsClassName="petwell-mobile-language-options"
-              showSelectedLabel={true}
-              showSecondarySelectedLabel={false}
-              selectedSize={16}
-              optionsSize={14}
-              fullWidth={true}
-            />
-          </div>
-          
           {/* WhatsApp Button in Mobile Drawer - Always visible */}
           <button 
             className="petwell-btn petwell-get-started-btn petwell-whatsapp-btn-mobile"

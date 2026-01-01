@@ -1,120 +1,494 @@
-// FooterSection.jsx
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Style/Footer.css";
 import footervideo from "../assets/footervedio.mp4";
+import logo from "../assets/logowhite.png";
+import certificate from '../assets/companydoc/certificate.png';
+import license from '../assets/companydoc/license.png';
+import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
+import { IoClose, IoDocumentText, IoLockClosed } from "react-icons/io5";
 
 const Footer = () => {
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
+  const [showDocsModal, setShowDocsModal] = useState(false);
+  const [showTermsModal, setShowTermsModal] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Handle body scroll when modal is open
+  useEffect(() => {
+    if (showPrivacyModal || showDocsModal || showTermsModal) {
+      setIsModalOpen(true);
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      setIsModalOpen(false);
+      document.body.style.overflow = 'auto';
+      document.documentElement.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+      document.documentElement.style.overflow = 'auto';
+    };
+  }, [showPrivacyModal, showDocsModal, showTermsModal]);
+
   return (
-    <footer className="footer-section">
-      {/* Background video area - Full height with overlay */}
-      <div className="footer-hero d-flex align-items-center justify-content-center">
-        {/* Background Video - High Quality */}
-        <video 
-          className="footer-video-bg"
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          preload="auto"
-        >
-          <source src={footervideo} type="video/mp4" />
-          {/* Fallback for browsers that don't support MP4 */}
-          Your browser does not support the video tag.
-        </video>
-        
-        {/* Color mixing overlay */}
-        <div className="video-overlay cta-overlay" />
-        
-        <div className="footer-hero-content text-center text-white">
-          <h1 className="footer-hero-title">
-            Don&apos;t wait for symptoms,<br />they appear too late.
-          </h1>
-          <p className="footer-hero-subtitle">
-            Order your kit now and get peace of mind in just 48 hours.
-          </p>
-          <div className="d-flex gap-3 justify-content-center">
-            <button className="btn btn-light btn-lg rounded-pill px-5 py-2 fw-medium">
-              Join Now
-            </button>
-            <button className="btn btn-outline-light btn-lg rounded-pill px-5 py-2 fw-medium">
-              Learn More
-            </button>
+    <>
+      <footer className="footer-section">
+        {/* Background video area */}
+        <div className="footer-hero d-flex align-items-center justify-content-center">
+          <video 
+            className="footer-video-bg"
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            preload="auto"
+          >
+            <source src={footervideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          
+          <div className="video-overlay cta-overlay" />
+          
+          <div className="footer-hero-content text-center text-white">
+            <h1 className="footer-hero-title">
+              Transform Your Space
+            </h1>
+            <p className="footer-hero-subtitle">
+              Get premium marble, granite, and stone solutions delivered to your doorstep within 48 hours.
+            </p>
+            <div className="d-flex justify-content-center">
+              <button className="btn btn-transparent btn-lg rounded-pill px-5 py-2 fw-medium">
+                Order Now
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Dark info area */}
-      <div className="footer-main">
-        <div className="container">
-          <div className="row align-items-start py-5">
-            <div className="col-md-4 mb-4 mb-md-0">
-              <div className="footer-logo">petwell</div>
-              <p className="footer-text">
-                Preventive health testing for pets, because they can&apos;t tell
-                us when something is wrong, but their biomarkers can.
-              </p>
-              <form className="footer-form d-flex">
-                <input
-                  type="email"
-                  className="form-control form-control-sm me-2"
-                  placeholder="Your email address"
-                />
-                <button className="btn btn-outline-light btn-sm" type="submit">
-                  →
-                </button>
-              </form>
-              <small className="footer-note">
-                Your information is never disclosed to third parties.
-              </small>
+        {/* Footer content */}
+        <div className="footer-main">
+          <div className="container">
+            {/* Top row with logo centered */}
+            <div className="row justify-content-center py-4">
+              <div className="col-12 text-center">
+                <div className="footer-logo-wrapper">
+                  {/* <img 
+                    src={logo} 
+                    alt="Al Hija Marble" 
+                    className="footer-logo-img"
+                    loading="lazy"
+                  /> */}
+                </div>
+              </div>
             </div>
 
-            <div className="col-md-2 mb-4 mb-md-0">
-              <h6 className="footer-heading">Product</h6>
-              <ul className="list-unstyled footer-links">
-                <li>How It Works</li>
-                <li>Pricing</li>
-                <li>Our Tests</li>
-                <li>Sample Results</li>
-              </ul>
+            {/* Main content */}
+            <div className="row py-5">
+              {/* Left column */}
+              <div className="col-lg-4 col-md-6 mb-4">
+                <h6 className="footer-heading">About Us</h6>
+                <p className="footer-text mb-4">
+                  Premium natural stone solutions for modern homes and commercial spaces, bringing timeless elegance to every project since 2010.
+                </p>
+                
+                {/* Quick Links */}
+                <div className="quick-links mb-4">
+                  <button 
+                    className="btn btn-quick-link me-3 mb-2"
+                    onClick={() => setShowPrivacyModal(true)}
+                  >
+                    <IoLockClosed size={16} className="me-2" />
+                    Privacy Policy
+                  </button>
+                  <button 
+                    className="btn btn-quick-link mb-2"
+                    onClick={() => setShowDocsModal(true)}
+                  >
+                    <IoDocumentText size={16} className="me-2" />
+                    View Documents
+                  </button>
+                </div>
+
+                {/* Newsletter */}
+                <div className="newsletter-section">
+                  <h6 className="footer-heading mb-3">Stay Updated</h6>
+                  <form className="footer-form d-flex mb-2">
+                    <input
+                      type="email"
+                      className="form-control form-control-sm me-2"
+                      placeholder="Your email address"
+                    />
+                    <button className="btn btn-outline-light btn-sm" type="submit">
+                      →
+                    </button>
+                  </form>
+                  <small className="footer-note">
+                    Your information is never disclosed to third parties.
+                  </small>
+                </div>
+              </div>
+
+              {/* Middle column - Services */}
+              <div className="col-lg-2 col-md-3 mb-4">
+                <h6 className="footer-heading">Services</h6>
+                <ul className="list-unstyled footer-links">
+                  <li><Link to="/marble">Marble</Link></li>
+                  <li><Link to="/granite">Granite</Link></li>
+                  <li><Link to="/travertine">Travertine</Link></li>
+                  <li><Link to="/ceramic">Ceramic</Link></li>
+                  <li><Link to="/quartz">Quartz</Link></li>
+                  <li><Link to="/mosaic">Mosaic</Link></li>
+                </ul>
+              </div>
+
+              {/* Middle column - Company */}
+              <div className="col-lg-2 col-md-3 mb-4">
+                <h6 className="footer-heading">Company</h6>
+                <ul className="list-unstyled footer-links">
+                  <li><Link to="/about-us">About Us</Link></li>
+                  <li><Link to="/blog">Blogs</Link></li>
+                  <li><Link to="/our-recent-projects">Recent Projects</Link></li>
+                  <li>
+                    <button 
+                      className="policy-link text-start p-0 border-0 bg-transparent text-white"
+                      onClick={() => setShowPrivacyModal(true)}
+                    >
+                      Privacy Policy
+                    </button>
+                  </li>
+                  <li>
+                    <button 
+                      className="policy-link text-start p-0 border-0 bg-transparent text-white"
+                      onClick={() => setShowDocsModal(true)}
+                    >
+                      Company Documents
+                    </button>
+                  </li>
+                  <li><Link to="/contact-us">Contact Us</Link></li>
+                </ul>
+              </div>
+
+              {/* Right column - Contact & Social */}
+              <div className="col-lg-4 col-md-6 mb-4">
+                <h6 className="footer-heading">Contact Info</h6>
+                <div className="contact-info mb-4">
+                  <p className="footer-text mb-2">
+                    <strong>Address:</strong> 
+                    123 Luxury Stone Avenue Marble District, Riyadh 11564 Saudi Arabia
+                  </p>
+                  <p className="footer-text mb-2">
+                    <strong>Phone:</strong> 00971544992662
+                  </p>
+                  <p className="footer-text mb-3">
+                    <strong>Email:</strong> enquire@wahatalhijamarble.com
+                  </p>
+                  
+                  <div className="business-hours">
+                    <h6 className="footer-heading mb-2">Business Hours</h6>
+                    <p className="footer-text mb-1"></p>
+                    <p className="footer-text mb-1">Monday - Saturday: 
+                      7:00 AM - 1:00 PM,
+                      2:00 PM - 6:00 PM</p>
+                    <p className="footer-text">Sunday: closed</p>
+                  </div>
+                </div>
+
+                {/* Social Media */}
+                <div className="social-section">
+                  <div className="footer-social">
+                    <a href="#" className="social-icon" aria-label="Facebook">
+                      <FaFacebookF />
+                    </a>
+                    <a href="#" className="social-icon" aria-label="Instagram">
+                      <FaInstagram />
+                    </a>
+                    <a href="#" className="social-icon" aria-label="TikTok">
+                      <FaTiktok />
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="col-md-2 mb-4 mb-md-0">
-              <h6 className="footer-heading">Company</h6>
-              <ul className="list-unstyled footer-links">
-                <li>Our Story</li>
-                <li>Partners</li>
-                <li>Privacy Policy</li>
-                <li>Terms</li>
-              </ul>
+            {/* Bottom row */}
+            <div className="row border-top border-light pt-4">
+              <div className="col-md-6 mb-3 mb-md-0">
+                <small className="footer-copy">
+                  © 2025 AL HIJA MARBLE. All Rights Reserved.
+                </small>
+              </div>
+              <div className="col-md-6 text-md-end">
+                <div className="footer-bottom-links">
+                  <button 
+                    className="btn btn-link footer-bottom-link"
+                    onClick={() => setShowPrivacyModal(true)}
+                  >
+                    Privacy Policy
+                  </button>
+                  <span className="text-light mx-2">•</span>
+                  <button 
+                    className="btn btn-link footer-bottom-link"
+                    onClick={() => setShowDocsModal(true)}
+                  >
+                    Company Documents
+                  </button>
+                  <span className="text-light mx-2">•</span>
+                  <button 
+                    className="btn btn-link footer-bottom-link"
+                    onClick={() => setShowTermsModal(true)}
+                  >
+                    Terms of Service
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Marquee */}
+          <div className="footer-marquee-wrapper mt-4">
+            <div className="footer-marquee">
+              <span>Premium Quality • Custom Designs • Fast Delivery </span>
+              <span>Premium Quality • Custom Designs • Fast Delivery </span>
+              <span>Premium Quality • Custom Designs • Fast Delivery </span>
+              <span>Premium Quality • Custom Designs • Fast Delivery </span>
+              <span>Premium Quality • Custom Designs • Fast Delivery </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* Privacy Policy Modal */}
+      {showPrivacyModal && (
+        <div className="footer-modal-overlay" onClick={() => setShowPrivacyModal(false)}>
+          <div className="footer-modal-content footer-policy-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="footer-modal-header">
+              <div className="d-flex align-items-center gap-3">
+                <div className="footer-modal-icon">
+                  <IoLockClosed size={24} />
+                </div>
+                <div>
+                  <h2 className="footer-modal-title">Privacy Policy</h2>
+                </div>
+              </div>
+              <button 
+                className="footer-modal-close"
+                onClick={() => setShowPrivacyModal(false)}
+              >
+                <IoClose size={28} />
+              </button>
             </div>
 
-            <div className="col-md-4 text-md-end">
-              <small className="footer-copy">
-                PETWELL INC. 2025. All Rights Reserved.
-              </small>
-              <div className="footer-social mt-3">
-                <span className="social-dot" />
-                <span className="social-dot" />
-                <span className="social-dot" />
+            <div className="footer-modal-body">
+              <div className="footer-policy-content">
+                <h3 className="footer-policy-main-title">Our Privacy Commitment</h3>
+                <p className="footer-policy-text">
+                  At WAHAT AL HIJAZ MARBLE & GRANITE CUTTING. LLC. SP, we are committed to protecting your privacy and personal information.
+                </p>
+
+                <h4 className="footer-policy-subtitle">Information We Collect</h4>
+                <p className="footer-policy-text">We only collect information necessary to provide our services:</p>
+                <ul className="footer-policy-list">
+                  <li className="footer-policy-list-item">Contact information (name, email, phone)</li>
+                  <li className="footer-policy-list-item">Project details and requirements</li>
+                  <li className="footer-policy-list-item">Communication history</li>
+                </ul>
+
+                <h4 className="footer-policy-subtitle">How We Use Your Information</h4>
+                <ul className="footer-policy-list">
+                  <li className="footer-policy-list-item">To provide our marble and granite services</li>
+                  <li className="footer-policy-list-item">To communicate about your project</li>
+                  <li className="footer-policy-list-item">To process your orders</li>
+                  <li className="footer-policy-list-item">To improve our services</li>
+                </ul>
+
+                <h4 className="footer-policy-subtitle">Data Security</h4>
+                <p className="footer-policy-text">
+                  We implement appropriate security measures to protect your personal information from unauthorized access, alteration, or disclosure.
+                </p>
+
+                <h4 className="footer-policy-subtitle">Information Sharing</h4>
+                <p className="footer-policy-text">
+                  We do not sell, trade, or rent your personal information to third parties. We only share information when required by law or to fulfill our services.
+                </p>
+
+                <h4 className="footer-policy-subtitle">Your Rights</h4>
+                <p className="footer-policy-text">You have the right to:</p>
+                <ul className="footer-policy-list">
+                  <li className="footer-policy-list-item">Access your personal information</li>
+                  <li className="footer-policy-list-item">Correct inaccurate information</li>
+                  <li className="footer-policy-list-item">Request deletion of your information</li>
+                  <li className="footer-policy-list-item">Opt-out of marketing communications</li>
+                </ul>
+
+                <h4 className="footer-policy-subtitle">Contact Us</h4>
+                <p className="footer-policy-text">
+                  For privacy-related questions or concerns, contact us at:<br/>
+                  <strong>Email:</strong> enquire@wahatalhijamarble.com<br/>
+                  <strong>Phone:</strong> 00971544992662
+                </p>
+
+                <div className="footer-policy-note">
+                  <p className="footer-policy-text">
+                    <strong>Last Updated:</strong> january 2026<br/>
+                    This policy may be updated periodically. Please check back for changes.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      )}
 
-        {/* marquee text */}
-        <div className="footer-marquee-wrapper">
-          <div className="footer-marquee">
-            <span>happy, healthy, &amp; loved. </span>
-            <span>happy, healthy, &amp; loved. </span>
-            <span>happy, healthy, &amp; loved. </span>
-            <span>happy, healthy, &amp; loved. </span>
-            <span>happy, healthy, &amp; loved. </span>
-            <span>happy, healthy, &amp; loved. </span>
+      {/* Terms & Conditions Modal */}
+      {showTermsModal && (
+        <div className="footer-modal-overlay" onClick={() => setShowTermsModal(false)}>
+          <div className="footer-modal-content footer-policy-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="footer-modal-header">
+              <div className="d-flex align-items-center gap-3">
+                <div className="footer-modal-icon">
+                  <IoDocumentText size={24} />
+                </div>
+                <div>
+                  <h2 className="footer-modal-title">Terms & Conditions</h2>
+                </div>
+              </div>
+              <button 
+                className="footer-modal-close"
+                onClick={() => setShowTermsModal(false)}
+              >
+                <IoClose size={28} />
+              </button>
+            </div>
+
+            <div className="footer-modal-body">
+              <div className="footer-policy-content">
+                <h3 className="footer-policy-main-title">Terms & Conditions</h3>
+                
+                <div className="footer-policy-section">
+                  <h4 className="footer-policy-subtitle">1. Delivery Time</h4>
+                  <p className="footer-policy-text">
+                    Delivery timeframes will be discussed and agreed upon prior to order confirmation. We strive for timely delivery but are not responsible for delays caused by third parties.
+                  </p>
+                </div>
+
+                <div className="footer-policy-section">
+                  <h4 className="footer-policy-subtitle">2. Quotation Validity</h4>
+                  <p className="footer-policy-text">
+                    This quotation is valid until stock lasts. Prices and availability are subject to change without notice.
+                  </p>
+                </div>
+
+                <div className="footer-policy-section">
+                  <h4 className="footer-policy-subtitle">3. Return and Exchange Policy</h4>
+                  <p className="footer-policy-text">
+                    <p className="mainword">PLEASE INSPECT THE MATERIAL AT YOUR END. ONCE LOADED, MATERIAL SHALL NOT BE RETURNED BACK OR EXCHANGED.</p>
+                  </p>
+                  <p className="footer-policy-text">
+                    Custom orders and fabricated materials cannot be returned or exchanged.
+                  </p>
+                </div>
+
+                <div className="footer-policy-section">
+                  <h4 className="footer-policy-subtitle">4. Payment Terms</h4>
+                  <p className="footer-policy-text">
+                    <strong>15 days PDC cheque on delivery.</strong> All payments are due upon delivery unless otherwise agreed in writing.
+                  </p>
+                  <p className="footer-policy-text">
+                    <strong>Payment Method:</strong> Cheques to be made in the name of <strong>"WAHAT AL HIJAZ MARBLE & GRANITE CUTTING. LLC. SP"</strong>
+                  </p>
+                </div>
+
+                <div className="footer-policy-section">
+                  <h4 className="footer-policy-subtitle">5. Natural Stone Characteristics</h4>
+                  <p className="footer-policy-text">
+                    Granite and marble being natural products are bound to have variations in color and patterns. Veins, surface cracks, and fissures are natural characteristics of stones and are unavoidable. These features do not constitute defects.
+                  </p>
+                </div>
+
+                <div className="footer-policy-section">
+                  <h4 className="footer-policy-subtitle">6. Contact Information</h4>
+                  <p className="footer-policy-text">
+                    <strong>WAHAT AL HIJAZ MARBLE & GRANITE CUTTING. LLC. SP</strong><br/>
+                    <strong>Email:</strong>enquire@wahatalhijamarble.com<br/>
+                    <strong>Phone:</strong> 009715449926622<br/>
+                    <strong>Address:</strong> 123 Luxury Stone Avenue Marble District, Riyadh 11564 Saudi Arabia
+                  </p>
+                </div>
+
+                <div className="footer-policy-note">
+                  <p className="footer-policy-text">
+                    <strong>Last Updated:</strong> : january 2026 <br/>
+                    This document supersedes all prior agreements and understandings.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
+      )}
+
+      {/* Company Documents Modal */}
+      {showDocsModal && (
+        <div className="footer-modal-overlay" onClick={() => setShowDocsModal(false)}>
+          <div className="footer-modal-content footer-docs-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="footer-modal-header">
+              <div className="d-flex align-items-center gap-3">
+                <div className="footer-modal-icon">
+                  <IoDocumentText size={24} />
+                </div>
+                <div>
+                  <h2 className="footer-modal-title">Company Documents</h2>
+                </div>
+              </div>
+              <button 
+                className="footer-modal-close"
+                onClick={() => setShowDocsModal(false)}
+              >
+                <IoClose size={28} />
+              </button>
+            </div>
+
+            <div className="footer-modal-body">
+              <div className="footer-docs-content">
+                <div className="footer-docs-grid">
+                  <div className="footer-doc-item">
+                    <div className="footer-doc-header">
+                      <h4 className="footer-doc-title">Chamber of Commerce Certificate</h4>
+                      <p className="footer-doc-subtitle">Certificate of Appreciation</p>
+                    </div>
+                    <div className="footer-doc-image-container">
+                      <img 
+                        src={certificate} 
+                        alt="Chamber of Commerce Certificate" 
+                        className="footer-doc-image"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="footer-doc-item">
+                    <div className="footer-doc-header">
+                      <h4 className="footer-doc-title">Industrial & Trade License</h4>
+                      <p className="footer-doc-subtitle">Official Business License</p>
+                    </div>
+                    <div className="footer-doc-image-container">
+                      <img 
+                        src={license} 
+                        alt="Industrial and Trade License" 
+                        className="footer-doc-image"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
