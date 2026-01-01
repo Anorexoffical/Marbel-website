@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Style/Footer.css";
 import footervideo from "../assets/footervedio.mp4";
-import logo from "../assets/logowhite.png";
 import certificate from '../assets/companydoc/certificate.png';
 import license from '../assets/companydoc/license.png';
 import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
