@@ -7,7 +7,7 @@ import "../Style/Marble.css";
 
 // Quartz Collection Images
 import RED_ALICANTE from '../assets/marble/REDALICANTE.jpg';
-import ARABSCATO from '../assets/marble/ARABSCATO.png';
+import ARABSCATO from '../assets/marble/ARABSCATO1.png';
 import BIANCO_CARRARA from '../assets/marble/BIANCOCARRARA.jpg';
 import BIANCO_LILAC from '../assets/marble/BIANCO LILAC.png';
 import BOTTOCHINO from '../assets/marble/BOTTOCHINO.jpg';
