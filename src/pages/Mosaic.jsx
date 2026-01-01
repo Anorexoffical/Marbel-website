@@ -6,15 +6,15 @@ import Navbar from "../pages/Navbar";
 import "../Style/Marble.css";
 
 // Mosaic Collection Images
-import MOSAIC_1 from '../assets/mosaic/image.png';
-import MOSAIC_2 from '../assets/mosaic/image2.png';
-import MOSAIC_3 from '../assets/mosaic/image3.png';
-import MOSAIC_4 from '../assets/mosaic/image4.png';
-import MOSAIC_5 from '../assets/mosaic/image5.png';
-import MOSAIC_6 from '../assets/mosaic/image6.png';
-import MOSAIC_7 from '../assets/mosaic/image7.png';
-import MOSAIC_8 from '../assets/mosaic/image8.png';
-import MOSAIC_9 from '../assets/mosaic/image9.png';
+import MOSAIC_1 from '../assets/mosaic/image11.png';
+import MOSAIC_2 from '../assets/mosaic/image22.png';
+import MOSAIC_3 from '../assets/mosaic/image33.png';
+import MOSAIC_4 from '../assets/mosaic/image44.png';
+import MOSAIC_5 from '../assets/mosaic/image55.png';
+import MOSAIC_6 from '../assets/mosaic/image66.png';
+import MOSAIC_7 from '../assets/mosaic/image77.png';
+import MOSAIC_8 from '../assets/mosaic/image88.png';
+import MOSAIC_9 from '../assets/mosaic/image99.png';
 
 export default function Mosaic() {
   // State for search functionality
