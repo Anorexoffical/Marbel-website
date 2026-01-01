@@ -6,7 +6,7 @@ import Navbar from "../pages/Navbar";
 import "../Style/Marble.css";
 
 // Mosaic Collection Images
-import MOSAIC_1 from '../assets/mosaic/image1.png';
+import MOSAIC_1 from '../assets/mosaic/image.png';
 import MOSAIC_2 from '../assets/mosaic/image2.png';
 import MOSAIC_3 from '../assets/mosaic/image3.png';
 import MOSAIC_4 from '../assets/mosaic/image4.png';
