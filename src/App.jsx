@@ -18,6 +18,7 @@ import BlogPost from './pages/Adminpanel/BlogPost.jsx'
 import BlogDetail from './pages/Adminpanel/BlogDetail.jsx'
 import BlogTable from './pages/Adminpanel/BlogTable.jsx'
 import EditBlogPost from './pages/Adminpanel/EditBlogPost.jsx'
+import NotFound from './pages/NotFound.jsx'
 
 function App() {
   const location = useLocation();
@@ -37,7 +38,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/login" element={<Login />} />
         <Route path="/BlogDetail/:id" element={<BlogDetail />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<NotFound />} />
         
           {/* protected admin routes */}
         <Route path="/Blogtable" element={<PrivateRoute><BlogTable /></PrivateRoute>} />
