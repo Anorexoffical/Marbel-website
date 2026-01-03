@@ -18,6 +18,20 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 /* =============================
+   GET – All blogs (no pagination)
+   MUST COME BEFORE param routes
+============================= */
+router.get("/AllBlogs", async (req, res) => {
+  try {
+    const blogs = await BlogPostModel.find().sort({ postDate: -1 });
+    res.json({ blogs });
+  } catch (err) {
+    console.error("❌ BLOG FETCH ERROR:", err);
+    res.status(500).json({ error: "Fetch blogs failed" });
+  }
+});
+
+/* =============================
    POST – Create blog
 ============================= */
 router.post("/", upload.single("blogImage"), async (req, res) => {
