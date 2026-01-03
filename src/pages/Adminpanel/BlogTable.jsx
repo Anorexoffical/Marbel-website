@@ -98,7 +98,11 @@ function BlogTable() {
       try {
         await axios.delete(`https://www.wahatalhijazmarble.com/api/blogs/${blogToDelete._id}`);
         toast.success("Blog deleted successfully!");
-        fetchAllBlogs();
+        const res = await axios.get(
+          "https://www.wahatalhijazmarble.com/api/blogs/AllBlogs"
+        );
+        setBlogs(res.data.blogs);
+        setFilteredBlogs(res.data.blogs);
       } catch (error) {
         console.error("Error deleting blog:", error);
         toast.error("Failed to delete blog. Please try again.");
