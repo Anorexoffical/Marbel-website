@@ -86,11 +86,11 @@ function BlogPost() {
     formData.append("title", title);
     formData.append("body", body);
     if (blogImage) {
-      formData.append("image", blogImage);
+      formData.append("blogImage", blogImage);
     }
 
     try {
-      await axios.post("https://www.wahatalhijazmarble.com/api/blogs/Blogpost", formData, {
+      await axios.post("https://www.wahatalhijazmarble.com/api/blogs/", formData, {
         headers: { "Content-Type": "multipart/form-data" }
       });
       savenotification();

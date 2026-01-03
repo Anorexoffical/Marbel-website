@@ -16,6 +16,11 @@ const storage = multer.diskStorage({
     cb(null, Date.now() + path.extname(file.originalname))
 });
 const upload = multer({ storage });
+// Accept both 'image' and 'blogImage' keys from frontend
+const uploadImageFields = upload.fields([
+  { name: 'image', maxCount: 1 },
+  { name: 'blogImage', maxCount: 1 }
+]);
 
 /* =============================
    GET – All blogs (no pagination)
@@ -34,8 +39,9 @@ router.get("/AllBlogs", async (req, res) => {
 /* =============================
    POST – Create blog
 ============================= */
-router.post("/", upload.single("blogImage"), async (req, res) => {
+router.post("/", uploadImageFields, async (req, res) => {
   try {
+    const file = (req.files?.image?.[0]) || (req.files?.blogImage?.[0]);
     const blog = await BlogPostModel.create({
       title: req.body.title,
       body: req.body.body,
@@ -43,11 +49,41 @@ router.post("/", upload.single("blogImage"), async (req, res) => {
       username: req.body.username || "Admin",
       occupation: req.body.occupation || "Admin",
       postDate: new Date(),
-      blogImage: req.file?.filename || null
+      blogImage: file?.filename || null
     });
     res.status(201).json(blog);
   } catch (err) {
     res.status(500).json({ error: "Create blog failed" });
+  }
+});
+
+/* =============================
+   PUT – Update blog
+============================= */
+router.put("/:id", uploadImageFields, async (req, res) => {
+  try {
+    const blogId = req.params.id;
+
+    const updateData = {
+      title: req.body.title,
+      body: req.body.body,
+      category: req.body.category || "General",
+      username: req.body.username || "Admin",
+      occupation: req.body.occupation || "Admin",
+      postDate: req.body.postDate || new Date(),
+    };
+
+    const file = (req.files?.image?.[0]) || (req.files?.blogImage?.[0]);
+    if (file) updateData.blogImage = file.filename;
+
+    const updatedBlog = await BlogPostModel.findByIdAndUpdate(blogId, updateData, { new: true });
+
+    if (!updatedBlog) return res.status(404).json({ message: "Blog not found" });
+
+    res.json(updatedBlog);
+  } catch (err) {
+    console.error("❌ BLOG UPDATE ERROR:", err);
+    res.status(500).json({ error: "Update blog failed" });
   }
 });
 
