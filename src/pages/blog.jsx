@@ -83,7 +83,7 @@ const BlogsList = () => {
       }
     });
 
-    axios.get(`http://localhost:3001/api/blogs/Blogposts`, { params })
+    axios.get(`https://www.wahatalhijazmarble.com/api/blogs/Blogposts`, { params })
       .then((response) => {
         if (response.data && Array.isArray(response.data.blogs)) {
           setBlogs(response.data.blogs);
@@ -342,7 +342,7 @@ const BlogsList = () => {
                     <img
                       src={
                         blog.blogImage
-                          ? `http://localhost:3001/uploads/${blog.blogImage}`
+                          ? `https://www.wahatalhijazmarble.com/uploads/${blog.blogImage}`
                           : "/default-blog-image.jpg"
                       }
                       alt={blog.title}
