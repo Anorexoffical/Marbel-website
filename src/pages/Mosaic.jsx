@@ -5,7 +5,7 @@ import { BsThreeDots } from "react-icons/bs";
 import Navbar from "../pages/Navbar";
 import "../Style/Marble.css";
 
-// Mosaic Collection Images (correct casing to match files on case-sensitive systems)
+// Mosaic Collection Images (match tracked file casing for Linux builds)
 import MOSAIC_1 from '../assets/mosaic/IMAGE11.png';
 import MOSAIC_2 from '../assets/mosaic/IMAGE22.png';
 import MOSAIC_3 from '../assets/mosaic/IMAGE33.png';
