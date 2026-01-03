@@ -40,7 +40,6 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "OK", backend: "running" });
 });
 
-
-app.listen(PORT, "127.0.0.1", () => {
-  console.log(`🚀 Backend running on port ${PORT} (IPv4)`); 
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`🚀 Backend running on port ${PORT} (IPv4 + accessible externally)`);
 });
