@@ -38,12 +38,12 @@ function BlogTable() {
   const fetchAllBlogs = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("https://www.wahatalhijazmarble.com/api/blogs/AllBlogs");
-      setBlogs(response.data);
-      setFilteredBlogs(response.data);
-      
-      // Extract unique categories
-      const uniqueCategories = [...new Set(response.data.map(blog => blog.category))];
+      const res = await axios.get("https://www.wahatalhijazmarble.com/api/blogs/AllBlogs");
+      setBlogs(res.data.blogs);
+      setFilteredBlogs(res.data.blogs);
+
+      // Extract unique categories from response blogs
+      const uniqueCategories = [...new Set(res.data.blogs.map((blog) => blog.category))];
       setCategories(uniqueCategories);
       setLoading(false);
     } catch (error) {
@@ -119,7 +119,8 @@ function BlogTable() {
   };
 
   const onView = (blogId) => {
-    navigate(`/blog/${blogId}`);
+    // Navigate to the configured blog detail route
+    navigate(`/BlogDetail/${blogId}`);
   };
 
   const onAddNew = () => {

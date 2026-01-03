@@ -85,7 +85,9 @@ function BlogPost() {
     formData.append("occupation", occupation);
     formData.append("title", title);
     formData.append("body", body);
-    if (blogImage) formData.append("blogImage", blogImage);
+    if (blogImage) {
+      formData.append("image", blogImage);
+    }
 
     try {
       await axios.post("https://www.wahatalhijazmarble.com/api/blogs/Blogpost", formData, {
