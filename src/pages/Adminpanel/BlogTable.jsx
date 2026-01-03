@@ -96,7 +96,7 @@ function BlogTable() {
   const onDelete = async () => {
     if (blogToDelete) {
       try {
-        await axios.delete(`https://www.wahatalhijazmarble.com/api/blogs/Blogpost/${blogToDelete._id}`);
+        await axios.delete(`https://www.wahatalhijazmarble.com/api/blogs/${blogToDelete._id}`);
         toast.success("Blog deleted successfully!");
         fetchAllBlogs();
       } catch (error) {

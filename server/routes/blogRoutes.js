@@ -20,16 +20,21 @@ const upload = multer({ storage });
 /* =============================
    POST – Create blog
 ============================= */
-router.post("/", upload.single("blogImage"), async (req, res) => {
+// Accept both 'image' and 'blogImage' keys for compatibility
+router.post(["/", "/Blogpost"], upload.fields([
+  { name: "image", maxCount: 1 },
+  { name: "blogImage", maxCount: 1 }
+]), async (req, res) => {
   try {
+    const file = (req.files?.image?.[0]) || (req.files?.blogImage?.[0]);
     const blog = await BlogPostModel.create({
       title: req.body.title,
       body: req.body.body,
       category: req.body.category || "General",
       username: req.body.username || "Admin",
       occupation: req.body.occupation || "Admin",
-      postDate: new Date(),
-      blogImage: req.file?.filename || null
+      postDate: req.body.postDate ? new Date(req.body.postDate) : new Date(),
+      blogImage: file?.filename || null
     });
     res.status(201).json(blog);
   } catch (err) {
@@ -71,6 +76,30 @@ router.get("/", async (req, res) => {
     });
   } catch (err) {
     res.status(500).json({ error: "Fetch blogs failed" });
+  }
+});
+
+/* =============================
+   GET – All blogs (no pagination)
+============================= */
+router.get("/AllBlogs", async (req, res) => {
+  try {
+    const blogs = await BlogPostModel.find().sort({ postDate: -1 });
+    res.json({ blogs });
+  } catch (err) {
+    res.status(500).json({ error: "Fetch blogs failed" });
+  }
+});
+
+/* =============================
+   DELETE – Blog by ID
+============================= */
+router.delete(["/:id", "/Blogpost/:id"], async (req, res) => {
+  try {
+    await BlogPostModel.findByIdAndDelete(req.params.id);
+    res.json({ message: "Blog deleted successfully" });
+  } catch (err) {
+    res.status(500).json({ error: "Delete failed" });
   }
 });
 
