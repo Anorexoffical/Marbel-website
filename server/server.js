@@ -1,41 +1,46 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
 
-// Routers
 const blogRoutes = require("./routes/blogRoutes");
 const userRoutes = require("./routes/userRoutes");
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
-// Upload folder
+// Uploads folder
 const uploadDir = path.join(__dirname, "uploads");
 
 // Middleware
 app.use(cors({
   origin: [
-    "http://localhost:5173",               // local frontend
-    "https://www.wahatalhijazmarble.com"  // production frontend
+    "http://localhost:5173",
+    process.env.CLIENT_URL
   ],
-  credentials: true,
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE"
+  credentials: true
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static(uploadDir));
 
-// Database connection
-mongoose.connect("mongodb://127.0.0.1:27017/marble")
-  .then(() => console.log("MongoDB connected"))
-  .catch(err => console.error("MongoDB connection error:", err));
+// MongoDB
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ MongoDB connected"))
+  .catch(err => console.error("❌ Mongo error:", err));
 
-// Mount routers
-app.use('/api/blogs', blogRoutes);
-app.use('/api/user', userRoutes);
+// Routes
+app.use("/api/blogs", blogRoutes);
+app.use("/api/user", userRoutes);
+
+// Health check (IMPORTANT)
+app.get("/api/health", (req, res) => {
+  res.json({ status: "OK", backend: "running" });
+});
 
 // Start server
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Backend running on port ${PORT}`);
 });

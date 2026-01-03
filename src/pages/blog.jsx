@@ -83,7 +83,7 @@ const BlogsList = () => {
       }
     });
 
-    axios.get(`https://www.wahatalhijazmarble.com/api/blogs/Blogposts`, { params })
+    axios.get(`https://www.wahatalhijazmarble.com/api/blogs`, { params })
       .then((response) => {
         if (response.data && Array.isArray(response.data.blogs)) {
           setBlogs(response.data.blogs);
