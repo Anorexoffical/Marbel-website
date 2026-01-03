@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
@@ -41,6 +41,7 @@ function BlogPost() {
   const [body, setBody] = useState('');
   const [blogImage, setBlogImage] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [currentImageUrl, setCurrentImageUrl] = useState("");
 
   // Initialize TipTap editor
   const editor = useEditor({
@@ -62,11 +63,26 @@ function BlogPost() {
     const file = e.target.files[0];
     if (file) {
       setBlogImage(file);
+      // Preview locally selected file immediately
+      setCurrentImageUrl(URL.createObjectURL(file));
       toast.success(`Image selected: ${file.name}`, {
         autoClose: 1500,
       });
     }
   };
+
+  // Keep preview URL in sync whether blogImage is a filename or a File
+  useEffect(() => {
+    if (!blogImage) {
+      setCurrentImageUrl("");
+      return;
+    }
+    if (typeof blogImage === "string") {
+      setCurrentImageUrl(`https://www.wahatalhijazmarble.com/uploads/${blogImage}`);
+    } else if (blogImage instanceof File) {
+      setCurrentImageUrl(URL.createObjectURL(blogImage));
+    }
+  }, [blogImage]);
 
   const Submit = async (e) => {
     e.preventDefault();
@@ -114,6 +130,7 @@ function BlogPost() {
       editor.commands.setContent('');
     }
     setBlogImage(null);
+    setCurrentImageUrl("");
     document.getElementById("blogPostForm").reset();
   };
 
@@ -164,13 +181,10 @@ function BlogPost() {
                     <FaImage size={24} />
                     <p>Click to upload featured image</p>
                     <small>PNG, JPG, GIF up to 5MB</small>
-                    {blogImage && (
+                    {currentImageUrl && (
                       <div className="image-preview">
-                        <img 
-                          src={URL.createObjectURL(blogImage)} 
-                          alt="Preview" 
-                        />
-                        <span>{blogImage.name}</span>
+                        <img src={currentImageUrl} alt="Preview" />
+                        <span>{typeof blogImage === 'string' ? blogImage : blogImage?.name}</span>
                       </div>
                     )}
                   </label>

@@ -73,7 +73,7 @@ const BlogDetail = () => {
   const fetchBlogDetails = () => {
     setLoading(true);
     axios
-      .get(`/api/blogs/Blogpost/${id}`)
+      .get(`https://www.wahatalhijazmarble.com/api/blogs/${id}`)
       .then((response) => {
         setBlog(response.data);
         calculateReadingTime(response.data.body);

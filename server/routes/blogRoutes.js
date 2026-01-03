@@ -128,8 +128,13 @@ router.get("/", async (req, res) => {
    GET – Single blog
 ============================= */
 router.get("/:id", async (req, res) => {
-  const blog = await BlogPostModel.findById(req.params.id);
-  blog ? res.json(blog) : res.status(404).json({ message: "Not found" });
+  try {
+    const blog = await BlogPostModel.findById(req.params.id);
+    if (!blog) return res.status(404).json({ message: "Not found" });
+    res.json(blog);
+  } catch (err) {
+    res.status(400).json({ message: "Invalid blog ID" });
+  }
 });
 
 module.exports = router;
