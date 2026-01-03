@@ -38,7 +38,7 @@ function BlogTable() {
   const fetchAllBlogs = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:3001/api/blogs/AllBlogs");
+      const response = await axios.get("https://www.wahatalhijazmarble.com/api/blogs/AllBlogs");
       setBlogs(response.data);
       setFilteredBlogs(response.data);
       
@@ -96,7 +96,7 @@ function BlogTable() {
   const onDelete = async () => {
     if (blogToDelete) {
       try {
-        await axios.delete(`http://localhost:3001/api/blogs/Blogpost/${blogToDelete._id}`);
+        await axios.delete(`https://www.wahatalhijazmarble.com/api/blogs/Blogpost/${blogToDelete._id}`);
         toast.success("Blog deleted successfully!");
         fetchAllBlogs();
       } catch (error) {

@@ -73,7 +73,7 @@ const BlogDetail = () => {
   const fetchBlogDetails = () => {
     setLoading(true);
     axios
-      .get(`http://localhost:3001/api/blogs/Blogpost/${id}`)
+      .get(`/api/blogs/Blogpost/${id}`)
       .then((response) => {
         setBlog(response.data);
         calculateReadingTime(response.data.body);
@@ -87,7 +87,7 @@ const BlogDetail = () => {
 
   const fetchRelatedBlogs = () => {
     axios
-      .get(`http://localhost:3001/api/blogs/Blogposts?limit=4`)
+      .get(`https://www.wahatalhijazmarble.com/api/blogs/Blogposts?limit=4`)
       .then((response) => {
         if (response.data && Array.isArray(response.data.blogs)) {
           const filtered = response.data.blogs
@@ -392,7 +392,7 @@ const BlogDetail = () => {
             {blog.blogImage && (
               <div className="article-hero-image">
                 <img
-                  src={`http://localhost:3001/uploads/${blog.blogImage}`}
+                  src={`https://www.wahatalhijazmarble.com/uploads/${blog.blogImage}`}
                   alt={blog.title}
                   className="hero-img"
                   loading="lazy"

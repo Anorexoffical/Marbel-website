@@ -30,7 +30,7 @@ const Login = () => {
       return;
     }
 
-    axios.post("http://localhost:3001/api/user/auth", { userName, password })
+    axios.post("https://www.wahatalhijazmarble.com/api/user/auth", { userName, password })
     .then(result => {
       sessionStorage.setItem('userName', userName);
       navigate('/BlogPost'); // Redirect to the main app page

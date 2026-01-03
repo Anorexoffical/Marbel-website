@@ -71,7 +71,7 @@ function EditBlogPost() {
   const fetchBlogDetails = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get(`http://localhost:3001/api/blogs/Blogpost/${id}`);
+      const response = await axios.get(`https://www.wahatalhijazmarble.com/api/blogs/Blogpost/${id}`);
       const { postDate, category, username, occupation, title, body, imageUrl } = response.data;
       setPostDate(postDate);
       setCategory(category);
@@ -125,7 +125,7 @@ function EditBlogPost() {
     }
 
     try {
-      await axios.put(`http://localhost:3001/api/blogs/Blogpost/${id}`, updatedData, {
+      await axios.put(`https://www.wahatalhijazmarble.com/api/blogs/Blogpost/${id}`, updatedData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
