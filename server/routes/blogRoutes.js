@@ -1,4 +1,4 @@
-// const express = require("express");
+const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const path = require("path");
@@ -68,7 +68,10 @@ router.get("/AllBlogs", async (req, res) => {
   }
 });
 
-router.get("/AllBlogs", async (req, res) => {
+// Remove duplicated AllBlogs route
+
+// Delete by id
+router.delete("/:id", async (req, res) => {
   try {
     res.status(200).json(await BlogPostModel.find());
   } catch (err) {
