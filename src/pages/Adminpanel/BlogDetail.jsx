@@ -397,7 +397,7 @@ const BlogDetail = () => {
           alt={blog.title}
         /> */}
                 <img
-                  src={`https://www.wahatalhijazmarble.com/uploads/${blog.blogImage}`}
+                  src={`https://www.wahatalhijazmarble.com/api/uploads/${blog.blogImage}`}
                   alt={blog.title}
                   className="hero-img"
                   loading="lazy"

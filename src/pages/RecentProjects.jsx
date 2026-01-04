@@ -601,7 +601,7 @@ export default function RecentProjects() {
                     <div className="pd-related-card">
                       <div className="pd-related-image-container">
                         <img
-                          src={blog.blogImage ? `http://localhost:3001/uploads/${blog.blogImage}` : homeImg}
+                          src={blog.blogImage ? `https://www.wahatalhijazmarble.com/api/uploads/${blog.blogImage}` : homeImg}
                           alt={blog.title}
                           className="pd-related-card-img"
                         />

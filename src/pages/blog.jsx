@@ -337,7 +337,7 @@ const BlogsList = () => {
                     <img
                       src={
                         blog.blogImage
-                          ? `https://www.wahatalhijazmarble.com/uploads/${blog.blogImage}`
+                          ? `https://www.wahatalhijazmarble.com/api/uploads/${blog.blogImage}`
                           : "/default-blog-image.jpg"
                       }
                       alt={blog.title}

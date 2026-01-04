@@ -78,7 +78,7 @@ function BlogPost() {
       return;
     }
     if (typeof blogImage === "string") {
-      setCurrentImageUrl(`https://www.wahatalhijazmarble.com/uploads/${blogImage}`);
+      setCurrentImageUrl(`https://www.wahatalhijazmarble.com/api/uploads/${blogImage}`);
     } else if (blogImage instanceof File) {
       setCurrentImageUrl(URL.createObjectURL(blogImage));
     }
