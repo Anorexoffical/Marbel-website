@@ -73,7 +73,7 @@ const BlogDetail = () => {
   const fetchBlogDetails = () => {
     setLoading(true);
     axios
-      .get(`https://www.wahatalhijazmarble.com/api/blogs/${id}`)
+      .get(`https://www.wahatalhijazmarble.com/api/blogs/Blogpost/${id}`)
       .then((response) => {
         setBlog(response.data);
         calculateReadingTime(response.data.body);
@@ -85,21 +85,21 @@ const BlogDetail = () => {
       });
   };
 
-  const fetchRelatedBlogs = () => {
-    axios
-      .get(`https://www.wahatalhijazmarble.com/api/blogs/Blogposts?limit=4`)
-      .then((response) => {
-        if (response.data && Array.isArray(response.data.blogs)) {
-          const filtered = response.data.blogs
-            .filter(b => b._id !== id)
-            .slice(0, 4);
-          setRelatedBlogs(filtered);
-        }
-      })
-      .catch((err) => {
-        console.error("Error fetching related blogs:", err);
-      });
-  };
+  // const fetchRelatedBlogs = () => {
+  //   axios
+  //     .get(`https://www.wahatalhijazmarble.com/api/blogs/Blogposts?limit=4`)
+  //     .then((response) => {
+  //       if (response.data && Array.isArray(response.data.blogs)) {
+  //         const filtered = response.data.blogs
+  //           .filter(b => b._id !== id)
+  //           .slice(0, 4);
+  //         setRelatedBlogs(filtered);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.error("Error fetching related blogs:", err);
+  //     });
+  // };
 
   const calculateReadingTime = (htmlContent) => {
     if (!htmlContent) {
@@ -391,6 +391,11 @@ const BlogDetail = () => {
 
             {blog.blogImage && (
               <div className="article-hero-image">
+                {/* <img
+          className="img-fluid rounded shadow mb-4"
+          src={blog.blogImage ? `http://localhost:3001/uploads/${blog.blogImage}` : "default-placeholder.jpg"}
+          alt={blog.title}
+        /> */}
                 <img
                   src={`https://www.wahatalhijazmarble.com/uploads/${blog.blogImage}`}
                   alt={blog.title}

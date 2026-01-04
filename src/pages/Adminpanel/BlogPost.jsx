@@ -106,8 +106,9 @@ function BlogPost() {
     }
 
     try {
-      await axios.post("https://www.wahatalhijazmarble.com/api/blogs/", formData, {
+      await axios.post("https://www.wahatalhijazmarble.com/api/blogs/Blogpost", formData, {
         headers: { "Content-Type": "multipart/form-data" }
+        // axios.post("http://localhost:3001/api/blogs/Blogpost",
       });
       savenotification();
       resetForm();

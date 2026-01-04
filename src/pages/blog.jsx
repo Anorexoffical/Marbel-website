@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../Style/Blog.css";
+import "../style/Blog.css";
 import { FaUserCircle, FaCalendarAlt, FaArrowRight } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
@@ -69,26 +69,21 @@ const BlogsList = () => {
 
   const fetchBlogs = () => {
     setLoading(true);
-    
+    // Use Blogposts route with pagination + search/category params
     const params = {
       page: page + 1,
       limit: PAGE_SIZE,
-      category: filteredCategory !== "All" ? filteredCategory : "",
-      search: searchTerm || ""
+      search: searchTerm || undefined,
+      category: filteredCategory !== "All" ? filteredCategory : undefined,
     };
 
-    Object.keys(params).forEach(key => {
-      if (params[key] === "") {
-        delete params[key];
-      }
-    });
-
-    axios.get(`https://www.wahatalhijazmarble.com/api/blogs`, { params })
+    axios
+      .get(`https://www.wahatalhijazmarble.com/api/blogs/Blogposts`, { params })
       .then((response) => {
         if (response.data && Array.isArray(response.data.blogs)) {
           setBlogs(response.data.blogs);
           setTotalPages(response.data.totalPages || 1);
-          setTotalResults(response.data.total || 0);
+          setTotalResults(response.data.totalBlogs || 0);
         } else {
           throw new Error("Invalid response structure");
         }

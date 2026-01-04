@@ -71,6 +71,7 @@ function EditBlogPost() {
   const fetchBlogDetails = async () => {
     try {
       setIsLoading(true);
+      // const response = await axios.get(`http://localhost:3001/api/blogs/Blogpost/${id}`);
       const response = await axios.get(`https://www.wahatalhijazmarble.com/api/blogs/Blogpost/${id}`);
       const { postDate, category, username, occupation, title, body, imageUrl } = response.data;
       setPostDate(postDate);
