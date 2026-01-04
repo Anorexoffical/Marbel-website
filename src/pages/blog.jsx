@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../style/Blog.css";
+import "../Style/Blog.css";
 import { FaUserCircle, FaCalendarAlt, FaArrowRight } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
