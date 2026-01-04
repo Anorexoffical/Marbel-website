@@ -85,21 +85,21 @@ const BlogDetail = () => {
       });
   };
 
-  // const fetchRelatedBlogs = () => {
-  //   axios
-  //     .get(`https://www.wahatalhijazmarble.com/api/blogs/Blogposts?limit=4`)
-  //     .then((response) => {
-  //       if (response.data && Array.isArray(response.data.blogs)) {
-  //         const filtered = response.data.blogs
-  //           .filter(b => b._id !== id)
-  //           .slice(0, 4);
-  //         setRelatedBlogs(filtered);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.error("Error fetching related blogs:", err);
-  //     });
-  // };
+  const fetchRelatedBlogs = () => {
+    axios
+      .get(`https://www.wahatalhijazmarble.com/api/blogs/Blogposts`, { params: { limit: 4, page: 1 } })
+      .then((response) => {
+        if (response.data && Array.isArray(response.data.blogs)) {
+          const filtered = response.data.blogs
+            .filter(b => b._id !== id)
+            .slice(0, 4);
+          setRelatedBlogs(filtered);
+        }
+      })
+      .catch((err) => {
+        console.error("Error fetching related blogs:", err);
+      });
+  };
 
   const calculateReadingTime = (htmlContent) => {
     if (!htmlContent) {
