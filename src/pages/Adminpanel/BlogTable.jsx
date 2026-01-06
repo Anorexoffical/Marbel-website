@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_BASE } from "../../config";
 import "../../Style/BlogTable.css";
 import AdminNavbar from "../Adminpanel/AdminNavbar.jsx";
 import {
@@ -38,7 +39,7 @@ function BlogTable() {
   const fetchAllBlogs = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("https://www.wahatalhijazmarble.com/api/blogs/AllBlogs");
+      const res = await axios.get(`${API_BASE}/blogs/AllBlogs`);
       setBlogs(res.data.blogs);
       setFilteredBlogs(res.data.blogs);
 
@@ -97,10 +98,10 @@ function BlogTable() {
     if (blogToDelete) {
       try {
         // await axios.delete(`http://localhost:3001/api/blogs/Blogpost/${blog._id}`);
-        await axios.delete(`https://www.wahatalhijazmarble.com/api/blogs/Blogpost/${blog._id}`);
+        await axios.delete(`${API_BASE}/blogs/Blogpost/${blog._id}`);
         toast.success("Blog deleted successfully!");
         const res = await axios.get(
-          "https://www.wahatalhijazmarble.com/api/blogs/AllBlogs"
+          `${API_BASE}/blogs/AllBlogs`
         );
         setBlogs(res.data.blogs);
         setFilteredBlogs(res.data.blogs);

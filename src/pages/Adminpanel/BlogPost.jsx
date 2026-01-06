@@ -31,6 +31,7 @@ import {
   FaPaperPlane
 } from 'react-icons/fa';
 import "../../Style/Blogpost.css";
+import { API_BASE, UPLOADS_BASE } from "../../config";
 
 function BlogPost() {
   const [postDate, setPostDate] = useState('');
@@ -78,7 +79,7 @@ function BlogPost() {
       return;
     }
     if (typeof blogImage === "string") {
-      setCurrentImageUrl(`https://www.wahatalhijazmarble.com/api/uploads/${blogImage}`);
+      setCurrentImageUrl(`${UPLOADS_BASE}/${blogImage}`);
     } else if (blogImage instanceof File) {
       setCurrentImageUrl(URL.createObjectURL(blogImage));
     }
@@ -106,7 +107,7 @@ function BlogPost() {
     }
 
     try {
-      await axios.post("https://www.wahatalhijazmarble.com/api/blogs/Blogpost", formData, {
+      await axios.post(`${API_BASE}/blogs/Blogpost`, formData, {
         headers: { "Content-Type": "multipart/form-data" }
         // axios.post("http://localhost:3001/api/blogs/Blogpost",
       });

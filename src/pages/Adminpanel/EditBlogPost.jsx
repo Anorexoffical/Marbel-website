@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_BASE } from "../../config";
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Underline from '@tiptap/extension-underline';
@@ -72,7 +73,7 @@ function EditBlogPost() {
     try {
       setIsLoading(true);
       // const response = await axios.get(`http://localhost:3001/api/blogs/Blogpost/${id}`);
-      const response = await axios.get(`https://www.wahatalhijazmarble.com/api/blogs/Blogpost/${id}`);
+      const response = await axios.get(`${API_BASE}/blogs/Blogpost/${id}`);
       const { postDate, category, username, occupation, title, body, imageUrl } = response.data;
       setPostDate(postDate);
       setCategory(category);
@@ -126,7 +127,7 @@ function EditBlogPost() {
     }
 
     try {
-      await axios.put(`https://www.wahatalhijazmarble.com/api/blogs/Blogpost/${id}`, updatedData, {
+      await axios.put(`${API_BASE}/blogs/Blogpost/${id}`, updatedData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

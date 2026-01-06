@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperType } from 'swiper';
 import { Navigation, FreeMode } from 'swiper/modules';
 import axios from "axios";
+import { API_BASE, UPLOADS_BASE } from "../config";
 
 // Product images (using existing asset in repo)
 import homeImg from '../assets/home1.png';
@@ -65,7 +66,7 @@ export default function RecentProjects() {
     const fetchRecentBlogs = async () => {
       try {
         setLoadingBlogs(true);
-        const response = await axios.get(`http://localhost:3001/api/blogs/Blogposts`, {
+        const response = await axios.get(`${API_BASE}/blogs/Blogposts`, {
           params: {
             page: 1,
             limit: 6, // Only fetch 6 blogs
@@ -601,7 +602,7 @@ export default function RecentProjects() {
                     <div className="pd-related-card">
                       <div className="pd-related-image-container">
                         <img
-                          src={blog.blogImage ? `https://www.wahatalhijazmarble.com/api/uploads/${blog.blogImage}` : homeImg}
+                          src={blog.blogImage ? `${UPLOADS_BASE}/${blog.blogImage}` : homeImg}
                           alt={blog.title}
                           className="pd-related-card-img"
                         />

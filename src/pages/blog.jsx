@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_BASE, UPLOADS_BASE } from "../config";
 import "../Style/Blog.css";
 import { FaUserCircle, FaCalendarAlt, FaArrowRight } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
@@ -78,7 +79,7 @@ const BlogsList = () => {
     };
 
     axios
-      .get(`https://www.wahatalhijazmarble.com/api/blogs/Blogposts`, { params })
+      .get(`${API_BASE}/blogs/Blogposts`, { params })
       .then((response) => {
         if (response.data && Array.isArray(response.data.blogs)) {
           setBlogs(response.data.blogs);
@@ -337,7 +338,7 @@ const BlogsList = () => {
                     <img
                       src={
                         blog.blogImage
-                          ? `https://www.wahatalhijazmarble.com/api/uploads/${blog.blogImage}`
+                          ? `${UPLOADS_BASE}/${blog.blogImage}`
                           : "/default-blog-image.jpg"
                       }
                       alt={blog.title}

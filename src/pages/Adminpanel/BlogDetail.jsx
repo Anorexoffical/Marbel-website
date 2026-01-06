@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_BASE, UPLOADS_BASE } from "../../config";
 import {
   FaUserCircle,
   FaCalendarAlt,
@@ -73,7 +74,7 @@ const BlogDetail = () => {
   const fetchBlogDetails = () => {
     setLoading(true);
     axios
-      .get(`https://www.wahatalhijazmarble.com/api/blogs/Blogpost/${id}`)
+      .get(`${API_BASE}/blogs/Blogpost/${id}`)
       .then((response) => {
         setBlog(response.data);
         calculateReadingTime(response.data.body);
@@ -87,7 +88,7 @@ const BlogDetail = () => {
 
   const fetchRelatedBlogs = () => {
     axios
-      .get(`https://www.wahatalhijazmarble.com/api/blogs/Blogposts`, { params: { limit: 4, page: 1 } })
+      .get(`${API_BASE}/blogs/Blogposts`, { params: { limit: 4, page: 1 } })
       .then((response) => {
         if (response.data && Array.isArray(response.data.blogs)) {
           const filtered = response.data.blogs
@@ -397,7 +398,7 @@ const BlogDetail = () => {
           alt={blog.title}
         /> */}
                 <img
-                  src={`https://www.wahatalhijazmarble.com/api/uploads/${blog.blogImage}`}
+                  src={`${UPLOADS_BASE}/${blog.blogImage}`}
                   alt={blog.title}
                   className="hero-img"
                   loading="lazy"

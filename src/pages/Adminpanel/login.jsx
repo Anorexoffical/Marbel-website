@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
+import { API_BASE } from "../../config";
 import logo from "../../assets/logoblack.png";
 import '../../Style/Login.css'; // Import custom styles
 
@@ -30,7 +31,7 @@ const Login = () => {
       return;
     }
 
-    axios.post("https://www.wahatalhijazmarble.com/api/user/auth", { userName, password })
+    axios.post(`${API_BASE}/user/auth`, { userName, password })
     .then(result => {
       sessionStorage.setItem('userName', userName);
       navigate('/BlogPost'); // Redirect to the main app page
