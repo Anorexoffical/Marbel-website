@@ -8,7 +8,7 @@ import "../Style/Marble.css";
 // Mosaic Collection Images (reverted to original casing as requested)
 import MOSAIC_1 from '../assets/Mosaic/image11.png';
 import MOSAIC_2 from '../assets/Mosaic/image22.png';
-import MOSAIC_3 from '../assets/Mosaic/image3.png';
+import MOSAIC_3 from '../assets/Mosaic/image33.png';
 import MOSAIC_4 from '../assets/Mosaic/image44.png';
 import MOSAIC_5 from '../assets/Mosaic/image55.png';
 import MOSAIC_6 from '../assets/Mosaic/image66.png';
