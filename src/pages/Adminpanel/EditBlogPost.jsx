@@ -246,10 +246,11 @@ function EditBlogPost() {
                     onChange={(e) => setCategory(e.target.value)}
                   >
                     <option value="">Select category</option>
-                    <option value="Activate my SIM">Activate my SIM</option>
-                    <option value="Top up">Top up</option>
-                    <option value="Network Troubleshooting">Network Troubleshooting</option>
-                    <option value="Technical Guides">Technical Guides</option>
+                    <option value="Marble">Marble</option>
+                    <option value="Granite">Granite</option>
+                    <option value="Mosaic">Mosaic</option>
+                    <option value="Quartz">Quartz</option>
+                    <option value="Travertine">Travertine</option>
                   </select>
                 </div>
               </div>
@@ -283,10 +284,11 @@ function EditBlogPost() {
                     onChange={(e) => setOccupation(e.target.value)}
                   >
                     <option value="">Select occupation</option>
-                    <option value="Telecom Network Engineer">Telecom Network Engineer</option>
-                    <option value="SIM Card Engineer">SIM Card Engineer</option>
-                    <option value="Electronics Engineer">Electronics Engineer</option>
-                    <option value="VoLTE & IMS Engineer">VoLTE & IMS Engineer</option>
+                    <option value="Marble Specialist">Marble Specialist</option>
+                    <option value="Granite Specialist">Granite Specialist</option>
+                    <option value="Mosaic Designer">Mosaic Designer</option>
+                    <option value="Quartz Fabrication Engineer">Quartz Fabrication Engineer</option>
+                    <option value="Travertine Specialist">Travertine Specialist</option>
                   </select>
                 </div>
               </div>

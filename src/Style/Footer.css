@@ -1,4 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Creolia&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+/* Local Creolia font (replace Google Fonts import) */
+@font-face {
+  font-family: 'Creolia';
+  src: url('../assets/Fonts/creolia.ttf') format('truetype'),
+       url('../assets/Fonts/CCreolia.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Creolia';
+  src: url('../assets/Fonts/creolia.ttf') format('truetype'),
+       url('../assets/Fonts/CCreolia.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 .footer-section {
   color: #ffffff;

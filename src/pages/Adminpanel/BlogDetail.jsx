@@ -26,7 +26,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import "../../Style/BlogDetail.css";
 
 // Import CEO owner image
-import ceoOwnerImage from "../../assets/owner.png";
+import ceoOwnerImage from "../../assets/owner.webp";
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -303,10 +303,10 @@ const BlogDetail = () => {
                   />
                 </div>
                 <div className="author-sidebar-info">
-                  <h4 className="author-name">John Smith</h4>
+                  <h4 className="author-name">Mr Irfan</h4>
                   <p className="author-role">CEO & Founder</p>
                   <p className="author-excerpt">
-                    With over 15 years of experience in the marble and granite industry,.
+                    With over 15 years of experience in the marble and granite industry.
                   </p>
                 </div>
               </div>

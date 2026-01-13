@@ -10,25 +10,21 @@ import axios from "axios";
 import { API_BASE, UPLOADS_BASE } from "../config";
 
 // Product images (using existing asset in repo)
-import homeImg from '../assets/home1.png';
-import service1 from '../assets/service1.png';
-import ourproject1 from '../assets/ourproject.png';
-import ourproject2 from '../assets/ourproject2.png';
-import ourproject3 from '../assets/ourproject3.png';
-import ourproject4 from '../assets/ourproject4.png';
-import ourproject5 from '../assets/ourproject5.png';
-import ourproject6 from '../assets/ourproject6.png';
-import ourproject7 from '../assets/ourproject7.png';
-import ourproject8 from '../assets/ourproject8.png';
-import ourproject9 from '../assets/ourproject9.png';
-import ourproject10 from '../assets/ourproject10.png';
-import ourproject11 from '../assets/ourproject11.png';
-import ourproject13 from '../assets/ourproject13.png';
-import service2 from '../assets/service2.png';
-import service3 from '../assets/service3.png';
-import service4 from '../assets/service4.png';
-import service5 from '../assets/service5.png';
-import service6 from '../assets/service6.png';
+import homeImg from '../assets/home1.webp';
+import service1 from '../assets/service1.webp';
+import ourproject1 from '../assets/project/ourproject1.png';
+import ourproject2 from '../assets/project/ourproject2.png';
+import ourproject3 from '../assets/project/ourproject3.png';
+import ourproject4 from '../assets/project/ourproject4.png';
+import ourproject5 from '../assets/project/ourproject5.png';
+import ourproject6 from '../assets/project/ourproject6.png';
+import ourproject7 from '../assets/project/ourproject7.png';
+import ourproject8 from '../assets/project/ourproject8.png';
+import ourproject9 from '../assets/project/ourproject9.png';
+import ourproject10 from '../assets/project/ourproject10.png';
+import ourproject11 from '../assets/project/ourproject11.png';
+import ourproject13 from '../assets/project/ourproject13.png';
+
 
 export default function RecentProjects() {
   // State for search functionality

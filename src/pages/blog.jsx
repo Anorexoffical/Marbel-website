@@ -7,7 +7,7 @@ import { FaUserCircle, FaCalendarAlt, FaArrowRight } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight, MdExpandMore } from "react-icons/md";
-import ceoOwnerImage from "../assets/owner.png";
+import ceoOwnerImage from "../assets/owner.webp";
 
 const BlogsList = () => {
   const [blogs, setBlogs] = useState([]);

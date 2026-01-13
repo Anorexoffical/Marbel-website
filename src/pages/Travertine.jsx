@@ -5,19 +5,19 @@ import { BsThreeDots } from "react-icons/bs";
 import Navbar from "../pages/Navbar";
 import "../Style/Marble.css";
 
-// Travertine Collection Images (PNG format)
-import NOCHE_TRAVERTINE from '../assets/travertine/NOCHE TRAVERTINE.png';
-import RED_TRAVERTINE from '../assets/travertine/RED-TRAVERTINE.png';
-import ROMAN_NAVONA_TRAVERTINE_UNFILLED from '../assets/travertine/ROMAN NAVONA TRAVERTINE UNFILLED.png';
-import ROMAN_TRAVERTINE_UNFILLED_HONED from '../assets/travertine/ROMAN TRAVERTINE UNFILLED HONED.png';
-import SILVER_TRAVERTINE from '../assets/travertine/SILVER TRAVERTINE.png';
-import TRAVERTINE_BEIGE_ITALY from '../assets/travertine/TRAVERTINE BEIGE ITALY.png';
-import TRAVERTINE_BEIGE_TURKEY from '../assets/travertine/TRAVERTINE BEIGE TURKEY.png';
-import TRAVERTINE_BEIGE_UNFILLED_POLISHED from '../assets/travertine/TRAVERTINE BEIGE UNFILLED & POLISHED.png';
-import TRAVERTINE_CROSS_CUT from '../assets/travertine/TRAVERTINE CROSS CUT.png';
-import TRAVERTINE_SILVER_ROMANO from '../assets/travertine/TRAVERTINE SILVER ROMANO.png';
-import TRAVERTINE_UNFILLED from '../assets/travertine/TRAVERTINE UNFILLED.png';
-import YELLOW_TRAVERTINE from '../assets/travertine/YELLOW TRAVERTINE.png';
+// Travertine Collection Images (webp format)
+import NOCHE_TRAVERTINE from '../assets/travertine/NOCHE TRAVERTINE.webp';
+import RED_TRAVERTINE from '../assets/travertine/RED-TRAVERTINE.webp';
+import ROMAN_NAVONA_TRAVERTINE_UNFILLED from '../assets/travertine/ROMAN NAVONA TRAVERTINE UNFILLED.webp';
+import ROMAN_TRAVERTINE_UNFILLED_HONED from '../assets/travertine/ROMAN TRAVERTINE UNFILLED HONED.webp';
+import SILVER_TRAVERTINE from '../assets/travertine/SILVER TRAVERTINE.webp';
+import TRAVERTINE_BEIGE_ITALY from '../assets/travertine/TRAVERTINE BEIGE ITALY.webp';
+import TRAVERTINE_BEIGE_TURKEY from '../assets/travertine/TRAVERTINE BEIGE TURKEY.webp';
+import TRAVERTINE_BEIGE_UNFILLED_POLISHED from '../assets/travertine/TRAVERTINE BEIGE UNFILLED & POLISHED.webp';
+import TRAVERTINE_CROSS_CUT from '../assets/travertine/TRAVERTINE CROSS CUT.webp';
+import TRAVERTINE_SILVER_ROMANO from '../assets/travertine/TRAVERTINE SILVER ROMANO.webp';
+import TRAVERTINE_UNFILLED from '../assets/travertine/TRAVERTINE UNFILLED.webp';
+import YELLOW_TRAVERTINE from '../assets/travertine/YELLOW TRAVERTINE.webp';
 
 export default function Travertine() {
   // State for search functionality

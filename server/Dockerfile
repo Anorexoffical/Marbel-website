@@ -7,6 +7,7 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3000
+# Keep container port consistent with app's PORT (3008)
+EXPOSE 3008
 
 CMD ["node", "server.js"]

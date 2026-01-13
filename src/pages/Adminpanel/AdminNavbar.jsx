@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import "../../Style/AdminNavbar.css";
 import { FaBars } from 'react-icons/fa';
-import logo from "../../assets/logoblack.png";
+import logo from "../../assets/logoblack.webp";
 
 function Navbar() {
   const navigate = useNavigate();

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Style/Footer.css";
-import footervideo from "../assets/footervedio.mp4";
+import footervideo from "../assets/mablefooter.webp";
 import certificate from '../assets/companydoc/certificate.png';
 import license from '../assets/companydoc/license1.png';
 import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
@@ -35,19 +35,14 @@ const Footer = () => {
   return (
     <>
       <footer className="footer-section">
-        {/* Background video area */}
+        {/* Background image area */}
         <div className="footer-hero d-flex align-items-center justify-content-center">
-          <video 
+          <img
             className="footer-video-bg"
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            preload="auto"
-          >
-            <source src={footervideo} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+            src={footervideo}
+            alt="Footer background"
+            loading="eager"
+          />
           
           <div className="video-overlay cta-overlay" />
           

@@ -12,6 +12,14 @@ RUN npm install
 # Copy source code
 COPY . .
 
+# Receive VITE envs from build args (used at build time)
+ARG VITE_API_BASE
+ARG VITE_UPLOADS_BASE
+ARG VITE_SITE_BASE
+ENV VITE_API_BASE=$VITE_API_BASE \
+    VITE_UPLOADS_BASE=$VITE_UPLOADS_BASE \
+    VITE_SITE_BASE=$VITE_SITE_BASE
+
 # Build the app
 RUN npm run build
 

@@ -8,29 +8,27 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 // Product images
-import homeImg from '../assets/home1.png';
-import service1 from '../assets/service1.png';
-import service2 from '../assets/service2.png';
-import service3 from '../assets/service3.png';
-import service4 from '../assets/service4.png';
-import service5 from '../assets/service5.png';
-import service6 from '../assets/service6.png';
-import whatweoffer from '../assets/whatweoffer.png';
-import owner from '../assets/owner.png';
-import factory from '../assets/factory.png';
-import marketprice from '../assets/marketprice.png';
-import marketprice2 from '../assets/marketprice2.png';
+import homeImg from '../assets/home1.webp';
+import service1 from '../assets/service1.webp';
+import service2 from '../assets/service2.webp';
+import service3 from '../assets/service3.webp';
+import service4 from '../assets/service4.webp';
+import service5 from '../assets/service5.webp';
+import service6 from '../assets/service6.webp';
+import whatweoffer from '../assets/whatweoffer.webp';
+import owner from '../assets/owner.webp';
+import factory from '../assets/factory.webp';
+import marketprice from '../assets/marketprice.webp';
+import marketprice2 from '../assets/marketprice2.webp';
 
 // Import project images
-import ourproject1 from '../assets/ourproject.png';
-import ourproject2 from '../assets/ourproject2.png';
-import ourproject3 from '../assets/ourproject3.png';
-import ourproject4 from '../assets/ourproject4.png';
-import ourproject5 from '../assets/ourproject5.png';
-import ourproject6 from '../assets/ourproject6.png';
-import ourproject7 from '../assets/ourproject7.png';
-import ourproject8 from '../assets/ourproject8.png';
-import ourproject9 from '../assets/ourproject9.png';
+import ourproject1 from '../assets/project/ourproject1.png';
+import ourproject2 from '../assets/project/ourproject2.png';
+import ourproject3 from '../assets/project/ourproject3.png';
+import ourproject4 from '../assets/project/ourproject4.png';
+import ourproject5 from '../assets/project/ourproject5.png';
+import ourproject6 from '../assets/project/ourproject6.png';
+
 
 const Homepage = ({ handleGetStarted = () => {}, handleExploreBenefits = () => {} }) => {
   const navigate = useNavigate();

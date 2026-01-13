@@ -2,15 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ReactFlagsSelect from 'react-flags-select';
 import '../Style/Navbar.css';
-import logo from "../assets/logoblack.png";
+import logo from "../assets/logoblack.webp";
 
 // Import stone images
-import marbleImg from "../assets/service1.png";
-import graniteImg from "../assets/service2.png";
-import travertineImg from "../assets/service3.png";
-import ceramicImg from "../assets/service4.png";
-import quartzImg from "../assets/service5.png";
-import limestoneImg from "../assets/service6.png";
+import marbleImg from "../assets/service1.webp";
+import graniteImg from "../assets/service2.webp";
+import travertineImg from "../assets/service3.webp";
+import ceramicImg from "../assets/service4.webp";
+import quartzImg from "../assets/service5.webp";
+import limestoneImg from "../assets/service6.webp";
 
 const Navbar = ({ scrollToAboutUs }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -279,7 +279,7 @@ const Navbar = ({ scrollToAboutUs }) => {
                             <div className="petwell-stone-image-wrapper">
                               <img 
                                 ref={el => imageRefs.current[stone.id] = el}
-                                src={isServicesOpen ? stone.image : ''} // Lazy load: only set src when dropdown is open
+                                src={isServicesOpen ? stone.image : null} // Avoid empty src when closed
                                 data-src={stone.image}
                                 alt={stone.name} 
                                 className={`petwell-stone-image ${loadedImages[stone.id] ? 'loaded' : 'loading'}`}
@@ -308,7 +308,7 @@ const Navbar = ({ scrollToAboutUs }) => {
                             <div className="petwell-stone-image-wrapper">
                               <img 
                                 ref={el => imageRefs.current[stone.id] = el}
-                                src={isServicesOpen ? stone.image : ''} // Lazy load: only set src when dropdown is open
+                                src={isServicesOpen ? stone.image : null} // Avoid empty src when closed
                                 data-src={stone.image}
                                 alt={stone.name} 
                                 className={`petwell-stone-image ${loadedImages[stone.id] ? 'loaded' : 'loading'}`}
@@ -440,7 +440,7 @@ const Navbar = ({ scrollToAboutUs }) => {
                         <div className="petwell-mobile-stone-image-wrapper">
                           <img 
                             ref={el => imageRefs.current[`mobile-${stone.id}`] = el}
-                            src={isMobileServicesOpen ? stone.image : ''}
+                            src={isMobileServicesOpen ? stone.image : null}
                             data-src={stone.image}
                             alt={stone.name} 
                             className={`petwell-mobile-stone-image ${loadedImages[stone.id] ? 'loaded' : 'loading'}`}

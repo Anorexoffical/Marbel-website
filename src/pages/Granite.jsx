@@ -6,34 +6,34 @@ import Navbar from "../pages/Navbar";
 import "../Style/Marble.css";
 
 // Granite Collection Images - First batch (existing)
-import ALASKA_GOLD from '../assets/granite/ALASKA GOLD.png';
-import ALASKA_WHITE from '../assets/granite/ALASKA WHITE.png';
-import ANTIQUE_BROWN from '../assets/granite/ANTIQUE-BROWN.png';
-import ARABSCATO1 from '../assets/granite/ARABSCATO1.png';
-import MAGMA_BLACK from '../assets/granite/MAGMA BLACK.png';
-import MING_GREEN from '../assets/granite/MING-GREEN.png';
-import ORO_BRAZIL from '../assets/granite/ORO BRAZIL.png';
-import PATAGONIA from '../assets/granite/PATAGONIA.png';
-import PLATINUM_WHITE from '../assets/granite/PLATINUM WHITE.png';
-import SHIVAKASI_GOLD from '../assets/granite/SHIVAKASI GOLD.png';
-import SODA_LIGHT from '../assets/granite/SODA LIGHT.png';
-import STEEL_GREY_POLISHED from '../assets/granite/STEEL-GREY-POLISHED.png';
-import VISCOUNT_WHITE from '../assets/granite/VISCOUNT-WHITE.png';
+import ALASKA_GOLD from '../assets/granite/ALASKA GOLD.webp';
+import ALASKA_WHITE from '../assets/granite/ALASKA WHITE.webp';
+import ANTIQUE_BROWN from '../assets/granite/ANTIQUE-BROWN.webp';
+import ARABSCATO1 from '../assets/granite/ARABSCATO1.webp';
+import MAGMA_BLACK from '../assets/granite/MAGMA BLACK.webp';
+import MING_GREEN from '../assets/granite/MING-GREEN.webp';
+import ORO_BRAZIL from '../assets/granite/ORO BRAZIL.webp';
+import PATAGONIA from '../assets/granite/PATAGONIA.webp';
+import PLATINUM_WHITE from '../assets/granite/PLATINUM WHITE.webp';
+import SHIVAKASI_GOLD from '../assets/granite/SHIVAKASI GOLD.webp';
+import SODA_LIGHT from '../assets/granite/SODA LIGHT.webp';
+import STEEL_GREY_POLISHED from '../assets/granite/STEEL-GREY-POLISHED.webp';
+import VISCOUNT_WHITE from '../assets/granite/VISCOUNT-WHITE.webp';
 
 
 // Second batch of granite images from your list
-import AZULBAHIA from '../assets/granite/second/AZUL BAHIA.png';
-import AZUL_MACUBA from '../assets/granite/second/AZUL MACUBA.png';
-import BIANCOSARDO from '../assets/granite/second/BIANCO SARDO.png';
-import BLACK_ABSOLUTE from '../assets/granite/second/BLACK-ABSOLUTE.png';
-import BLACK_GALAXY from '../assets/granite/second/BLACK-GALAXY.png';
-import BLUE_PEARL_GT from '../assets/granite/second/BLUE-PEARL-GT.png';
-import CRYSTAL_YELLOW from '../assets/granite/second/CRYSTAL YELLOW.png';
-import EMERALD_PEARL from '../assets/granite/second/EMERALD-PEARL.png';
-import FAREAST_WHITE from '../assets/granite/second/FAREAST WHITE.png';
-import INDIAN_JUPRANA from '../assets/granite/second/INDIAN JUPRANA.png';
-import LABRADOR_ANTIQUE from '../assets/granite/second/LABRADOR-ANTIQUE.png';
-import LEMURIAN_BLUE from '../assets/granite/second/LEMURIAN BLUE.png';
+import AZULBAHIA from '../assets/granite/second/AZUL BAHIA.webp';
+import AZUL_MACUBA from '../assets/granite/second/AZUL MACUBA.webp';
+import BIANCOSARDO from '../assets/granite/second/BIANCO SARDO.webp';
+import BLACK_ABSOLUTE from '../assets/granite/second/BLACK-ABSOLUTE.webp';
+import BLACK_GALAXY from '../assets/granite/second/BLACK-GALAXY.webp';
+import BLUE_PEARL_GT from '../assets/granite/second/BLUE-PEARL-GT.webp';
+import CRYSTAL_YELLOW from '../assets/granite/second/CRYSTAL YELLOW.webp';
+import EMERALD_PEARL from '../assets/granite/second/EMERALD-PEARL.webp';
+import FAREAST_WHITE from '../assets/granite/second/FAREAST WHITE.webp';
+import INDIAN_JUPRANA from '../assets/granite/second/INDIAN JUPRANA.webp';
+import LABRADOR_ANTIQUE from '../assets/granite/second/LABRADOR-ANTIQUE.webp';
+import LEMURIAN_BLUE from '../assets/granite/second/LEMURIAN BLUE.webp';
 
 export default function Granite() {
   // State for search functionality

@@ -279,6 +279,8 @@
   font-size: 0.875rem;
   line-height: 1.7;
   color: #333;
+  white-space: pre-wrap; /* preserve spaces and line breaks */
+  word-break: break-word;
 }
 
 .blog-editor-content .ProseMirror p {

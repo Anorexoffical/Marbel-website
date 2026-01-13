@@ -6,26 +6,26 @@ import Navbar from "../pages/Navbar";
 import "../Style/Marble.css";
 
 // Ceramic Collection Images
-import CERAMIC_1 from '../assets/ceramic/image.png';
-import CERAMIC_2 from '../assets/ceramic/image copy.png';
-import CERAMIC_3 from '../assets/ceramic/image copy 2.png';
-import CERAMIC_4 from '../assets/ceramic/image copy 3.png';
-import CERAMIC_5 from '../assets/ceramic/image copy 4.png';
-import CERAMIC_6 from '../assets/ceramic/image copy 5.png';
-import CERAMIC_7 from '../assets/ceramic/image copy 6.png';
-import CERAMIC_8 from '../assets/ceramic/image copy 7.png';
-import CERAMIC_9 from '../assets/ceramic/image copy 8.png';
-import CERAMIC_10 from '../assets/ceramic/image copy 9.png';
-import CERAMIC_11 from '../assets/ceramic/image copy 10.png';
-import CERAMIC_12 from '../assets/ceramic/image copy 11.png';
-import CERAMIC_13 from '../assets/ceramic/image copy 12.png';
-import CERAMIC_14 from '../assets/ceramic/image copy 13.png';
-import CERAMIC_15 from '../assets/ceramic/image copy 14.png';
-import CERAMIC_16 from '../assets/ceramic/image copy 15.png';
-import CERAMIC_17 from '../assets/ceramic/image copy 16.png';
-import CERAMIC_18 from '../assets/ceramic/image copy 17.png';
-import CERAMIC_19 from '../assets/ceramic/image copy 18.png';
-import CERAMIC_20 from '../assets/ceramic/image copy 19.png';
+import CERAMIC_1 from '../assets/ceramic/image.webp';
+import CERAMIC_2 from '../assets/ceramic/image copy.webp';
+import CERAMIC_3 from '../assets/ceramic/image copy 2.webp';
+import CERAMIC_4 from '../assets/ceramic/image copy 3.webp';
+import CERAMIC_5 from '../assets/ceramic/image copy 4.webp';
+import CERAMIC_6 from '../assets/ceramic/image copy 5.webp';
+import CERAMIC_7 from '../assets/ceramic/image copy 6.webp';
+import CERAMIC_8 from '../assets/ceramic/image copy 7.webp';
+import CERAMIC_9 from '../assets/ceramic/image copy 8.webp';
+import CERAMIC_10 from '../assets/ceramic/image copy 9.webp';
+import CERAMIC_11 from '../assets/ceramic/image copy 10.webp';
+import CERAMIC_12 from '../assets/ceramic/image copy 11.webp';
+import CERAMIC_13 from '../assets/ceramic/image copy 12.webp';
+import CERAMIC_14 from '../assets/ceramic/image copy 13.webp';
+import CERAMIC_15 from '../assets/ceramic/image copy 14.webp';
+import CERAMIC_16 from '../assets/ceramic/image copy 15.webp';
+import CERAMIC_17 from '../assets/ceramic/image copy 16.webp';
+import CERAMIC_18 from '../assets/ceramic/image copy 17.webp';
+import CERAMIC_19 from '../assets/ceramic/image copy 18.webp';
+import CERAMIC_20 from '../assets/ceramic/image copy 19.webp';
 
 
 export default function Ceramic() {

@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { API_BASE } from "../../config";
-import logo from "../../assets/logoblack.png";
+import logo from "../../assets/logoblack.webp";
 import '../../Style/Login.css'; // Import custom styles
 
 const Login = () => {
