@@ -165,7 +165,7 @@ export default function Mosaic() {
 
   return (
     <>
-      <div className=" container-fluid" id="store-container">
+      <div className=" container-fluid" id="store-container-mosaic">
         <Navbar />
         
         <div className="row">

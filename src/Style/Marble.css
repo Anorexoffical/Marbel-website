@@ -3,126 +3,148 @@
    margin-top: 0px;
   width: calc(100vw - 30px);
   min-height: 75vh;
-  background-image: url('../assets/marble1.png');
-  background-size: 100% auto;
-  background-position: left 40%;
+  background-image: url('../assets/marble1.webp');
+  background-size: cover; /* ensure full coverage like home page */
+  background-position: center;
   background-repeat: no-repeat;
   border-radius: 2rem;
   position: relative;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   margin: 15px;
-  padding: 200px 30px;
-  
+  padding: 40px 30px;
 }
 #store-container-granite{
   margin-top: 0px;
   width: calc(100vw - 30px);
   min-height: 75vh;
-  background-image: url('../assets/granite1.jpg');
-  background-size: 100% auto;
-  background-position: left 40%;
+  background-image: url('../assets/Granite.webp');
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   border-radius: 2rem;
   position: relative;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   margin: 15px;
-  padding: 200px 30px;
+  padding: 40px 30px;
 }
 
 #store-container-travertine{
   margin-top: 0px;
   width: calc(100vw - 30px);
   min-height: 75vh;
-  background-image: url('../assets/travertine.jpg');
-  background-size: 100% auto;
-  background-position: left 40%;
+  background-image: url('../assets/travertine.webp');
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   border-radius: 2rem;
   position: relative;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   margin: 15px;
-  padding: 200px 30px;
+  padding: 40px 30px;
 }
 
 #store-container-quartz{
   margin-top: 0px;
   width: calc(100vw - 30px);
   min-height: 75vh;
-  background-image: url('../assets/quartz.jpg');
-  background-size: 100% auto;
-  background-position: left 40%;
+  background-image: url('../assets/travertine.webp');
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   border-radius: 2rem;
   position: relative;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   margin: 15px;
-  padding: 200px 30px;
+  padding: 40px 30px;
 }
 #store-container-ceramic{
   margin-top: 0px;
   width: calc(100vw - 30px);
   min-height: 75vh;
-  background-image: url('../assets/home1.jpg');
-  background-size: 100% auto;
-  background-position: left 40%;
+  background-image: url('../assets/home1.webp');
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   border-radius: 2rem;
   position: relative;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   margin: 15px;
-  padding: 200px 30px;
+  padding: 40px 30px;
+}
+
+
+#store-container-mosaic{
+  margin-top: 0px;
+  width: calc(100vw - 30px);
+  min-height: 75vh;
+  background-image: url('../assets/mosaic3.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 15px;
+  padding: 40px 30px;
 }
 
 
 
 .store-content {
   padding: 0 8%;
+  z-index: 2; /* above overlay */
+  position: relative;
 }
 
 .store-heading {
   font-weight: 700;
   font-size: 2.9rem;
-  padding-top: 16%;
+  padding-top: 0;
   line-height: 1.1;
-  color: #101010;
+  color: #ffffff; /* hero text over image */
   font-family: 'Plus Jakarta Sans', sans-serif;
-
 }
 
 .store-description {
   margin: 1rem 0;
-  color: #000000;
+  color: rgba(255, 255, 255, 0.85);
   font-size: 1rem;
   max-width: 80%;
-  
 }
 
 /* Optional: Fine-tuning for specific breakpoints */
 @media (max-width: 768px) {
-  .store-container {
-    height: 60vh;
+  #store-container,
+  #store-container-granite,
+  #store-container-travertine,
+  #store-container-quartz,
+  #store-container-ceramic,
+  #store-container-mosaic {
+    min-height: 60vh;
+    padding: 30px 20px;
+    background-position: center;
   }
-  
   .store-heading {
-    padding-top: 8%;
     font-size: 2rem;
   }
-  
   .store-description {
     max-width: 100%;
   }
@@ -130,15 +152,41 @@
 
 @media (max-width: 576px) {
   .store-heading {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
+}
+
+/* Gradient overlay on hero sections, like home/blog */
+#store-container::before,
+#store-container-granite::before,
+#store-container-travertine::before,
+#store-container-quartz::before,
+#store-container-ceramic::before,
+#store-container-mosaic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 2rem;
+  background: linear-gradient(
+    90deg,
+    rgba(27, 26, 26, 0.85) 0%,
+    rgba(0, 0, 0, 0.70) 15%,
+    rgba(0, 0, 0, 0.50) 40%,
+    rgba(0, 0, 0, 0.25) 70%,
+    rgba(21, 20, 20, 0) 100%
+  );
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* Second component - search and filter */
 .search-filter-container {
   width: 100%;
   padding: 20px;
-  background-color: #f8f8f8;
+  background-color: #FBF8F4; /* match page background */
 }
 
 .search-filter-row {
@@ -180,46 +228,56 @@
   width: 100%;
 }
 
-/* Search input group */
+/* Search input group — match blog B2B style */
 .input-group {
   width: 100%;
   display: flex;
   align-items: center;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #FBF8F4;
+  border: 1px solid #eee2d5;
+  transition: all 0.3s ease;
+  height: 36px;
+}
+
+.input-group:hover {
+  border-color: #decfbe;
+}
+
+.input-group:focus-within {
+  border-color: #c0a38a;
+  box-shadow: 0 0 0 1px rgba(192, 163, 138, 0.2);
 }
 
 .search-icon {
-  background-color: #FBF8F4;
-  border: 1px solid #eee2d5;
-  border-right: none;
-  border-radius: 50px 0 0 50px;
-  padding: 0.375rem 1.2rem 0.375rem 1.2rem;
+  background: transparent;
+  border: none;
+  padding: 0 12px;
   color: #b0a7a0;
-  height: 38px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .search-input {
-  border: 1px solid #eee2d5;
-  border-left: none;
-  border-radius: 0 50px 50px 0;
-  background-color: #FBF8F4;
-  font-size: 0.9rem;
-  padding-left: 0.75rem;
-  height: 38px;
   flex: 1;
+  border: none;
+  padding: 0 12px;
+  font-size: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: transparent;
+  color: #232323;
+  width: 100%;
+  outline: none;
+  height: 100%;
+  min-width: 0;
 }
 
-.search-input:focus {
-  border-color: #c0a38a;
-  background-color: #FBF8F4;
-  box-shadow: 0 0 0 0.2rem rgba(192, 163, 138, 0.25);
-}
-
-/* Hover effects */
-.search-input:hover {
-  border-color: #decfbe;
+.search-input::placeholder {
+  color: #999;
+  font-size: 12px;
 }
 
 /* Search results text */
@@ -254,7 +312,7 @@
 
 .filter-select {
   border-radius: 50px;
-  background-color: #FFFDFA;
+  background-color: #FBF8F4; /* align with page bg */
   border: 1px solid #eee2d5;
   font-size: 0.9rem;
   padding: 0.375rem 2.25rem 0.375rem 0.75rem;
@@ -275,12 +333,17 @@
 /* For very small screens */
 @media (max-width: 575.98px) {
   .search-filter-row {
-    flex-wrap: nowrap;
-    gap: 0.5rem;
+    flex-wrap: wrap; /* allow wrapping on mobile */
+    flex-direction: column !important; /* override Bootstrap flex-row */
+    gap: 0.75rem;
+  }
+  .search-field-container,
+  .filter-dropdown-container {
+    width: 100% !important;
   }
   
   .filter-select {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     padding-right: 2rem;
   }
 }
@@ -288,7 +351,7 @@
 /* Ensure proper spacing on all devices */
 @media (max-width: 991.98px) {
   .search-filter-row {
-    flex-wrap: nowrap;
+    flex-wrap: wrap; /* allow wrapping on tablets */
   }
 }
 
@@ -566,10 +629,18 @@
 
 @media (max-width: 575.98px) {
   .search-filter-row {
+    flex-direction: column !important; /* override Bootstrap flex-row */
     flex-wrap: nowrap;
-    gap: 0.5rem;
+    gap: 0.75rem;
   }
-  
+  .search-field-container {
+    order: 1;
+    width: 100% !important;
+  }
+  .filter-dropdown-container {
+    order: 2;
+    width: 100% !important;
+  }
   .filter-select {
     font-size: 0.85rem;
     padding-right: 2rem;

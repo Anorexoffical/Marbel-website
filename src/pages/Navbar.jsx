@@ -27,7 +27,7 @@ const Navbar = ({ scrollToAboutUs }) => {
   // Stone collection data with images
   const stoneCollections = [
     { id: 1, name: "Marble", path: "/marble", image: marbleImg },
-    { id: 2, name: "Granite Onyx", path: "/granite", image: graniteImg },
+    { id: 2, name: "Granite", path: "/granite", image: graniteImg },
     { id: 3, name: "Travertine", path: "/travertine", image: travertineImg },
     { id: 4, name: "Ceramic", path: "/ceramic", image: ceramicImg },
     { id: 5, name: "Quartz", path: "/quartz", image: quartzImg },
@@ -87,7 +87,7 @@ const Navbar = ({ scrollToAboutUs }) => {
   };
 
   const handleEmailClick = () => {
-    window.open('mailto:enquire@wahatalhijamarble.com', '_blank');
+    window.open('mailto:info@wahatalhijamarble.com', '_blank');
   };
 
   const toggleServicesDropdown = () => {
@@ -101,7 +101,7 @@ const Navbar = ({ scrollToAboutUs }) => {
   const handleWhatsAppClick = () => {
     // Pre-filled message for WhatsApp
     const message = encodeURIComponent(
-      "Hello WAHAT AL HIJA MARBLE,\n\n" +
+      "Hello WAHAT AL HIJAZ MARBLE,\n\n" +
       "I'm interested in your marble and granite services. " 
     );
     
@@ -149,43 +149,46 @@ const Navbar = ({ scrollToAboutUs }) => {
         <div className="petwell-container-fluid petwell-top-bar-content">
           <div className="petwell-top-bar-left">
             <a 
-              href="enquire@wahatalhijamarble.com" 
+              href="mailto:info@wahatalhijamarble.com" 
               className="petwell-email-link"
               onClick={(e) => {
                 e.preventDefault();
                 handleEmailClick();
               }}
             >
-              enquire@wahatalhijamarble.com
+              info@wahatalhijamarble.com
             </a>
           </div>
 
           <div className="petwell-social-icons">
             <a 
-              href="https://facebook.com" 
+              href="https://www.facebook.com/share/1C5Upk4MzR/" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="petwell-social-icon"
+              aria-label="Facebook"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
               </svg>
             </a>
             <a 
-              href="https://instagram.com" 
+              href="https://www.instagram.com/wahat_al_hijaz?igsh=MXUxN2NsNXNvM2Z0aQ%3D%3D&utm_source=qr" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="petwell-social-icon"
+              aria-label="Instagram"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
               </svg>
             </a>
             <a 
-              href="https://tiktok.com" 
+              href="https://vt.tiktok.com/ZS5taqeff/" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="petwell-social-icon"
+              aria-label="TikTok"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.3.012.599.066.89.16v-3.41a6.34 6.34 0 0 0-5.9 6.28 6.34 6.34 0 0 0 11.17 4.21 6.34 6.34 0 0 0 .53-9.03v-5a7.72 7.72 0 0 0 4.29 1.86v3.18a4.67 4.67 0 0 1-3.48-1.46z"/>
@@ -205,7 +208,13 @@ const Navbar = ({ scrollToAboutUs }) => {
       <nav className="petwell-navbar navbar-expand-lg petwell-main-navbar">
         <div className="petwell-container-fluid">
           {/* Mobile Menu Toggle */}
-          <button className="petwell-mobile-menu-toggle" onClick={toggleMobileMenu}>
+          <button
+            className="petwell-mobile-menu-toggle"
+            onClick={toggleMobileMenu}
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="petwell-mobile-menu"
+          >
             <div className="petwell-three-dashes">
               <div className="petwell-dash"></div>
               <div className="petwell-dash"></div>
@@ -216,11 +225,14 @@ const Navbar = ({ scrollToAboutUs }) => {
           {/* Brand Logo - Will be hidden below 435px */}
           <Link className="petwell-navbar-brand" to="/" onClick={closeMobileMenu}>
             <div className="petwell-brand-logo">
-              <img 
-                src={logo} 
-                alt="Petwell Logo" 
-                className="petwell-logo-img" 
-                loading="eager" // Keep logo eager loaded for immediate visibility
+              <img
+                src={logo}
+                alt="Wahat Al Hijaz Marble logo"
+                className="petwell-logo-img"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+                height={48}
               />
             </div>
           </Link>
@@ -334,7 +346,7 @@ const Navbar = ({ scrollToAboutUs }) => {
           </div>
 
           {/* RIGHT SIDE GROUP: Language Selector + WhatsApp Button */}
-          <div className="petwell-right-side-group d-flex align-items-center">
+          <div className="petwell-right-side-group d-flex align-items-center" aria-label="Quick actions">
             {/* Language Selector - Always visible */}
             <div className="petwell-language-selector-wrapper" ref={languageDropdownRef}>
               <ReactFlagsSelect
@@ -371,17 +383,20 @@ const Navbar = ({ scrollToAboutUs }) => {
       </nav>
 
       {/* Mobile Menu */}
-      <div className={`petwell-mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+      <div id="petwell-mobile-menu" className={`petwell-mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
         <div className="petwell-mobile-menu-header">
           <div className="petwell-brand-logo">
-            <img 
-              src={logo} 
-              alt="Petwell Logo" 
-              className="petwell-logo-img" 
-              loading="eager" 
+            <img
+              src={logo}
+              alt="Wahat Al Hijaz Marble logo"
+              className="petwell-logo-img"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+              height={48}
             />
           </div>
-          <button className="petwell-mobile-menu-close" onClick={closeMobileMenu}>
+          <button className="petwell-mobile-menu-close" onClick={closeMobileMenu} aria-label="Close menu">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M18 6L6 18M6 6l12 12"/>
             </svg>
@@ -473,10 +488,48 @@ const Navbar = ({ scrollToAboutUs }) => {
               handleWhatsAppClick();
               closeMobileMenu();
             }}
+            aria-label="Open WhatsApp"
           >
             <span className="petwell-btn-dot">•</span>
             <span className="petwell-btn-text">WhatsApp</span>
           </button>
+
+          {/* Social Icons in Mobile Drawer */}
+          <div className="petwell-social-icons" style={{ marginTop: '12px' }}>
+            <a 
+              href="https://www.facebook.com/share/1C5Upk4MzR/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="petwell-social-icon"
+              aria-label="Facebook"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a 
+              href="https://www.instagram.com/wahat_al_hijaz?igsh=MXUxN2NsNXNvM2Z0aQ%3D%3D&utm_source=qr" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="petwell-social-icon"
+              aria-label="Instagram"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <a 
+              href="https://vt.tiktok.com/ZS5taqeff/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="petwell-social-icon"
+              aria-label="TikTok"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.3.012.599.066.89.16v-3.41a6.34 6.34 0 0 0-5.9 6.28 6.34 6.34 0 0 0 11.17 4.21 6.34 6.34 0 0 0 .53-9.03v-5a7.72 7.72 0 0 0 4.29 1.86v3.18a4.67 4.67 0 0 1-3.48-1.46z"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>

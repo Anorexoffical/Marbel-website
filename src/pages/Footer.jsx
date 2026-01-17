@@ -14,6 +14,11 @@ const Footer = () => {
   const [showTermsModal, setShowTermsModal] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // WhatsApp order link
+  const whatsappNumber = "971544992662"; // Country code + number, no '+' or leading zeros
+  const whatsappMsg = "Hello WAHAT AL HIJAZ MARBLE, I’d like to place an order.";
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMsg)}`;
+
   // Handle body scroll when modal is open
   useEffect(() => {
     if (showPrivacyModal || showDocsModal || showTermsModal) {
@@ -54,9 +59,15 @@ const Footer = () => {
               Get premium marble, granite, and stone solutions delivered to your doorstep within 48 hours.
             </p>
             <div className="d-flex justify-content-center">
-              <button className="btn btn-transparent btn-lg rounded-pill px-5 py-2 fw-medium">
+              <a 
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-transparent btn-lg rounded-pill px-5 py-2 fw-medium"
+                aria-label="Order now via WhatsApp"
+              >
                 Order Now
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -70,7 +81,7 @@ const Footer = () => {
                 <div className="footer-logo-wrapper">
                   {/* <img 
                     src={logo} 
-                    alt="Al Hija Marble" 
+                    alt="Wahat Al Hijaz Marble" 
                     className="footer-logo-img"
                     loading="lazy"
                   /> */}
@@ -84,7 +95,7 @@ const Footer = () => {
               <div className="col-lg-4 col-md-6 mb-4">
                 <h6 className="footer-heading">About Us</h6>
                 <p className="footer-text mb-4">
-                  Premium natural stone solutions for modern homes and commercial spaces, bringing timeless elegance to every project since 2010.
+                  Premium natural stone solutions for modern homes and commercial spaces, bringing timeless elegance to every project since 2017.
                 </p>
                 
                 {/* Quick Links */}
@@ -105,23 +116,7 @@ const Footer = () => {
                   </button>
                 </div>
 
-                {/* Newsletter */}
-                <div className="newsletter-section">
-                  <h6 className="footer-heading mb-3">Stay Updated</h6>
-                  <form className="footer-form d-flex mb-2">
-                    <input
-                      type="email"
-                      className="form-control form-control-sm me-2"
-                      placeholder="Your email address"
-                    />
-                    <button className="btn btn-outline-light btn-sm" type="submit">
-                      →
-                    </button>
-                  </form>
-                  <small className="footer-note">
-                    Your information is never disclosed to third parties.
-                  </small>
-                </div>
+                {/* Newsletter removed per request */}
               </div>
 
               {/* Middle column - Services */}
@@ -141,7 +136,7 @@ const Footer = () => {
               <div className="col-lg-2 col-md-3 mb-4">
                 <h6 className="footer-heading">Company</h6>
                 <ul className="list-unstyled footer-links">
-                  <li><Link to="/about-us">About Us</Link></li>
+                  {/* <li><Link to="/about-us">About Us</Link></li> */}
                   <li><Link to="/blog">Blogs</Link></li>
                   <li><Link to="/our-recent-projects">Recent Projects</Link></li>
                   <li>
@@ -170,13 +165,13 @@ const Footer = () => {
                 <div className="contact-info mb-4">
                   <p className="footer-text mb-2">
                     <strong>Address:</strong> 
-                    123 Luxury Stone Avenue Marble District, Riyadh 11564 Saudi Arabia
+                    Industrial Area 15, Sharjah, UAE
                   </p>
                   <p className="footer-text mb-2">
                     <strong>Phone:</strong> 00971544992662
                   </p>
                   <p className="footer-text mb-3">
-                    <strong>Email:</strong> enquire@wahatalhijamarble.com
+                    <strong>Email:</strong> info@wahatalhijamarble.com
                   </p>
                   
                   <div className="business-hours">
@@ -192,13 +187,13 @@ const Footer = () => {
                 {/* Social Media */}
                 <div className="social-section">
                   <div className="footer-social">
-                    <a href="#" className="social-icon" aria-label="Facebook">
+                    <a href="https://www.facebook.com/share/1C5Upk4MzR/" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Facebook">
                       <FaFacebookF />
                     </a>
-                    <a href="#" className="social-icon" aria-label="Instagram">
+                    <a href="https://www.instagram.com/wahat_al_hijaz?igsh=MXUxN2NsNXNvM2Z0aQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram">
                       <FaInstagram />
                     </a>
-                    <a href="#" className="social-icon" aria-label="TikTok">
+                    <a href="https://vt.tiktok.com/ZS5taqeff/" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="TikTok">
                       <FaTiktok />
                     </a>
                   </div>
@@ -210,7 +205,7 @@ const Footer = () => {
             <div className="row border-top border-light pt-4">
               <div className="col-md-6 mb-3 mb-md-0">
                 <small className="footer-copy">
-                  © 2025 AL HIJA MARBLE. All Rights Reserved.
+                  © 2025 WAHAT AL HIJAZ MARBLE. All Rights Reserved.
                 </small>
               </div>
               <div className="col-md-6 text-md-end">
@@ -319,7 +314,7 @@ const Footer = () => {
                 <h4 className="footer-policy-subtitle">Contact Us</h4>
                 <p className="footer-policy-text">
                   For privacy-related questions or concerns, contact us at:<br/>
-                  <strong>Email:</strong> enquire@wahatalhijamarble.com<br/>
+                  <strong>Email:</strong> info@wahatalhijamarble.com<br/>
                   <strong>Phone:</strong> 00971544992662
                 </p>
 
@@ -376,9 +371,7 @@ const Footer = () => {
 
                 <div className="footer-policy-section">
                   <h4 className="footer-policy-subtitle">3. Return and Exchange Policy</h4>
-                  <p className="footer-policy-text">
-                    <p className="mainword">PLEASE INSPECT THE MATERIAL AT YOUR END. ONCE LOADED, MATERIAL SHALL NOT BE RETURNED BACK OR EXCHANGED.</p>
-                  </p>
+                  <p className="footer-policy-text mainword">PLEASE INSPECT THE MATERIAL AT YOUR END. ONCE LOADED, MATERIAL SHALL NOT BE RETURNED BACK OR EXCHANGED.</p>
                   <p className="footer-policy-text">
                     Custom orders and fabricated materials cannot be returned or exchanged.
                   </p>
@@ -405,9 +398,9 @@ const Footer = () => {
                   <h4 className="footer-policy-subtitle">6. Contact Information</h4>
                   <p className="footer-policy-text">
                     <strong>WAHAT AL HIJAZ MARBLE & GRANITE CUTTING. LLC. SP</strong><br/>
-                    <strong>Email:</strong>enquire@wahatalhijamarble.com<br/>
+                    <strong>Email:</strong>info@wahatalhijamarble.com<br/>
                     <strong>Phone:</strong> 009715449926622<br/>
-                    <strong>Address:</strong> 123 Luxury Stone Avenue Marble District, Riyadh 11564 Saudi Arabia
+                    <strong>Address:</strong> Industrial Area 15, Sharjah, UAE
                   </p>
                 </div>
 

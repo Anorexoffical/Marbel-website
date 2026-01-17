@@ -1081,10 +1081,12 @@ html.footer-modal-open {
 }
 
 .mainword{
-   color: #2d94ab;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    position: relative;
-    display: inline-block;
-    font-weight: 700;
-    letter-spacing: -0.08em;
+  color: #2d94ab;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  display: block;
+  letter-spacing: 0.02em; /* slightly increase spacing */
+  word-spacing: 0.05em;
+  line-height: 1.85;
+  margin-bottom: 16px;
 }

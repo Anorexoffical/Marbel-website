@@ -47,7 +47,7 @@ body {
   margin-top: 0px;
   width: calc(100vw - 30px);
   min-height: 75vh;
-  background-image: url('../assets/contactus.png');
+  background-image: url('../assets/contactus.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1375,7 +1375,8 @@ body {
 /* High-resolution displays */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .main-contact-container {
-    background-image: url('../assets/contactus.png');
+    /* Use existing webp on retina as well (png not present) */
+    background-image: url('../assets/contactus.webp');
   }
 }
 

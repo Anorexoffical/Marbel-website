@@ -22,12 +22,12 @@ import marketprice from '../assets/marketprice.webp';
 import marketprice2 from '../assets/marketprice2.webp';
 
 // Import project images
-import ourproject1 from '../assets/project/ourproject1.png';
-import ourproject2 from '../assets/project/ourproject2.png';
-import ourproject3 from '../assets/project/ourproject3.png';
-import ourproject4 from '../assets/project/ourproject4.png';
-import ourproject5 from '../assets/project/ourproject5.png';
-import ourproject6 from '../assets/project/ourproject6.png';
+import ourproject1 from '../assets/project/ourproject1.webp';
+import ourproject2 from '../assets/project/ourproject2.webp';
+import ourproject3 from '../assets/project/ourproject3.webp';
+import ourproject4 from '../assets/project/ourproject4.webp';
+import ourproject5 from '../assets/project/ourproject5.webp';
+import ourproject6 from '../assets/project/ourproject6.webp';
 
 
 const Homepage = ({ handleGetStarted = () => {}, handleExploreBenefits = () => {} }) => {
@@ -470,7 +470,7 @@ const Homepage = ({ handleGetStarted = () => {}, handleExploreBenefits = () => {
                   </div>
                   <div className="point-content">
                     <h5 className="point-title">Founded in 2017</h5>
-                    <p className="point-text">State-of-the-art fabricating unit in Sharjah, UAE with growing operations</p>
+                    <p className="point-text">Industrial Area 15, Sharjah, UAE</p>
                   </div>
                 </div>
 

@@ -1260,6 +1260,7 @@ a[href^="#"] {
 /* High-resolution displays */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .blog-hero-section {
-    background-image: url('../assets/home1.jpg');
+    /* Use the existing webp on retina devices as well */
+    background-image: url('../assets/home1.webp');
   }
 }

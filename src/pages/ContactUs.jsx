@@ -8,19 +8,11 @@ const ContactPage = () => {
   }, []);
   // Google Maps directions function
   const handleGetDirectionsClick = () => {
-    // Address for Wahat Al Hijaz Marble and Granite (using your address)
-    const address = "123 Luxury Stone Avenue, Marble District, Riyadh 11564, Saudi Arabia";
-    
-    // Encode the address for URL
+    // Correct showroom address
+    const address = "Industrial Area 15, Sharjah, UAE";
     const encodedAddress = encodeURIComponent(address);
-    
-    // Google Maps URL for directions
-    const googleMapsUrl = `https://maps.app.goo.gl/b7xtsr35ZP1NZY656?g_st=iwb=${encodedAddress}`;
-    
-    // Alternative URL that opens directly in Google Maps app or web
-    // const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
-    
-    // Open Google Maps in a new tab
+    // Google Maps search URL
+    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
     window.open(googleMapsUrl, '_blank', 'noopener,noreferrer');
     
     console.log('Get Directions clicked - Opening Google Maps');
@@ -107,9 +99,8 @@ const ContactPage = () => {
                 <div className="contact-icon">📍</div>
                 <div className="contact-details">
                   <h4>Our Location</h4>
-                  <p>123 Luxury Stone Avenue</p>
-                  <p>Marble District, Riyadh 11564</p>
-                  <p>Saudi Arabia</p>
+                  <p>Industrial Area 15</p>
+                  <p>Sharjah, UAE</p>
                  
                 </div>
               </div>
@@ -118,7 +109,7 @@ const ContactPage = () => {
                 <div className="contact-icon">📧</div>
                 <div className="contact-details">
                   <h4>Email Us</h4>
-                  <p>enquire@wahatalhijamarble.com</p>
+                  <p>info@wahatalhijamarble.com</p>
                 </div>
               </div>
               
